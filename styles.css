@@ -40,7 +40,7 @@ nav {
 .nav-in { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .logo { font-family: 'Instrument Sans', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.03em; }
 .logo span { color: var(--blue-hi); }
-.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a {
   font-size: 14px; color: var(--ink-mid); transition: color 0.2s;
   background: none; border: none; cursor: pointer;
@@ -116,6 +116,11 @@ h1.hero-title { font-size: 57px; margin-bottom: 22px; }
   transform: perspective(1200px) rotateY(-9deg) rotateX(3deg); transition: transform 0.4s;
 }
 .tag-card:hover { transform: perspective(1200px) rotateY(-4deg) rotateX(1deg); }
+.tag-card-photo { padding: 18px; }
+.tag-card-photo img {
+  display: block; width: 100%; border-radius: 12px;
+  background: #fff; border: 1px solid rgba(255,255,255,0.08);
+}
 .tag-screen { background: #f4f1e8; color: #15171c; border-radius: 9px; padding: 18px 20px; font-family: 'Instrument Sans', sans-serif; }
 .tag-screen .tname { font-size: 13px; font-weight: 500; color: #555; }
 .tag-screen .tprice { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; }
@@ -339,7 +344,7 @@ footer { border-top: 1px solid var(--line-soft); padding: 56px 0 32px; }
   height: 190px; background: var(--bg-soft); display: flex; align-items: center; justify-content: center;
   border-bottom: 1px solid var(--line); overflow: hidden; position: relative;
 }
-.prod-visual img { width: 100%; height: 100%; object-fit: cover; }
+.prod-visual img { width: 100%; height: 100%; object-fit: contain; padding: 14px; background: #fff; }
 .prod-tag {
   background: #f4f1e8; color: #15171c; border-radius: 7px; font-family: 'Instrument Sans', sans-serif;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -411,6 +416,7 @@ footer { border-top: 1px solid var(--line-soft); padding: 56px 0 32px; }
 .blog-featured .bf-text h2 { font-size: 30px; margin: 12px 0 14px; }
 .blog-featured .bf-text p { font-size: 15px; color: var(--ink-mid); margin-bottom: 22px; }
 .blog-featured .bf-visual { background: linear-gradient(135deg, #1a2742, #0d1119); min-height: 280px; position: relative; }
+.blog-featured .bf-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } .blog-featured { grid-template-columns: 1fr; } .blog-featured .bf-visual { min-height: 160px; } }
 @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
 

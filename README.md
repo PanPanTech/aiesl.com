@@ -96,7 +96,7 @@ Replace the demo block with one of them and the form goes live.
 
 Current details (used in every footer + about page):
 
-- Address: 132 Pengjiang Road, Baiyun District, Guangzhou, Guangdong, China
+- Address: Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou, Guangdong Province, China
 - Email: info@einksmart.com
 - Phone: +86-13925118851
 
