@@ -2,6 +2,7 @@
    AiESL — shared stylesheet (styles.css)
    Linear x Stripe dark tech aesthetic
    =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 :root {
   --bg: #070a10;
   --bg-soft: #0d1119;

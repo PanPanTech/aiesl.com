@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — AiESL Guides, Tools & FAQ</title>
+<meta name="description" content="Guides, comparisons, ROI tools and FAQ to build the business case for AI-powered electronic shelf labels and dynamic pricing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="platform.css">
+<!--__ld_injected-->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aiesl.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://www.aiesl.com/Resources.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI ESL (AI electronic shelf label)?","acceptedAnswer":{"@type":"Answer","text":"An AI ESL is an electronic shelf label whose pricing and content are driven by an AI decision engine, analyzing demand, inventory and competitor data to apply dynamic prices at the shelf edge in real time."}},{"@type":"Question","name":"How is an AI ESL different from a regular ESL?","acceptedAnswer":{"@type":"Answer","text":"A regular ESL displays whatever price the POS sends. An AI ESL adds an intelligence layer that decides what the price should be and updates the shelf automatically within rules you set."}},{"@type":"Question","name":"ESL vs. paper labels - what's the real difference?","acceptedAnswer":{"@type":"Answer","text":"Paper tags require manual re-tagging, create register-vs-shelf mismatches and consume paper and labor indefinitely. Electronic labels update store-wide in under a second and typically pay back within 1 to 2 years."}},{"@type":"Question","name":"How long do the batteries last?","acceptedAnswer":{"@type":"Answer","text":"Ultra-low-power e-paper runs 7 to 10 years on a single battery under standard 3-changes-per-day operation."}},{"@type":"Question","name":"Can we keep our existing ESL hardware?","acceptedAnswer":{"@type":"Answer","text":"Yes. The open MQTT middleware supports mixed-vendor environments across 23+ hardware brands, cutting migration cost by over 50%."}}]}</script>
+</head>
+<body>
+
+<!-- ===== NAV (platform IA) ===== -->
+<nav data-screen-label="Resources — Nav">
+  <div class="wrap wide nav-in">
+    <a href="index.html" class="logo">Ai<span>ESL</span></a>
+    <div class="nav-links">
+      <div class="has-menu"><a href="index.html#platform">Platform &#9662;</a>
+        <div class="nav-menu">
+          <a href="index.html#platform"><b>AI Dynamic Pricing</b><small>Optimize prices at the shelf edge</small></a>
+          <a href="index.html#platform"><b>Shelf Monitoring</b><small>Detect gaps, mismatches, out-of-stocks</small></a>
+          <a href="index.html#platform"><b>Retail Media</b><small>Turn shelf labels into ad surfaces</small></a>
+          <a href="index.html#diff"><b>Open Middleware</b><small>One console, 23+ hardware brands</small></a>
+        </div>
+      </div>
+      <a href="products.html">Products</a>
+      <div class="has-menu"><a href="Industries.html">Industries &#9662;</a>
+        <div class="nav-menu">
+          <a href="industry-supermarket.html"><b>Supermarket &amp; Grocery</b><small>High-density everyday pricing</small></a>
+          <a href="industry-pharmacy.html"><b>Pharmacy &amp; Cosmetics</b><small>Compliance-grade accuracy</small></a>
+          <a href="industry-convenience.html"><b>Convenience</b><small>Fast rollout, low footprint</small></a>
+          <a href="industry-warehouse.html"><b>Warehouse &amp; DC</b><small>Pick-to-light, large displays</small></a>
+        </div>
+      </div>
+      <a href="Cases.html">Customers</a>
+      <div class="has-menu"><a href="Resources.html" class="active">Resources &#9662;</a>
+        <div class="nav-menu">
+          <a href="blog.html"><b>Insights &amp; Blog</b><small>Trends in AI retail pricing</small></a>
+          <a href="index.html#roi"><b>ROI Calculator</b><small>Estimate your payback period</small></a>
+          <a href="#faq"><b>FAQ &amp; Guides</b><small>What is an AI ESL?</small></a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+    <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close">&times;</button>
+  <a href="index.html#platform">Platform</a>
+  <a href="products.html">Products</a>
+  <a href="Industries.html">Industries</a>
+  <a href="Cases.html">Customers</a>
+  <a href="Resources.html">Resources</a>
+  <a href="about.html">About</a>
+  <a href="javascript:void(0)" style="color:var(--blue-hi)" onclick="openModal();toggleDrawer()">Get a Custom Quote &rarr;</a>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero" data-screen-label="Resources — Hero">
+  <div class="hero-grid"></div>
+  <div class="wrap wide" style="position:relative">
+    <div class="sec-tag">// RESOURCES</div>
+    <h1>The AI ESL playbook</h1>
+    <p>Guides, comparisons and tools to help your team understand AI-powered shelf pricing and build the business case &mdash; from "what is an ESL" to payback math.</p>
+  </div>
+</div>
+
+<!-- ===== GUIDES ===== -->
+<section data-screen-label="Resources — Guides">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// GUIDES &amp; EXPLAINERS</div><h2>Start with the fundamentals</h2></div>
+    <div class="res-grid">
+      <a href="#faq" class="res-card reveal"><div class="res-kind">Guide</div><h3>What is an AI ESL?</h3><p>How AI decision engines turn electronic shelf labels into a live dynamic-pricing surface.</p><span class="res-link">Read the guide &rarr;</span></a>
+      <a href="#faq" class="res-card reveal"><div class="res-kind">Comparison</div><h3>ESL vs. paper labels</h3><p>Total cost, accuracy and labor compared over a 5-year horizon.</p><span class="res-link">See the breakdown &rarr;</span></a>
+      <a href="index.html#diff" class="res-card reveal"><div class="res-kind">Explainer</div><h3>Open middleware, explained</h3><p>Why MQTT-based middleware lets one console drive 23+ hardware brands.</p><span class="res-link">Learn how it works &rarr;</span></a>
+      <a href="#faq" class="res-card reveal"><div class="res-kind">Guide</div><h3>How AI dynamic pricing works</h3><p>Demand sensing, margin guardrails and auto-approval rules in plain language.</p><span class="res-link">Read the guide &rarr;</span></a>
+      <a href="#faq" class="res-card reveal"><div class="res-kind">Guide</div><h3>ESL battery life, demystified</h3><p>Why ultra-low-power e-paper runs 7&ndash;10 years on a single battery.</p><span class="res-link">Read the guide &rarr;</span></a>
+      <a href="index.html#how" class="res-card reveal"><div class="res-kind">Guide</div><h3>POS / ERP integration</h3><p>Native connectors and the open SDK for SAP, Oracle and WMS.</p><span class="res-link">See integration paths &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOOLS ===== -->
+<section style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Resources — Tools">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// TOOLS</div><h2>Build your business case</h2></div>
+    <div class="res-grid">
+      <a href="index.html#roi" class="res-card reveal"><div class="res-kind">Interactive</div><h3>ROI Calculator</h3><p>Model your payback period and 3-year net savings in seconds.</p><span class="res-link">Open the calculator &rarr;</span></a>
+      <a href="javascript:void(0)" onclick="openModal()" class="res-card reveal"><div class="res-kind">On request</div><h3>Custom ROI assessment</h3><p>Have us model your exact network, including margin uplift and error reduction.</p><span class="res-link">Request an assessment &rarr;</span></a>
+      <a href="#station-planner" class="res-card reveal"><div class="res-kind">Interactive</div><h3>Base station coverage planner</h3><p>Size your gateway network: how many AES-B001 base stations a space needs, with mounting-height correction.</p><span class="res-link">Open the planner &rarr;</span></a>
+      <a href="products.html" class="res-card reveal"><div class="res-kind">Reference</div><h3>Product &amp; size selector</h3><p>Match label sizes to each zone in your store, from peg hooks to pallets.</p><span class="res-link">Browse products &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BASE STATION COVERAGE PLANNER ===== -->
+<section id="station-planner" data-screen-label="Resources — Base Station Planner">
+  <div class="wrap wide">
+    <div class="sec-head reveal">
+      <div class="sec-tag">// DEPLOYMENT TOOL</div>
+      <h2>Base station coverage planner</h2>
+      <p>Estimate how many AiESL gateways (AES-B001) a space needs. The tool corrects for mounting height &mdash; a base station mounted high above the shelf plane covers a smaller footprint than its rated slant range.</p>
+    </div>
+    <div class="calc reveal">
+      <div class="calc-panel">
+        <h3>Site parameters</h3>
+        <p class="calc-lede">Enter the space and link budget. Results update live.</p>
+        <div class="calc-fields">
+          <div class="calc-field"><label>Length L (m)</label><input id="scLength" type="number" value="120" min="1" step="1"></div>
+          <div class="calc-field"><label>Width W (m)</label><input id="scWidth" type="number" value="60" min="1" step="1"></div>
+          <div class="calc-field"><label>Comms range d (m)</label><input id="scDist" type="number" value="25" min="1" step="0.5"></div>
+          <div class="calc-field"><label>Mount height (m)</label><input id="scMount" type="number" value="6" min="0" step="0.5"></div>
+          <div class="calc-field"><label>Label height (m)</label><input id="scTag" type="number" value="1.5" min="0" step="0.5"></div>
+          <div class="calc-field"><label>Layout</label><select id="scLayout"><option value="square">Square grid (easy install)</option><option value="hex">Triangular grid (fewest)</option></select></div>
+          <div class="calc-field full"><label>Purpose</label><select id="scUse"><option value="cover">Signal coverage (&times;1)</option><option value="pos">UWB positioning (&times;1.6)</option></select></div>
+        </div>
+        <p class="calc-formula" id="scFormula"></p>
+      </div>
+      <div class="calc-out">
+        <div class="calc-cards" id="scCards"></div>
+        <div class="calc-viz">
+          <svg id="scSvg" viewBox="0 0 760 420"></svg>
+          <div class="calc-legend">&bull; base station &nbsp;&nbsp; &cir; floor coverage circle &nbsp;&nbsp; dashed = space boundary</div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a deployment quote</a>
+          <a href="products.html" class="btn btn-ghost">View the AES-B001 gateway &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG TEASER ===== -->
+<section data-screen-label="Resources — Insights">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// INSIGHTS</div><h2>From the AiESL blog</h2><p>Trends, deployment notes and retail-pricing strategy from our solution engineers.</p></div>
+    <div style="margin-top:-20px"><a href="blog.html" class="btn btn-ghost reveal">Read all insights &rarr;</a></div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Resources — FAQ">
+  <div class="wrap wide">
+    <div class="faq-2col">
+      <div class="faq-sticky reveal">
+        <div class="sec-tag">// FAQ</div>
+        <h2 style="font-size:34px;margin-bottom:14px">Common questions about AI ESL</h2>
+        <p style="font-size:15px;color:var(--ink-mid)">Still unsure? Our retail solution engineers answer questions directly &mdash; no sales script.</p>
+        <a href="javascript:void(0)" class="btn btn-primary" style="margin-top:20px" onclick="openModal()">Talk to an engineer</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q">What is an AI ESL (AI electronic shelf label)?<span class="chev">+</span></button><div class="faq-a"><p>An AI ESL is an electronic shelf label whose pricing and content are driven by an AI decision engine. Instead of only mirroring the POS price, the system analyzes demand, inventory and competitor data to recommend or automatically apply dynamic prices at the shelf edge in real time.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How is an AI ESL different from a regular ESL?<span class="chev">+</span></button><div class="faq-a"><p>A regular ESL simply displays whatever price the POS sends. An AI ESL adds an intelligence layer that decides what the price should be &mdash; weighing demand, stock, margin targets and competitor signals &mdash; then updates the shelf automatically within rules you set.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">ESL vs. paper labels &mdash; what's the real difference?<span class="chev">+</span></button><div class="faq-a"><p>Paper tags require manual re-tagging on every price change, create register-vs-shelf mismatches and consume paper and labor indefinitely. Electronic labels update store-wide in under a second, eliminate pricing errors, and pay back the one-time hardware cost through labor savings &mdash; typically within 1&ndash;2 years.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How long do the batteries last?<span class="chev">+</span></button><div class="faq-a"><p>AiESL labels use ultra-low-power e-paper that consumes energy only during updates. A typical label runs 7&ndash;10 years on a single battery under standard 3-changes-per-day operation.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can we keep our existing ESL hardware?<span class="chev">+</span></button><div class="faq-a"><p>Yes. AiESL's open-platform middleware runs on standard MQTT, supporting mixed-vendor environments across 23+ major hardware brands. Keep existing labels on standard shelves and deploy high-resolution AiESL labels only where they add value &mdash; cutting migration cost by over 50%.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="contact" data-screen-label="Resources — CTA">
+  <div class="wrap wide">
+    <div class="cta-band reveal">
+      <h2>Ready to build the business case?</h2>
+      <p>Get a tailored quote and a free ROI assessment for your store network.</p>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap wide">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo">Ai<span>ESL</span></div>
+        <p>The AI-native open platform for retail shelf operations. Dynamic pricing, shelf monitoring and open middleware trusted in 30+ countries.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Platform</h4>
+        <a href="index.html#platform">AI Dynamic Pricing</a>
+        <a href="index.html#platform">Shelf Monitoring</a>
+        <a href="index.html#diff">Open Middleware</a>
+        <a href="products.html">Products</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="Industries.html">Industries</a>
+        <a href="blog.html">Insights &amp; Blog</a>
+        <a href="index.html#roi">ROI calculator</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="foot-contact">
+          Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou, Guangdong Province, China
+          <b>Email</b><a href="mailto:info@einksmart.com">info@einksmart.com</a>
+          <b>Phone</b><a href="tel:+8613925118851">+86-13925118851</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 AiESL &mdash; a PanPanTech brand. All rights reserved.</span>
+      <span>info@einksmart.com</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== QUOTE MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div id="formStage">
+      <div class="modal-head">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+        <h3>Get a Custom Quote</h3>
+        <p>Tell us about your store network &mdash; we'll send tailored pricing and a free ROI assessment within one business day.</p>
+      </div>
+      <div class="modal-body">
+        <form id="quoteForm" novalidate>
+          <div class="form-row">
+            <div class="form-field"><label>Full name <span class="req">*</span></label><input type="text" name="name" id="f-name"><div class="form-err" id="e-name">Please enter your name</div></div>
+            <div class="form-field"><label>Work email <span class="req">*</span></label><input type="email" name="email" id="f-email"><div class="form-err" id="e-email">Please enter a valid email</div></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Company <span class="req">*</span></label><input type="text" name="company" id="f-company"><div class="form-err" id="e-company">Please enter your company</div></div>
+            <div class="form-field"><label>Country</label><input type="text" name="country" id="f-country" placeholder="e.g. Germany"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Number of stores</label><select name="stores" id="f-stores"><option value="1-5">1&ndash;5 stores</option><option value="6-20">6&ndash;20 stores</option><option value="21-100">21&ndash;100 stores</option><option value="100+">100+ stores</option></select></div>
+            <div class="form-field"><label>Primary interest</label><select name="interest" id="f-interest"><option value="ai-pricing">AI dynamic pricing</option><option value="middleware">Open middleware platform</option><option value="esl-hardware">ESL hardware / price tags</option><option value="full-solution">Full retail solution</option></select></div>
+          </div>
+          <div class="form-field"><label>What are you trying to solve?</label><textarea name="message" id="f-message" placeholder="Tell us about your current setup, timeline, or any specific requirements..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Send my request</button>
+          <p style="font-size:11px;color:var(--ink-dim);margin-top:12px;text-align:center">We reply within one business day. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+    <div id="successStage" style="display:none">
+      <div class="form-success">
+        <div class="ok-ic">&#10003;</div>
+        <h3>Request received</h3>
+        <p>Thanks &mdash; our retail solutions team will get back to you within one business day with tailored pricing and a free ROI assessment.</p>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script src="station-calc.js"></script>
+</body>
+</html>

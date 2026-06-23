@@ -17,6 +17,7 @@
 <meta property="og:site_name" content="AiESL">
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="platform.css">
 
 <script type="application/ld+json">
 {
@@ -41,20 +42,43 @@
   }
 }
 </script>
+<!--__ld_injected-->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aiesl.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://www.aiesl.com/about.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AiESL","alternateName":"PanPanTech","url":"https://www.aiesl.com/","logo":"https://www.aiesl.com/assets/products/promo-eink-display.jpg","description":"AiESL is the AI-native, open platform for retail electronic shelf labels (ESL) and dynamic pricing, supporting 23+ hardware brands across 30+ countries.","foundingDate":"2015","address":{"@type":"PostalAddress","streetAddress":"Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District","addressLocality":"Guangzhou","addressRegion":"Guangdong","addressCountry":"CN"},"contactPoint":{"@type":"ContactPoint","email":"info@einksmart.com","telephone":"+86-13925118851","contactType":"sales"}}</script>
 </head>
 <body>
 
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="wrap nav-in">
+  <div class="wrap wide nav-in">
     <a href="index.html" class="logo">Ai<span>ESL</span></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#features">Solutions</a>
+      <div class="has-menu"><a href="index.html#platform">Platform &#9662;</a>
+        <div class="nav-menu">
+          <a href="index.html#platform"><b>AI Dynamic Pricing</b><small>Optimize prices at the shelf edge</small></a>
+          <a href="index.html#platform"><b>Shelf Monitoring</b><small>Detect gaps, mismatches, out-of-stocks</small></a>
+          <a href="index.html#platform"><b>Retail Media</b><small>Turn shelf labels into ad surfaces</small></a>
+          <a href="index.html#diff"><b>Open Middleware</b><small>One console, 23+ hardware brands</small></a>
+        </div>
+      </div>
       <a href="products.html">Products</a>
-      <a href="blog.html">Blog</a>
+      <div class="has-menu"><a href="Industries.html">Industries &#9662;</a>
+        <div class="nav-menu">
+          <a href="industry-supermarket.html"><b>Supermarket &amp; Grocery</b><small>High-density everyday pricing</small></a>
+          <a href="industry-pharmacy.html"><b>Pharmacy &amp; Cosmetics</b><small>Compliance-grade accuracy</small></a>
+          <a href="industry-convenience.html"><b>Convenience</b><small>Fast rollout, low footprint</small></a>
+          <a href="industry-warehouse.html"><b>Warehouse &amp; DC</b><small>Pick-to-light, large displays</small></a>
+        </div>
+      </div>
+      <a href="Cases.html">Customers</a>
+      <div class="has-menu"><a href="Resources.html">Resources &#9662;</a>
+        <div class="nav-menu">
+          <a href="blog.html"><b>Insights &amp; Blog</b><small>Trends in AI retail pricing</small></a>
+          <a href="index.html#roi"><b>ROI Calculator</b><small>Estimate your payback period</small></a>
+          <a href="Resources.html#faq"><b>FAQ &amp; Guides</b><small>What is an AI ESL?</small></a>
+        </div>
+      </div>
       <a href="about.html" class="active">About</a>
-      <a href="index.html#roi">ROI Calculator</a>
       <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
     </div>
     <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -62,19 +86,18 @@
 </nav>
 <div class="drawer" id="drawer">
   <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close">&times;</button>
-  <a href="index.html">Home</a>
-  <a href="index.html#features">Solutions</a>
+  <a href="index.html#platform">Platform</a>
   <a href="products.html">Products</a>
-  <a href="blog.html">Blog</a>
+  <a href="Industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
   <a href="about.html">About</a>
-  <a href="index.html#roi">ROI Calculator</a>
   <a href="javascript:void(0)" style="color:var(--blue-hi)" onclick="openModal();toggleDrawer()">Get a Custom Quote &rarr;</a>
 </div>
 
 <!-- ===== PAGE HERO ===== -->
 <div class="page-hero">
   <div class="hero-grid"></div>
-  <div class="wrap" style="position:relative">
+  <div class="wrap wide" style="position:relative">
     <div class="sec-tag">// ABOUT US</div>
     <h1>We put intelligence on the shelf edge</h1>
     <p>AiESL builds AI-powered electronic shelf label technology that helps retailers price smarter, cut waste and modernize without ripping out what they own.</p>
@@ -83,7 +106,7 @@
 
 <!-- ===== STATS ===== -->
 <section>
-  <div class="wrap">
+  <div class="wrap wide">
     <div class="about-stats">
       <div class="about-stat reveal"><div class="as-num">2015</div><div class="as-lbl">Founded</div></div>
       <div class="about-stat reveal"><div class="as-num">30+</div><div class="as-lbl">Countries served</div></div>
@@ -95,7 +118,7 @@
 
 <!-- ===== STORY ===== -->
 <section style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)">
-  <div class="wrap">
+  <div class="wrap wide">
     <div class="about-split">
       <div class="reveal">
         <div class="sec-tag">// OUR STORY</div>
@@ -113,7 +136,7 @@
 
 <!-- ===== TIMELINE ===== -->
 <section>
-  <div class="wrap">
+  <div class="wrap wide">
     <div class="sec-head reveal"><div class="sec-tag">// MILESTONES</div><h2>How AiESL grew</h2></div>
     <div class="timeline">
       <div class="tl-item reveal"><div class="tl-year">2015</div><div><h3>Company founded</h3><p>AiESL starts as an electronic shelf label manufacturer in Guangzhou, China.</p></div></div>
@@ -127,7 +150,7 @@
 
 <!-- ===== VALUES ===== -->
 <section style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)">
-  <div class="wrap">
+  <div class="wrap wide">
     <div class="sec-head reveal"><div class="sec-tag">// WHAT WE STAND FOR</div><h2>Principles behind the platform</h2></div>
     <div class="value-grid">
       <div class="value-card reveal"><div class="vc-ic">&#9672;</div><h3>Open by design</h3><p>We build on open protocols and SDKs. No lock-in &mdash; retailers keep control of their hardware and data.</p></div>
@@ -139,7 +162,7 @@
 
 <!-- ===== CONTACT ===== -->
 <section id="contact">
-  <div class="wrap">
+  <div class="wrap wide">
     <div class="sec-head reveal"><div class="sec-tag">// GET IN TOUCH</div><h2>Talk to AiESL</h2><p>Reach our retail solutions team directly &mdash; we respond within one business day.</p></div>
     <div class="contact-grid">
       <div class="contact-card reveal">
@@ -162,7 +185,7 @@
 
 <!-- ===== FOOTER ===== -->
 <footer>
-  <div class="wrap">
+  <div class="wrap wide">
     <div class="foot-grid">
       <div class="foot-col">
         <div class="logo">Ai<span>ESL</span></div>
