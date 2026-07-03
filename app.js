@@ -2,6 +2,8 @@
    AiESL — shared script (app.js)
    =================================================================== */
 
+var INQUIRY_ENDPOINT = 'https://inquiry.panpantechnology.com/api/inquiries';
+
 /* ===== MOBILE DRAWER ===== */
 function toggleDrawer() {
   var d = document.getElementById('drawer');
@@ -30,6 +32,34 @@ function closeModal() {
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeModal();
 });
+
+function getQueryValue(name) {
+  try {
+    return new URLSearchParams(window.location.search).get(name) || '';
+  } catch (e) {
+    return '';
+  }
+}
+
+function interestLabel(value) {
+  var labels = {
+    'esl-hardware': 'ESL hardware / price tags',
+    'ai-pricing': 'AI dynamic pricing',
+    'middleware': 'Open middleware platform',
+    'full-solution': 'Full retail solution'
+  };
+  return labels[value] || value || 'Retail Data Platform';
+}
+
+function setSubmitLoading(form, loading) {
+  var button = form ? form.querySelector('button[type="submit"]') : null;
+  if (!button) return;
+  if (!button.getAttribute('data-original-label')) {
+    button.setAttribute('data-original-label', button.textContent);
+  }
+  button.disabled = loading;
+  button.textContent = loading ? 'Sending...' : button.getAttribute('data-original-label');
+}
 
 /* ===== QUOTE FORM: VALIDATION + SUBMIT ===== */
 function initQuoteForm() {
@@ -64,34 +94,52 @@ function initQuoteForm() {
       message: document.getElementById('f-message').value.trim()
     };
 
-    /* ====================================================================
-       >>> BACKEND API INTEGRATION POINT <<<
-       --------------------------------------------------------------------
-       Replace the DEMO block below with a real API call when ready.
+    var payload = {
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      country: data.country,
+      stores: data.stores,
+      product_interest: interestLabel(data.interest),
+      interest: data.interest,
+      message: data.message,
+      lead_brand: 'AiESL Global',
+      site_domain: window.location.hostname,
+      page_url: window.location.href,
+      page_title: document.title,
+      language: document.documentElement.lang || navigator.language || 'en',
+      market: 'global',
+      utm_source: getQueryValue('utm_source'),
+      utm_medium: getQueryValue('utm_medium'),
+      utm_campaign: getQueryValue('utm_campaign'),
+      utm_term: getQueryValue('utm_term'),
+      utm_content: getQueryValue('utm_content')
+    };
 
-       Option A — your own backend:
-       fetch('https://api.aiesl.com/lead', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify(data)
-       })
-       .then(function (r) { return r.json(); })
-       .then(function () { showSuccess(); })
-       .catch(function () { alert('Something went wrong. Please email info@einksmart.com'); });
-
-       Option B — Formspree (no backend needed):
-       fetch('https://formspree.io/f/YOUR_FORM_ID', {
-         method: 'POST',
-         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-         body: JSON.stringify(data)
-       }).then(function () { showSuccess(); });
-
-       Option C — HubSpot / Salesforce / your CRM webhook URL.
-       ==================================================================== */
-
-    // --- DEMO MODE (no real send): logs payload + shows success screen ---
-    console.log('[AiESL quote request]', data);
-    showSuccess();
+    setSubmitLoading(form, true);
+    fetch(INQUIRY_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (response) {
+        return response.json().catch(function () { return {}; }).then(function (body) {
+          if (!response.ok || body.ok === false) {
+            throw new Error(body.error || 'submit_failed');
+          }
+          return body;
+        });
+      })
+      .then(function () {
+        showSuccess();
+      })
+      .catch(function (error) {
+        console.error('[AiESL quote request failed]', error);
+        alert('Online submission is temporarily unavailable. Please email info@einksmart.com.');
+      })
+      .finally(function () {
+        setSubmitLoading(form, false);
+      });
   });
 }
 function showSuccess() {
