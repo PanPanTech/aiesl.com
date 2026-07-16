@@ -312,7 +312,7 @@ input[type=range]::-moz-range-thumb {
 
 /* FOOTER */
 footer { border-top: 1px solid var(--line-soft); padding: 56px 0 32px; }
-.foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 44px; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 40px; margin-bottom: 44px; }
 .foot-grid p { font-size: 14px; color: var(--ink-dim); max-width: 280px; margin-top: 14px; }
 .foot-col h4 { font-size: 12.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 16px; }
 .foot-col a {
