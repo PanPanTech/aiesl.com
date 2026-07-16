@@ -327,8 +327,9 @@ footer { border-top: 1px solid var(--line-soft); padding: 56px 0 32px; }
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px 0;
   font-size: 13px; color: var(--ink-dim);
 }
+.footer-brand-row span { white-space: normal; }
+.footer-brand-row span:not(:last-child)::after { content: "|"; color: var(--line); margin: 0 10px; }
 .footer-brand-row a { color: var(--ink-mid); text-decoration: none; margin-right: 0; white-space: normal; }
-.footer-brand-row a:not(:last-child)::after { content: "|"; color: var(--line); margin: 0 10px; }
 .footer-brand-row a:hover { color: var(--blue-hi); }
 
 .foot-bot {
