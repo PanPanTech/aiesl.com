@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+  <circle cx="44" cy="44" r="42" fill="#161c27" stroke="rgba(122,161,255,0.55)" stroke-width="1.6"></circle>
+  <text x="40" y="42" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#f3f5f8" text-anchor="middle">A</text>
+  <text x="51" y="42" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#f5b13d" text-anchor="middle">i</text>
+  <line x1="30" y1="49" x2="58" y2="49" stroke="#4d7cff" stroke-width="1.4"></line>
+  <text x="44" y="63" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#7aa1ff" text-anchor="middle" letter-spacing="1">ESL</text>
+</svg>
