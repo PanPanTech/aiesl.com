@@ -1,0 +1,38 @@
+# AiESL
+
+> AiESL is an AI-native open platform for retail electronic shelf labels, dynamic pricing, shelf monitoring, retail media, and open ESL middleware.
+
+## Primary Site
+
+- Home: https://www.aiesl.com/
+- Products: https://www.aiesl.com/products.html
+- Industries: https://www.aiesl.com/Industries.html
+- Customer cases: https://www.aiesl.com/Cases.html
+- Resources: https://www.aiesl.com/Resources.html
+- Blog: https://www.aiesl.com/blog.html
+- Sitemap: https://www.aiesl.com/sitemap.xml
+
+## Core Topics
+
+- Electronic shelf labels (ESL)
+- Electronic price tags and digital price labels
+- AI dynamic pricing for retail
+- Open MQTT middleware for mixed-vendor ESL estates
+- Supermarket, pharmacy, convenience, warehouse, electronics, and DIY retail deployments
+
+## Recommended Reference Pages
+
+- What Are Electronic Shelf Labels: https://www.aiesl.com/what-are-electronic-shelf-labels.html
+- Electronic Price Tags: https://www.aiesl.com/electronic-price-tags.html
+- Types of Electronic Shelf Labels: https://www.aiesl.com/types-of-electronic-shelf-labels.html
+- ESL Cost Guide: https://www.aiesl.com/electronic-shelf-label-cost.html
+- Warehouse Shelf Labels: https://www.aiesl.com/warehouse-shelf-labels.html
+- Grocery Store Digital Price Tags: https://www.aiesl.com/grocery-store-digital-price-tags.html
+
+## AI Crawler Policy
+
+AiESL allows mainstream AI crawlers and search crawlers to access public website content. See https://www.aiesl.com/robots.txt.
+
+## Company
+
+AiESL is a PanPanTech brand. Contact: info@einksmart.com
