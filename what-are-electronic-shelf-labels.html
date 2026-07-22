@@ -6,9 +6,10 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><title>What Are Electronic Shelf Labels (ESL)? Benefits, Cost &amp; ROI (2026 Guide) &mdash; AiESL Blog</title>
-<meta name="description" content="Electronic shelf labels (ESL) are e-ink price tags that update instantly from a central system. How they work, key benefits, ESL vs barcode vs RFID, cost and ROI.">
-<meta name="keywords" content="electronic shelf labels, digital price tags, ESL system, e-ink shelf label, ESL vs barcode, ESL cost, ESL ROI">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<title>What Are Electronic Shelf Labels (ESL)? Benefits, Cost &amp; ROI (2026 Guide) &mdash; AiESL Blog</title>
+<meta name="description" content="What electronic shelf labels are, how ESL systems work, benefits, cost, ROI, barcode/RFID differences, and rollout steps for retailers.">
+<meta name="keywords" content="electronic shelf labels, what are electronic shelf labels, digital price tags, ESL system, e-ink shelf label, ESL vs barcode, ESL cost, ESL ROI">
 <link rel="canonical" href="https://www.aiesl.com/what-are-electronic-shelf-labels.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="article">
@@ -22,20 +23,38 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="platform.css">
 <link rel="stylesheet" href="buney-control.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What Are Electronic Shelf Labels (ESL)? Benefits, Cost & ROI (2026 Guide)","datePublished":"2026-06-26","dateModified":"2026-06-26","author":{"@type":"Organization","name":"AiESL"},"publisher":{"@type":"Organization","name":"AiESL"},"image":"https://www.aiesl.com/assets/blog/what-are-electronic-shelf-labels.jpg","mainEntityOfPage":"https://www.aiesl.com/what-are-electronic-shelf-labels.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What Are Electronic Shelf Labels (ESL)? Benefits, Cost & ROI (2026 Guide)","description":"Electronic shelf labels (ESL) are e-ink price tags that update instantly from a central system. How they work, benefits, ESL vs barcode vs RFID, cost, ROI and rollout.","datePublished":"2026-06-26","dateModified":"2026-07-21","author":{"@type":"Organization","name":"AiESL"},"publisher":{"@type":"Organization","name":"AiESL"},"image":"https://www.aiesl.com/assets/blog/what-are-electronic-shelf-labels.jpg","mainEntityOfPage":"https://www.aiesl.com/what-are-electronic-shelf-labels.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aiesl.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.aiesl.com/blog.html"},{"@type":"ListItem","position":3,"name":"What Are Electronic Shelf Labels?","item":"https://www.aiesl.com/what-are-electronic-shelf-labels.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are electronic shelf labels worth it for small stores?","acceptedAnswer":{"@type":"Answer","text":"It depends on SKU count and how often you change prices. High-SKU, promotion-heavy stores pay back fastest; very small shops with stable prices may still find paper more economical."}},{"@type":"Question","name":"Do electronic shelf labels update in real time?","acceptedAnswer":{"@type":"Answer","text":"Effectively yes. From the moment you change a price in the system the matching labels refresh within seconds to tens of seconds, and a full store-wide update generally completes within minutes."}},{"@type":"Question","name":"How long do electronic shelf labels last?","acceptedAnswer":{"@type":"Answer","text":"The labels last many years; batteries typically run 5 to 8 years because e-ink only draws power when the screen refreshes."}},{"@type":"Question","name":"What is the difference between an electronic shelf label and a barcode?","acceptedAnswer":{"@type":"Answer","text":"A barcode identifies an item at checkout; an electronic shelf label displays and updates the price and product information at the shelf edge. Many stores use both together."}},{"@type":"Question","name":"Can electronic shelf labels integrate with my POS or ERP?","acceptedAnswer":{"@type":"Answer","text":"Yes. Leading ESL platforms offer APIs to sync with POS, ERP and inventory systems so the shelf price always matches the checkout price."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are electronic shelf labels worth it for small stores?","acceptedAnswer":{"@type":"Answer","text":"It depends on SKU count and how often you change prices. High-SKU, promotion-heavy stores pay back fastest; very small shops with stable prices may still find paper more economical."}},{"@type":"Question","name":"Do electronic shelf labels update in real time?","acceptedAnswer":{"@type":"Answer","text":"Effectively yes. From the moment you change a price in the system the matching labels refresh within seconds to tens of seconds, and a full store-wide update generally completes within minutes."}},{"@type":"Question","name":"How long do electronic shelf labels last?","acceptedAnswer":{"@type":"Answer","text":"The labels last many years; batteries typically run 5 to 8 years because e-ink only draws power when the screen refreshes."}},{"@type":"Question","name":"What is the difference between an electronic shelf label and a barcode?","acceptedAnswer":{"@type":"Answer","text":"A barcode identifies an item at checkout; an electronic shelf label displays and updates the price and product information at the shelf edge. Many stores use both together."}},{"@type":"Question","name":"Can electronic shelf labels integrate with my POS or ERP?","acceptedAnswer":{"@type":"Answer","text":"Yes. Leading ESL platforms offer APIs to sync with POS, ERP and inventory systems so the shelf price always matches the checkout price."}},{"@type":"Question","name":"How many gateways does an ESL system need?","acceptedAnswer":{"@type":"Answer","text":"It depends on store size, layout and label density. As a rough planning figure one access point covers a zone of shelving; a typical supermarket needs several, and the vendor sizes the exact count from your floor plan during a site survey."}},{"@type":"Question","name":"Do electronic shelf labels use store Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"Usually not. Most systems run a dedicated low-power gateway on a proprietary 2.4 GHz protocol or a Bluetooth-based network, which keeps updates reliable across thousands of tags without loading guest Wi-Fi."}}]}</script>
 <style>
-/* scoped styling for comparison tables & figures in this article */
-.cmp-wrap{overflow-x:auto;margin:22px 0}
-table.cmp{border-collapse:collapse;width:100%;font-size:14px}
-table.cmp th,table.cmp td{border:1px solid var(--line-soft,#dfe5ec);padding:10px 12px;text-align:left;vertical-align:top}
-table.cmp thead th{background:#1F4E79;color:#fff;font-weight:700}
-table.cmp tbody tr:nth-child(even){background:var(--bg-soft,#f4f7fb)}
-table.cmp td:first-child{font-weight:600}
-.article-fig{margin:26px 0}
-.article-fig img{width:100%;height:auto;border:1px solid var(--line-soft,#dfe5ec);border-radius:12px}
-.article-fig figcaption{font-size:12px;color:var(--ink-dim,#7a8088);margin-top:8px;text-align:center}
+.article-layout{display:grid;grid-template-columns:minmax(0,820px) 270px;gap:52px;align-items:start}
+.article-layout>*{min-width:0}
+.article{width:100%;max-width:100%}
+.article-cover{width:100%}
+.article-toc{position:sticky;top:96px;background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.article-toc b{display:block;font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--blue-hi);letter-spacing:.05em;margin-bottom:12px;text-transform:uppercase}
+.article-toc a{display:block;font-size:13.5px;color:var(--ink-mid);padding:8px 0;border-top:1px solid var(--line-soft)}
+.article-toc a:hover{color:var(--blue-hi)}
+.article-body .answer-box{background:linear-gradient(135deg,rgba(77,124,255,.12),rgba(77,124,255,.03));border:1px solid rgba(77,124,255,.28);border-radius:14px;padding:22px 24px;margin:0 0 28px;color:var(--ink);font-size:18px;line-height:1.7}
+.article-body .answer-box strong{color:var(--ink)}
+.article-body figure{margin:30px 0}
+.article-body figure img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block;background:#f4f5f7}
+.article-body figcaption{font-size:12px;color:var(--ink-dim);text-align:center;margin-top:9px}
+.article-body .source-note{font-size:13px;color:var(--ink-dim);margin-top:-12px}
+.data-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+.data-card{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.data-card .num{font-family:'Instrument Sans',sans-serif;font-size:28px;font-weight:700;color:var(--blue-hi);line-height:1}
+.data-card .lbl{font-size:13px;color:var(--ink-mid);margin-top:8px}
+.article-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:28px 0;background:var(--bg-card)}
+.article-table{width:100%;border-collapse:collapse;min-width:680px;font-size:14px}
+.article-table th,.article-table td{padding:14px 16px;text-align:left;vertical-align:top;border-top:1px solid var(--line-soft)}
+.article-table thead th{background:var(--bg-soft);border-top:none;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-dim)}
+.article-table td:first-child{color:var(--ink);font-weight:600}
+.article-body .source-list{padding-left:0;list-style:none;display:grid;gap:10px}
+.article-body .source-list li{display:block}
+.article-body .source-list li:before{display:none}
+@media(max-width:980px){.article-layout{grid-template-columns:1fr}.article-toc{position:static;order:-1}.data-strip{grid-template-columns:1fr}}
+@media(max-width:640px){.article-layout,.article,.article-body,.article-body .answer-box,.article-toc{width:100%;max-width:min(calc(100vw - 40px),350px);min-width:0}.article-body,.article-body *{overflow-wrap:break-word}.article-body .answer-box{font-size:16px}.article-table{min-width:620px}.page-hero h1{font-size:34px}.article-meta{gap:7px 10px;font-size:12px}.article-meta span:nth-child(even){display:none}.wrap,.wrap.wide{padding-left:20px;padding-right:20px}.article-cover{max-width:350px}.article-cover img{height:230px}}
 </style>
 </head>
 <body>
@@ -86,7 +105,6 @@ table.cmp td:first-child{font-weight:600}
   <a href="javascript:void(0)" style="color:var(--blue-hi)" onclick="openModal();toggleDrawer()">Get a Custom Quote &rarr;</a>
 </div>
 
-<!-- ===== ARTICLE HERO ===== -->
 <div class="page-hero" data-screen-label="Article what-are-electronic-shelf-labels — Hero">
   <div class="hero-grid"></div>
   <div class="wrap wide" style="position:relative">
@@ -94,100 +112,164 @@ table.cmp td:first-child{font-weight:600}
       <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);margin-bottom:16px"><a href="blog.html" style="color:var(--blue-hi)">Blog</a> / GUIDE</div>
       <h1>What Are Electronic Shelf Labels (ESL)? Benefits, Cost &amp; ROI (2026 Guide)</h1>
       <div class="article-meta">
-        <span>June 26, 2026</span><span>&middot;</span><span>9 min read</span><span>&middot;</span><span>AiESL Research</span>
+        <span>June 26, 2026</span><span>&middot;</span><span>Updated July 21, 2026</span><span>&middot;</span><span>12 min read</span><span>&middot;</span><span>AiESL Research</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===== COVER ===== -->
 <div class="wrap wide"><div class="article-cover reveal"><img src="assets/blog/what-are-electronic-shelf-labels.jpg" alt="Electronic shelf label on a retail shelf displaying a promotional price"></div></div>
 
-<!-- ===== BODY ===== -->
 <section data-screen-label="Article what-are-electronic-shelf-labels — Body">
   <div class="wrap wide">
-    <article class="article">
-      <p class="article-lead">Electronic shelf labels (ESLs) are small digital price tags &mdash; usually e-ink screens &mdash; fixed to store shelves and updated wirelessly from a central system. Instead of printing and swapping paper tags, a retailer changes a price once and every shelf label updates in seconds, keeping shelf and checkout prices perfectly in sync.</p>
-      <div class="article-body">
-<p>This guide answers the questions retailers most often ask before rolling out ESL: how they work, what they cost, how they compare with barcodes and RFID, and when they pay for themselves.</p>
+    <div class="article-layout">
+      <article class="article">
+        <div class="article-body">
+          <div class="answer-box"><strong>Electronic shelf labels (ESLs) are small digital price tags &mdash; usually e-ink screens &mdash; fixed to store shelves and updated wirelessly from a central system.</strong> Instead of printing and swapping paper tickets, a retailer changes a price once and every matching shelf label refreshes in seconds, keeping shelf, online and checkout prices perfectly in sync. They pay for themselves through saved labor, near-zero pricing errors and the ability to run promotions and markdowns automatically.</div>
 
-<h2>What are electronic shelf labels?</h2>
-<p>An electronic shelf label is a battery-powered digital display that shows a product&rsquo;s price and information on the shelf edge. Most ESLs use electronic paper (e-ink) &mdash; the same low-power screen technology found in e-readers &mdash; because it stays readable without constant power and holds its image even when idle.</p>
-<div class="article-callout"><div class="ck">Why e-ink?</div>An e-ink label only draws power at the moment it refreshes, so a single coin-cell battery typically lasts around five years. That makes large-scale deployment &mdash; a supermarket can carry 15,000&ndash;40,000 SKUs &mdash; practical and low-maintenance.</div>
+          <p>This guide answers the questions retailers most often ask before rolling out ESL: what they are, how they work, what they cost, how they compare with barcodes and RFID, when they pay for themselves, and how a rollout actually happens. If you are comparing product types, our companion guide to <a href="types-of-electronic-shelf-labels.html">types of electronic shelf labels</a> breaks the category down by display, size and network.</p>
 
-<figure class="article-fig"><img src="assets/blog/esl-how-it-works.png" alt="Diagram: how an electronic shelf label system works, from cloud to gateway to e-ink labels"><figcaption>Figure 1 &mdash; A typical ESL system: cloud management &rarr; wireless gateway &rarr; e-ink shelf labels.</figcaption></figure>
+          <div class="data-strip">
+            <div class="data-card"><div class="num">5&ndash;8 yrs</div><div class="lbl">Typical ESL battery life, because e-ink only draws power when the screen refreshes.</div></div>
+            <div class="data-card"><div class="num">Seconds</div><div class="lbl">Time for a price change to reach the matching label after you edit it in the system.</div></div>
+            <div class="data-card"><div class="num">15k&ndash;40k</div><div class="lbl">SKUs a single supermarket can carry &mdash; every one a tag that no longer needs hand-printing.</div></div>
+          </div>
 
-<h2>How do electronic shelf labels work?</h2>
-<p>An ESL system has three parts: a management system (cloud or on-premise), one or more wireless gateways/access points in the store, and the e-ink labels on the shelves. When you change a price in the system, the command travels to the gateway and is pushed wirelessly to the matching labels, which refresh within seconds.</p>
-<h3>What wireless technology do ESLs use?</h3>
-<p>Most large deployments use a low-power 2.4GHz proprietary radio or sub-GHz RF for range and battery life; smaller stores may use Bluetooth Low Energy (BLE) or NFC. The trade-off is range and refresh speed versus battery life and infrastructure cost.</p>
-<h3>How long do ESL batteries last?</h3>
-<p>Because e-ink only consumes power on refresh, mainstream ESL batteries last roughly 5&ndash;8 years even with several updates per day, and the system warns you before end of life.</p>
+          <h2 id="what">What Are Electronic Shelf Labels?</h2>
+          <p><strong>An electronic shelf label is a battery-powered digital display that shows a product&rsquo;s price and information on the shelf edge and updates over a wireless network.</strong> Most ESLs use electronic paper (e-ink) &mdash; the same low-power screen technology found in e-readers &mdash; because it stays readable without constant power and holds its image even when idle, drawing current only at the instant it redraws.</p>
+          <p>The terms overlap in search and in the trade: electronic shelf label, ESL tag, digital price tag, digital shelf label and e-ink price tag usually describe the same product. ESL is the industry term; digital price tag is the everyday one. Whatever you call it, the job is the same &mdash; put the current, correct price in front of the shopper and keep it identical to the price charged at the register.</p>
+          <figure><img src="assets/blog/esl-how-it-works.png" alt="Diagram: how an electronic shelf label system works, from cloud to gateway to e-ink labels"><figcaption>A typical ESL system: cloud management &rarr; wireless gateway &rarr; e-ink shelf labels.</figcaption></figure>
 
-<h2>What are the benefits of electronic shelf labels?</h2>
-<ul>
-<li><strong>Instant, store-wide repricing</strong> &mdash; change a price once and it syncs everywhere in seconds, enabling dynamic pricing and timed promotions.</li>
-<li><strong>Price accuracy</strong> &mdash; shelf, online and checkout prices share one source, eliminating mismatches, disputes and compliance risk.</li>
-<li><strong>Labor savings</strong> &mdash; staff stop printing and swapping paper tags and shift to restocking and service; often dozens of hours saved per store per week.</li>
-<li><strong>Less waste</strong> &mdash; no more printing thousands of paper tags every week.</li>
-<li><strong>Smarter operations</strong> &mdash; many ESLs add pick-to-light flashing to speed up restocking, picking and click-and-collect.</li>
-</ul>
+          <h2 id="work">How Do Electronic Shelf Labels Work?</h2>
+          <h3>What are the three parts of an ESL system?</h3>
+          <p><strong>An ESL system has three parts: management software, one or more wireless gateways, and the e-ink labels on the shelves.</strong> You edit a price in the software (often linked to POS, ERP or a pricing engine); the command travels to a gateway installed in the store; the gateway pushes the new image over a low-power radio to the matching labels, which redraw their e-paper screens within seconds and then return to sleep to conserve battery.</p>
+          <h3>What wireless technology do ESLs use?</h3>
+          <p>Most large deployments use a low-power 2.4 GHz proprietary radio or sub-GHz RF for range and battery life; smaller or newer stores may use Bluetooth Low Energy, which now has a standardized ESL profile from the Bluetooth SIG, or NFC for setup. The trade-off is range and refresh speed versus battery life and infrastructure cost. Most systems do <em>not</em> run on guest Wi-Fi &mdash; a dedicated gateway keeps updates reliable across thousands of tags.</p>
+          <h3>How long do ESL batteries last?</h3>
+          <p>Because e-ink only consumes power on refresh, mainstream ESL batteries last roughly five to eight years even with several updates per day, and the system warns you before end of life. Battery life still depends on size, color, update frequency and temperature &mdash; our note on <a href="esl-battery-life.html">ESL battery life</a> explains what actually drives the number.</p>
 
-<h2>Electronic shelf labels vs barcode vs RFID: what&rsquo;s the difference?</h2>
-<p>ESLs, barcodes and RFID solve different problems. Barcodes and RFID identify and track items; ESLs display and update information at the shelf edge. Many stores use them together.</p>
-<div class="cmp-wrap"><table class="cmp">
-<thead><tr><th>Aspect</th><th>Electronic Shelf Labels (ESL)</th><th>Barcode</th><th>RFID Tags</th></tr></thead>
-<tbody>
-<tr><td>Real-time updates</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>Shows price to shopper</td><td>Yes (digital display)</td><td>Static printed</td><td>No</td></tr>
-<tr><td>Wireless communication</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-<tr><td>Pricing flexibility</td><td>Highly flexible</td><td>Static</td><td>Variable</td></tr>
-<tr><td>Typical use</td><td>Shelf-edge pricing &amp; info</td><td>Item ID at checkout</td><td>Inventory tracking</td></tr>
-<tr><td>Per-unit cost</td><td>Highest</td><td>Lowest</td><td>Medium</td></tr>
-<tr><td>Power</td><td>Battery (~5 yrs)</td><td>None</td><td>Passive / none</td></tr>
-</tbody></table></div>
+          <h2 id="benefits">What Are the Benefits of Electronic Shelf Labels?</h2>
+          <p>The business case rests on labor, accuracy and flexibility. The biggest wins:</p>
+          <ul>
+            <li><strong>Instant, store-wide repricing</strong> &mdash; change a price once and it syncs everywhere in seconds, enabling timed promotions, markdowns and dynamic pricing.</li>
+            <li><strong>Price accuracy</strong> &mdash; shelf, online and checkout prices share one source, eliminating mismatches, disputes and, in some regions, pricing-accuracy penalties.</li>
+            <li><strong>Labor savings</strong> &mdash; staff stop printing and swapping paper tags and shift to restocking and service; often dozens of hours saved per store per week.</li>
+            <li><strong>Less waste</strong> &mdash; no more printing thousands of paper tickets every week.</li>
+            <li><strong>Smarter operations</strong> &mdash; many ESLs add pick-to-light flashing to speed up restocking, picking and click-and-collect, and QR codes to link the shelf to richer product data.</li>
+          </ul>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Benefit</th><th>What changes on day one</th><th>Where it shows up</th></tr></thead>
+              <tbody>
+                <tr><td>Repricing speed</td><td>Hours of aisle-walking become minutes in software.</td><td>Promotion cycles, competitor response, markdowns.</td></tr>
+                <tr><td>Pricing accuracy</td><td>Shelf price cannot drift from checkout price.</td><td>Fewer disputes, less compliance risk.</td></tr>
+                <tr><td>Labor</td><td>No printing or hand-placing tickets.</td><td>Staff redeployed to service and stock.</td></tr>
+                <tr><td>Data</td><td>The shelf edge becomes a live system output.</td><td>QR codes, stock flags, AI pricing signals.</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-<h2>Are electronic shelf labels better than paper tags?</h2>
-<p>For stores that reprice often or carry many SKUs, yes. Paper is cheaper per unit but never stops costing money &mdash; printing, labor and errors recur every week. ESLs cost more upfront but eliminate those recurring costs.</p>
-<div class="cmp-wrap"><table class="cmp">
-<thead><tr><th>Factor</th><th>Paper tags</th><th>Electronic shelf labels</th></tr></thead>
-<tbody>
-<tr><td>Upfront cost</td><td>Very low</td><td>Higher (hardware + setup)</td></tr>
-<tr><td>Cost over time</td><td>Recurring (print + labor, weekly)</td><td>One-time, lasts years</td></tr>
-<tr><td>Repricing speed</td><td>Hours, manual</td><td>Seconds, automatic</td></tr>
-<tr><td>Price errors</td><td>Common</td><td>Near-zero</td></tr>
-<tr><td>Best for</td><td>Tiny shops, stable prices</td><td>Multi-SKU, frequent repricing</td></tr>
-</tbody></table></div>
+          <h2 id="vs">Electronic Shelf Labels vs Barcode vs RFID</h2>
+          <p><strong>ESLs, barcodes and RFID solve different problems &mdash; barcodes and RFID identify and track items, while ESLs display and update information at the shelf edge.</strong> Many stores use all three together: a barcode to ring the item up, RFID to count stock, and an ESL to show the price.</p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Aspect</th><th>Electronic Shelf Labels</th><th>Barcode</th><th>RFID Tags</th></tr></thead>
+              <tbody>
+                <tr><td>Real-time updates</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+                <tr><td>Shows price to shopper</td><td>Yes (digital display)</td><td>Static printed</td><td>No</td></tr>
+                <tr><td>Wireless communication</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+                <tr><td>Pricing flexibility</td><td>Highly flexible</td><td>Static</td><td>Variable</td></tr>
+                <tr><td>Typical use</td><td>Shelf-edge pricing &amp; info</td><td>Item ID at checkout</td><td>Inventory tracking</td></tr>
+                <tr><td>Per-unit cost</td><td>Highest</td><td>Lowest</td><td>Medium</td></tr>
+                <tr><td>Power</td><td>Battery (~5 yrs)</td><td>None</td><td>Passive / none</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-<h2>How much do electronic shelf labels cost, and what&rsquo;s the ROI?</h2>
-<p>Total cost depends on label count, screen size and colour, and infrastructure (gateways, software, install). The ROI case rests on three lines: labor saved, fewer pricing errors, and incremental revenue from dynamic pricing and reduced markdown waste.</p>
-<figure class="article-fig"><img src="assets/blog/esl-market-growth.png" alt="Chart: electronic shelf label market growth at about 15.8% CAGR, 2024 to 2030"><figcaption>Figure 2 &mdash; ESL adoption is accelerating: the market is widely cited to grow ~15.8% per year through 2030.</figcaption></figure>
-<h3>When do electronic shelf labels pay for themselves?</h3>
-<p>Payback is fastest for formats with many SKUs and frequent repricing. Indicative ranges below &mdash; validate with your own labor rates and SKU counts:</p>
-<div class="cmp-wrap"><table class="cmp">
-<thead><tr><th>Store type</th><th>SKU count</th><th>Repricing frequency</th><th>Typical payback*</th></tr></thead>
-<tbody>
-<tr><td>Convenience store</td><td>1k&ndash;3k</td><td>Low&ndash;medium</td><td>~30&ndash;36 months</td></tr>
-<tr><td>Supermarket / grocery</td><td>15k&ndash;40k</td><td>High</td><td>~18&ndash;30 months</td></tr>
-<tr><td>Electronics / DIY</td><td>5k&ndash;20k</td><td>Medium&ndash;high</td><td>~24&ndash;30 months</td></tr>
-<tr><td>Pharmacy</td><td>8k&ndash;15k</td><td>Medium</td><td>~24&ndash;30 months</td></tr>
-</tbody></table></div>
-<p style="font-size:13px;color:var(--ink-dim,#7a8088)">* Indicative only; payback varies with labor cost, promotion intensity and label/infrastructure pricing.</p>
+          <h2 id="paper">Are Electronic Shelf Labels Better Than Paper Tags?</h2>
+          <p><strong>For stores that reprice often or carry many SKUs, yes &mdash; paper is cheaper per unit but never stops costing money.</strong> Printing, labor and errors recur every week, while ESLs cost more upfront and then eliminate those recurring costs. A very small shop with stable prices may still find paper more economical; the crossover depends on SKU count and how often prices change.</p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Factor</th><th>Paper tags</th><th>Electronic shelf labels</th></tr></thead>
+              <tbody>
+                <tr><td>Upfront cost</td><td>Very low</td><td>Higher (hardware + setup)</td></tr>
+                <tr><td>Cost over time</td><td>Recurring (print + labor, weekly)</td><td>One-time, lasts years</td></tr>
+                <tr><td>Repricing speed</td><td>Hours, manual</td><td>Seconds, automatic</td></tr>
+                <tr><td>Price errors</td><td>Common</td><td>Near-zero</td></tr>
+                <tr><td>Best for</td><td>Tiny shops, stable prices</td><td>Multi-SKU, frequent repricing</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>We run the full multi-year math &mdash; labor, paper, error and markdown costs &mdash; in our dedicated <a href="esl-vs-paper-labels.html">ESL vs paper labels comparison</a>.</p>
 
-<div class="article-callout"><div class="ck">In one line</div>An ESL is the e-ink screen on the shelf. Pair it with an AI pricing engine and the same shelf can also lift margin &mdash; that is the move from a digital price tag to a retail operating system.</div>
-<p>Want to see the numbers for your network? Try the <a href="index.html#roi">AiESL ROI calculator</a> or <a href="javascript:void(0)" onclick="openModal()">request a custom quote</a> &mdash; AiESL runs on open middleware, so you can start on hardware you already own.</p>
-</div>
+          <h2 id="cost">How Much Do Electronic Shelf Labels Cost, and What&rsquo;s the ROI?</h2>
+          <p><strong>Per-tag hardware commonly runs a few dollars for small monochrome labels to over ten dollars for large color displays, before gateways, software, installation and support.</strong> Total cost depends on label count, screen size and color, and infrastructure. The ROI case rests on three lines: labor saved, fewer pricing errors, and incremental revenue from dynamic pricing and reduced markdown waste.</p>
+          <figure><img src="assets/blog/esl-market-growth.png" alt="Chart: electronic shelf label market growth at about 15.8% CAGR, 2024 to 2030"><figcaption>ESL adoption is accelerating: the market is widely cited to grow around 15&ndash;17% per year through 2030. Data: industry market reports.</figcaption></figure>
+          <h3>When do electronic shelf labels pay for themselves?</h3>
+          <p>Payback is fastest for formats with many SKUs and frequent repricing. Indicative ranges below &mdash; validate with your own labor rates and SKU counts, or run the <a href="index.html#roi">ROI calculator</a>:</p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Store type</th><th>SKU count</th><th>Repricing frequency</th><th>Typical payback*</th></tr></thead>
+              <tbody>
+                <tr><td>Convenience store</td><td>1k&ndash;3k</td><td>Low&ndash;medium</td><td>~30&ndash;36 months</td></tr>
+                <tr><td>Supermarket / grocery</td><td>15k&ndash;40k</td><td>High</td><td>~18&ndash;30 months</td></tr>
+                <tr><td>Electronics / DIY</td><td>5k&ndash;20k</td><td>Medium&ndash;high</td><td>~24&ndash;30 months</td></tr>
+                <tr><td>Pharmacy</td><td>8k&ndash;15k</td><td>Medium</td><td>~24&ndash;30 months</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">* Indicative only; payback varies with labor cost, promotion intensity and label/infrastructure pricing. Full model: <a href="electronic-shelf-label-cost.html">how much electronic shelf labels cost</a>.</p>
 
-      <div class="article-share">
-        <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
-        <a href="blog.html" class="btn btn-ghost">&larr; All articles</a>
-      </div>
-    </article>
+          <h2 id="rollout">How Do You Roll Out Electronic Shelf Labels?</h2>
+          <p><strong>A rollout runs in five stages, and the integration &mdash; not the hardware &mdash; is where success is decided.</strong></p>
+          <ol>
+            <li><strong>Site survey and sizing.</strong> The vendor maps your floor plan to set gateway count and coverage, and counts labeled positions by size and color.</li>
+            <li><strong>Integration.</strong> The ESL system connects to POS, ERP or your pricing engine so the shelf price is driven by one source of truth. Confirm the API and data-export terms here.</li>
+            <li><strong>Template design.</strong> You define how each label looks &mdash; price, unit price, promo flags, QR codes &mdash; by category.</li>
+            <li><strong>Pilot.</strong> Run one live, difficult category and measure update success, battery behavior and price accuracy before scaling.</li>
+            <li><strong>Store-by-store deployment.</strong> Mount rails and clips, bind tags to products, and go live zone by zone.</li>
+          </ol>
+          <p>One planning question decides more than most: does the system fit inside <em>your</em> stack, or must you operate it from the vendor&rsquo;s? We unpack that in <a href="open-vs-closed-esl-systems.html">open vs closed ESL systems</a> &mdash; it matters because the hardware you buy today will run for seven to ten years.</p>
+
+          <h2 id="myths">Three Common Myths About ESLs</h2>
+          <p><strong>Myth 1: ESLs are only for huge chains.</strong> Payback is fastest at scale, but mid-size grocers, pharmacies and specialty stores deploy them profitably too &mdash; the deciding factors are SKU count and repricing frequency, not store count.</p>
+          <p><strong>Myth 2: digital tags mean surge pricing.</strong> An academic study of roughly 180 million price observations found no increase in temporary price hikes after a grocery chain adopted ESLs &mdash; the hardware displays whatever pricing policy the retailer sets. We cover the evidence in our <a href="grocery-store-digital-price-tags.html">grocery digital price tags guide</a>.</p>
+          <p><strong>Myth 3: the tags need constant charging.</strong> E-paper is bistable &mdash; it holds its image with no power and only sips current on refresh &mdash; so a single battery lasts years, not hours.</p>
+
+          <div class="answer-box"><strong>In one line: an ESL is the e-ink screen on the shelf.</strong> Pair it with an AI pricing engine and the same shelf can also lift margin &mdash; that is the move from a digital price tag to a retail operating system. See how in our guide to <a href="ai-dynamic-pricing-esl.html">AI dynamic pricing with ESL</a>.</div>
+          <p>Want to see the numbers for your network? Try the <a href="index.html#roi">AiESL ROI calculator</a> or <a href="javascript:void(0)" onclick="openModal()">request a custom quote</a> &mdash; AiESL runs on open middleware, so you can start on hardware you already own.</p>
+
+          <h2 id="sources">Sources</h2>
+          <ul class="source-list">
+            <li><a href="https://www.grandviewresearch.com/industry-analysis/electronic-shelf-label-market-report" target="_blank" rel="noopener">Grand View Research &mdash; Electronic Shelf Label Market Report</a></li>
+            <li><a href="https://www.bluetooth.com/specifications/specs/electronic-shelf-label-profile-1-0/" target="_blank" rel="noopener">Bluetooth SIG &mdash; Electronic Shelf Label Profile</a></li>
+            <li><a href="https://www.eink.com/tech/detail/Benefits" target="_blank" rel="noopener">E Ink &mdash; ePaper benefits and display characteristics</a></li>
+          </ul>
+        </div>
+
+        <div class="article-share">
+          <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+          <a href="blog.html" class="btn btn-ghost">&larr; All articles</a>
+        </div>
+      </article>
+
+      <aside class="article-toc" aria-label="Article contents">
+        <b>In this guide</b>
+        <a href="#what">What are electronic shelf labels?</a>
+        <a href="#work">How do they work?</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#vs">ESL vs barcode vs RFID</a>
+        <a href="#paper">Better than paper tags?</a>
+        <a href="#cost">Cost and ROI</a>
+        <a href="#rollout">How to roll them out</a>
+        <a href="#myths">Common myths</a>
+        <a href="#faq">FAQ</a>
+      </aside>
+    </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Article what-are-electronic-shelf-labels — FAQ">
+<section id="faq" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Article what-are-electronic-shelf-labels — FAQ">
   <div class="wrap wide">
     <div class="article">
       <div class="sec-tag">// FAQ</div>
@@ -196,14 +278,15 @@ table.cmp td:first-child{font-weight:600}
         <div class="faq-item reveal"><button class="faq-q">Are electronic shelf labels worth it for small stores?<span class="chev">+</span></button><div class="faq-a"><p>It depends on SKU count and how often you change prices. High-SKU, promotion-heavy stores pay back fastest; very small shops with stable prices may still find paper more economical.</p></div></div>
         <div class="faq-item reveal"><button class="faq-q">Do electronic shelf labels update in real time?<span class="chev">+</span></button><div class="faq-a"><p>Effectively yes. From the moment you change a price in the system, the matching labels refresh within seconds to tens of seconds, and a full store-wide update generally completes within minutes.</p></div></div>
         <div class="faq-item reveal"><button class="faq-q">How long do electronic shelf labels last?<span class="chev">+</span></button><div class="faq-a"><p>The labels last many years; batteries typically run 5 to 8 years because e-ink only draws power when the screen refreshes.</p></div></div>
-        <div class="faq-item reveal"><button class="faq-q">What is the difference between an ESL and a barcode?<span class="chev">+</span></button><div class="faq-a"><p>A barcode identifies an item at checkout; an electronic shelf label displays and updates the price and product information at the shelf edge. Many stores use both together.</p></div></div>
-        <div class="faq-item reveal"><button class="faq-q">Can ESLs integrate with my POS or ERP?<span class="chev">+</span></button><div class="faq-a"><p>Yes. Leading ESL platforms offer APIs to sync with POS, ERP and inventory systems so the shelf price always matches the checkout price.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What is the difference between an electronic shelf label and a barcode?<span class="chev">+</span></button><div class="faq-a"><p>A barcode identifies an item at checkout; an electronic shelf label displays and updates the price and product information at the shelf edge. Many stores use both together.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can electronic shelf labels integrate with my POS or ERP?<span class="chev">+</span></button><div class="faq-a"><p>Yes. Leading ESL platforms offer APIs to sync with POS, ERP and inventory systems so the shelf price always matches the checkout price.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How many gateways does an ESL system need?<span class="chev">+</span></button><div class="faq-a"><p>It depends on store size, layout and label density. As a rough planning figure one access point covers a zone of shelving; a typical supermarket needs several, and the vendor sizes the exact count from your floor plan during a site survey.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do electronic shelf labels use store Wi-Fi?<span class="chev">+</span></button><div class="faq-a"><p>Usually not. Most systems run a dedicated low-power gateway on a proprietary 2.4 GHz protocol or a Bluetooth-based network, which keeps updates reliable across thousands of tags without loading guest Wi-Fi.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== RELATED ===== -->
 <section data-screen-label="Article what-are-electronic-shelf-labels — Related">
   <div class="wrap wide">
     <div class="sec-head reveal" style="margin-bottom:24px"><div class="sec-tag">// KEEP READING</div><h2>Related articles</h2></div>
