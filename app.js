@@ -210,6 +210,145 @@ function initFAQ() {
   });
 }
 
+/* ===== ARTICLE SHARING ===== */
+function getShareMeta(panel) {
+  var canonical = document.querySelector('link[rel="canonical"]');
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  var ogImage = document.querySelector('meta[property="og:image"]');
+  var url = panel.getAttribute('data-share-url') || (canonical && canonical.href) || window.location.href.split('#')[0];
+  var title = panel.getAttribute('data-share-title') || (ogTitle && ogTitle.content) || document.title;
+  var image = panel.getAttribute('data-share-image') || (ogImage && ogImage.content) || '';
+  return { url: url, title: title, image: image };
+}
+
+function createShareIcon(channel) {
+  var icon = document.createElement('span');
+  icon.className = 'share-icon share-icon-' + channel.key;
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = channel.icon;
+  return icon;
+}
+
+function setShareFeedback(button, text) {
+  var label = button.querySelector('.share-label');
+  if (!label) return;
+  var original = button.getAttribute('data-original-label') || label.textContent;
+  button.setAttribute('data-original-label', original);
+  label.textContent = text;
+  window.setTimeout(function () {
+    label.textContent = original;
+  }, 1800);
+}
+
+function fallbackCopy(text) {
+  var area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly', '');
+  area.style.position = 'fixed';
+  area.style.left = '-9999px';
+  area.style.top = '0';
+  document.body.appendChild(area);
+  area.select();
+  try {
+    document.execCommand('copy');
+  } finally {
+    document.body.removeChild(area);
+  }
+  return Promise.resolve();
+}
+
+function copyShareUrl(url) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(url).catch(function () {
+      return fallbackCopy(url);
+    });
+  }
+  return fallbackCopy(url);
+}
+
+function createShareLink(channel, meta) {
+  var url = encodeURIComponent(meta.url);
+  var title = encodeURIComponent(meta.title);
+  var image = encodeURIComponent(meta.image);
+  var hrefs = {
+    facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
+    linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+    x: 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title,
+    pinterest: 'https://pinterest.com/pin/create/button/?url=' + url + '&description=' + title + (meta.image ? '&media=' + image : ''),
+    whatsapp: 'https://api.whatsapp.com/send?text=' + title + '%20' + url,
+    telegram: 'https://t.me/share/url?url=' + url + '&text=' + title,
+    vk: 'https://vk.com/share.php?url=' + url + '&title=' + title,
+    email: 'mailto:?subject=' + title + '&body=' + title + '%0A' + url
+  };
+  var link = document.createElement('a');
+  link.className = 'share-pill';
+  link.href = hrefs[channel.key];
+  link.setAttribute('aria-label', 'Share on ' + channel.label);
+  if (channel.key !== 'email') {
+    link.target = '_blank';
+    link.rel = 'noopener';
+  }
+  link.appendChild(createShareIcon(channel));
+  var label = document.createElement('span');
+  label.className = 'share-label';
+  label.textContent = channel.label;
+  link.appendChild(label);
+  return link;
+}
+
+function createShareButton(channel, meta) {
+  var button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'share-pill';
+  button.setAttribute('aria-label', channel.ariaLabel || channel.label);
+  button.appendChild(createShareIcon(channel));
+  var label = document.createElement('span');
+  label.className = 'share-label';
+  label.textContent = channel.label;
+  button.appendChild(label);
+  button.addEventListener('click', function () {
+    if (channel.key === 'native' && navigator.share) {
+      navigator.share({ title: meta.title, url: meta.url }).catch(function () {});
+      return;
+    }
+    copyShareUrl(meta.url).then(function () {
+      setShareFeedback(button, 'Copied');
+    });
+  });
+  return button;
+}
+
+function initArticleShare() {
+  var panels = document.querySelectorAll('[data-article-share]');
+  if (!panels.length) return;
+  var linkChannels = [
+    { key: 'facebook', label: 'Facebook', icon: 'f' },
+    { key: 'linkedin', label: 'LinkedIn', icon: 'in' },
+    { key: 'x', label: 'X', icon: 'X' },
+    { key: 'pinterest', label: 'Pinterest', icon: 'P' },
+    { key: 'whatsapp', label: 'WhatsApp', icon: 'WA' },
+    { key: 'telegram', label: 'Telegram', icon: 'TG' },
+    { key: 'vk', label: 'VK', icon: 'VK' },
+    { key: 'email', label: 'Email', icon: '@' }
+  ];
+  var buttonChannels = [
+    { key: 'copy', label: 'Copy link', icon: 'URL', ariaLabel: 'Copy article link' },
+    { key: 'native', label: 'Share', icon: '+', ariaLabel: 'Native Share' }
+  ];
+
+  panels.forEach(function (panel) {
+    var actions = panel.querySelector('.article-share-actions');
+    if (!actions || actions.children.length) return;
+    var meta = getShareMeta(panel);
+    linkChannels.forEach(function (channel) {
+      actions.appendChild(createShareLink(channel, meta));
+    });
+    buttonChannels.forEach(function (channel) {
+      actions.appendChild(createShareButton(channel, meta));
+    });
+  });
+}
+
 /* ===== SCROLL REVEAL ===== */
 function initReveal() {
   var io = new IntersectionObserver(function (entries) {
@@ -225,5 +364,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initQuoteForm();
   initROI();
   initFAQ();
+  initArticleShare();
   initReveal();
 });
