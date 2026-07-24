@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><title>Retail Indoor Positioning: AoA, UWB, RFID &amp; BLE Compared &mdash; AiESL Blog</title>
+<meta name="description" content="Compare retail indoor positioning technologies by accuracy, power use, cost and fit for inventory, RTLS and shopper pick-up-rate analytics.">
+<meta name="keywords" content="retail indoor positioning, indoor positioning technologies, BLE AoA vs UWB, RFID inventory tracking, RTLS retail, apparel inventory accuracy, pick-up rate analytics">
+<link rel="canonical" href="https://www.aiesl.com/retail-indoor-positioning.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retail Indoor Positioning: How AoA, UWB, RFID and BLE Compare">
+<meta property="og:description" content="A technical guide to indoor positioning for retail: accuracy, cost and the best fit for apparel inventory and shopper pick-up-rate analytics.">
+<meta property="og:image" content="https://www.aiesl.com/assets/blog/retail-indoor-positioning-hero.png">
+<meta property="og:url" content="https://www.aiesl.com/retail-indoor-positioning.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="platform.css">
+<link rel="stylesheet" href="buney-control.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Retail Indoor Positioning: How AoA, UWB, RFID and BLE Compare for Inventory & Shopper Analytics","description":"A technical comparison of indoor positioning technologies for retail - Bluetooth AoA, UWB, RFID, BLE and Wi-Fi - covering accuracy, power use, cost, and fit for apparel inventory and shopper pick-up-rate analytics.","datePublished":"2026-07-24","dateModified":"2026-07-24","author":{"@type":"Organization","name":"AiESL"},"publisher":{"@type":"Organization","name":"AiESL"},"image":"https://www.aiesl.com/assets/blog/retail-indoor-positioning-hero.png","mainEntityOfPage":"https://www.aiesl.com/retail-indoor-positioning.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aiesl.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.aiesl.com/blog.html"},{"@type":"ListItem","position":3,"name":"Retail Indoor Positioning","item":"https://www.aiesl.com/retail-indoor-positioning.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the most accurate indoor positioning technology for retail?","acceptedAnswer":{"@type":"Answer","text":"Ultra-wideband (UWB) and Bluetooth AoA deliver the highest accuracy, typically 10-30 cm. Passive RFID gives zone or presence-level location rather than coordinates, while BLE-RSSI beacons and Wi-Fi give roughly 1-5 m accuracy in real stores."}},{"@type":"Question","name":"What is the difference between RFID and a real-time locating system (RTLS)?","acceptedAnswer":{"@type":"Answer","text":"RFID identifies an item and confirms it was present within a reader's zone. An RTLS such as Bluetooth AoA or UWB continuously computes x/y coordinates, so you can see where an item or person is on the floor in real time, not only that it was scanned at a doorway or handheld."}},{"@type":"Question","name":"How accurate is Bluetooth AoA positioning?","acceptedAnswer":{"@type":"Answer","text":"Bluetooth AoA (Direction Finding) typically reaches about 10-50 cm accuracy with a well-designed multi-anchor deployment, according to the Bluetooth SIG. Accuracy depends on anchor density, antenna array quality, calibration and signal reflections."}},{"@type":"Question","name":"Can indoor positioning measure how often shoppers pick up a product?","acceptedAnswer":{"@type":"Answer","text":"Yes. Motion and location events on tagged items or fixtures let a system count pick-ups, dwell time and put-backs. This turns each rack into a source of engagement or pick-up-rate analytics that shows which products attract hands, not just which ones sell."}},{"@type":"Question","name":"How much does an indoor positioning system cost?","acceptedAnswer":{"@type":"Answer","text":"Cost depends on the accuracy tier and infrastructure density. Passive RFID tags cost a few cents but need readers or handhelds; Bluetooth AoA and UWB tags run from about one to several dollars with ceiling anchors placed roughly every 8-15 m. Budget for tags, anchors, PoE cabling, software and integration."}},{"@type":"Question","name":"Which positioning technology uses the least power?","acceptedAnswer":{"@type":"Answer","text":"Passive RFID uses no tag battery because the reader energizes the label. Among active real-time tags, BLE and Bluetooth AoA are usually the lowest-power routes because the tag can transmit short bursts and sleep most of the time. UWB draws more current while ranging, so it needs stricter duty cycling or larger batteries."}},{"@type":"Question","name":"Which positioning technology is best for apparel inventory and pick-up analytics?","acceptedAnswer":{"@type":"Answer","text":"Passive item-level RFID is the standard for fast, full-store inventory counts. Bluetooth AoA or UWB add real-time location for pick-up analytics, staff and asset tracking. Many apparel stores combine RFID for stock accuracy with an AoA layer for real-time shopper and product-interaction insight."}}]}</script>
+<style>
+.article-layout{display:grid;grid-template-columns:minmax(0,820px) 270px;gap:52px;align-items:start}
+.article-layout>*{min-width:0}
+.article{width:100%;max-width:100%}
+.article-cover{width:100%}
+.article-toc{position:sticky;top:96px;background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.article-toc b{display:block;font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--blue-hi);letter-spacing:.05em;margin-bottom:12px;text-transform:uppercase}
+.article-toc a{display:block;font-size:13.5px;color:var(--ink-mid);padding:8px 0;border-top:1px solid var(--line-soft)}
+.article-toc a:hover{color:var(--blue-hi)}
+.article-kicker{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-hi);letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px}
+.article-body .answer-box{background:linear-gradient(135deg,rgba(77,124,255,.12),rgba(77,124,255,.03));border:1px solid rgba(77,124,255,.28);border-radius:14px;padding:22px 24px;margin:0 0 28px;color:var(--ink);font-size:18px;line-height:1.7}
+.article-body .answer-box strong{color:var(--ink)}
+.article-body figure{margin:30px 0}
+.article-body figure img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block;background:#f4f5f7}
+.article-body figure svg{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block;background:#fff}
+.article-body figcaption{font-size:12px;color:var(--ink-dim);text-align:center;margin-top:9px}
+.article-body .source-note{font-size:13px;color:var(--ink-dim);margin-top:-12px}
+.data-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+.data-card{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.data-card .num{font-family:'Instrument Sans',sans-serif;font-size:26px;font-weight:700;color:var(--blue-hi);line-height:1.05}
+.data-card .lbl{font-size:13px;color:var(--ink-mid);margin-top:8px}
+.article-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:28px 0;background:var(--bg-card)}
+.article-table{width:100%;border-collapse:collapse;min-width:680px;font-size:14px}
+.article-table th,.article-table td{padding:14px 16px;text-align:left;vertical-align:top;border-top:1px solid var(--line-soft)}
+.article-table thead th{background:var(--bg-soft);border-top:none;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-dim)}
+.article-table td:first-child{color:var(--ink);font-weight:600}
+.article-body .callout{background:var(--bg-soft);border-left:3px solid var(--blue-hi);border-radius:0 12px 12px 0;padding:16px 20px;margin:24px 0;font-size:15px;color:var(--ink-mid)}
+.article-body .source-list{padding-left:0;list-style:none;display:grid;gap:10px}
+.article-body .source-list li{display:block}
+.article-body .source-list li:before{display:none}
+@media(max-width:980px){.article-layout{grid-template-columns:1fr}.article-toc{position:static;order:-1}.data-strip{grid-template-columns:1fr}}
+@media(max-width:640px){.article-layout,.article,.article-body,.article-body .answer-box,.article-toc{width:100%;max-width:min(calc(100vw - 40px),350px);min-width:0}.article-body,.article-body *{overflow-wrap:break-word}.article-body .answer-box{font-size:16px}.article-table{min-width:620px}.page-hero h1{font-size:32px}.article-meta{gap:7px 10px;font-size:12px}.article-meta span:nth-child(even){display:none}.wrap,.wrap.wide{padding-left:20px;padding-right:20px}.article-cover{max-width:350px}.article-cover img{height:auto}}
+</style>
+</head>
+<body>
+
+<nav data-screen-label="Article Retail Indoor Positioning - Nav">
+  <div class="wrap wide nav-in">
+    <a href="index.html" class="logo" aria-label="AiESL home"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></a>
+    <div class="nav-links">
+      <div class="has-menu"><a href="index.html#platform">Platform &#9662;</a>
+        <div class="nav-menu">
+          <a href="index.html#platform"><b>AI Dynamic Pricing</b><small>Optimize prices at the shelf edge</small></a>
+          <a href="index.html#platform"><b>Shelf Monitoring</b><small>Detect gaps, mismatches, out-of-stocks</small></a>
+          <a href="index.html#platform"><b>Retail Media</b><small>Turn shelf labels into ad surfaces</small></a>
+          <a href="index.html#diff"><b>Open Middleware</b><small>One console, 5+ brand integrations</small></a>
+        </div>
+      </div>
+      <a href="products.html">Products</a>
+      <div class="has-menu"><a href="Industries.html">Industries &#9662;</a>
+        <div class="nav-menu">
+          <a href="industry-supermarket.html"><b>Supermarket &amp; Grocery</b><small>High-density everyday pricing</small></a>
+          <a href="industry-pharmacy.html"><b>Pharmacy &amp; Cosmetics</b><small>Compliance-grade accuracy</small></a>
+          <a href="industry-convenience.html"><b>Convenience</b><small>Fast rollout, low footprint</small></a>
+          <a href="industry-warehouse.html"><b>Warehouse &amp; DC</b><small>Pick-to-light, large displays</small></a>
+        </div>
+      </div>
+      <a href="Cases.html">Customers</a>
+      <div class="has-menu"><a href="Resources.html" class="active">Resources &#9662;</a>
+        <div class="nav-menu">
+          <a href="blog.html"><b>Insights &amp; Blog</b><small>Trends in AI retail pricing</small></a>
+          <a href="index.html#roi"><b>ROI Calculator</b><small>Estimate your payback period</small></a>
+          <a href="Resources.html#faq"><b>FAQ &amp; Guides</b><small>What is an AI ESL?</small></a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+    <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close">&times;</button>
+  <a href="index.html#platform">Platform</a>
+  <a href="products.html">Products</a>
+  <a href="Industries.html">Industries</a>
+  <a href="Cases.html">Customers</a>
+  <a href="blog.html">Insights &amp; Blog</a>
+  <a href="about.html">About</a>
+  <a href="javascript:void(0)" style="color:var(--blue-hi)" onclick="openModal();toggleDrawer()">Get a Custom Quote &rarr;</a>
+</div>
+
+<div class="page-hero" data-screen-label="Retail Indoor Positioning - Hero">
+  <div class="hero-grid"></div>
+  <div class="wrap wide" style="position:relative">
+    <div class="article-hero">
+      <div class="article-kicker"><a href="blog.html" style="color:var(--blue-hi)">Blog</a> / Technology Guide</div>
+      <h1>Retail Indoor Positioning: How AoA, UWB, RFID and BLE Compare for Inventory &amp; Shopper Analytics</h1>
+      <div class="article-meta">
+        <span>July 24, 2026</span><span>&middot;</span><span>30 min read</span><span>&middot;</span><span>AiESL Research</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap wide">
+  <div class="article-cover reveal">
+    <img src="assets/blog/retail-indoor-positioning-hero.png" alt="Top-down diagram of a retail floor with ceiling AoA anchors locating tagged items on apparel racks">
+  </div>
+</div>
+
+<section data-screen-label="Retail Indoor Positioning - Body">
+  <div class="wrap wide">
+    <div class="article-layout">
+      <article class="article">
+        <div class="article-body">
+          <div class="answer-box"><strong>Retail indoor positioning is the use of radio, sensor or vision technology to work out where items, fixtures, staff or shoppers are inside a store in real time. The main technologies - Bluetooth AoA, ultra-wideband (UWB), passive RFID, BLE beacons (RSSI) and Wi-Fi - trade accuracy against tag cost and infrastructure.</strong> For retail, the highest-value jobs are inventory accuracy and shopper interaction (pick-up-rate) analytics. Passive RFID owns fast stock counts; when you need true real-time coordinates - which rack a garment sits on, how often it is picked up - Bluetooth AoA and UWB lead at 10-30 cm.</div>
+
+          <p>Barcodes and paper tags tell you what a product is. They do not tell you <em>where</em> it is right now, or what shoppers do with it before it reaches the till. That gap is what indoor positioning closes. As electronic shelf labels, RFID and low-power radios spread across retail, the store floor is becoming a live coordinate space - and choosing the right positioning technology has become a real engineering decision, not a buzzword.</p>
+
+          <p>This guide is written for solution providers and system integrators who have to specify, price and defend a positioning stack. It explains each technology in plain terms, compares them on accuracy, cost and scalability, then goes deep on two questions apparel retailers keep asking: <strong>how do we measure pick-up rate</strong>, and <strong>how do we hit high inventory accuracy</strong>. It closes with a transparent ROI model and a selection checklist. No vendor names, no marketing - just the physics, the numbers and the trade-offs.</p>
+
+          <div class="data-strip">
+            <div class="data-card"><div class="num">10&ndash;30 cm</div><div class="lbl">Typical real-world accuracy of the two high-precision routes, UWB and Bluetooth AoA.</div></div>
+            <div class="data-card"><div class="num">63% &rarr; 95%+</div><div class="lbl">Apparel inventory accuracy uplift with item-level RFID, per the Auburn University RFID Lab.</div></div>
+            <div class="data-card"><div class="num">$16.6B &rarr; $41.4B</div><div class="lbl">Indoor positioning &amp; RTLS market, 2024 to 2032 (~12% CAGR), Verified Market Research.</div></div>
+          </div>
+
+          <figure>
+            <svg viewBox="0 0 820 300" role="img" aria-label="Indoor positioning and RTLS market growth from 16.64 billion dollars in 2024 to 41.41 billion dollars in 2032">
+              <text x="40" y="34" font-family="Segoe UI,Arial" font-size="17" font-weight="700" fill="#1a2233">Indoor Positioning &amp; RTLS market size (USD billions)</text>
+              <line x1="120" y1="250" x2="770" y2="250" stroke="#c9d2e0" stroke-width="1.5"/>
+              <rect x="250" y="172" width="120" height="78" rx="4" fill="#94a3b8"/>
+              <rect x="510" y="57" width="120" height="193" rx="4" fill="#4d7cff"/>
+              <text x="310" y="163" text-anchor="middle" font-family="Segoe UI,Arial" font-size="16" font-weight="700" fill="#1a2233">$16.64B</text>
+              <text x="570" y="48" text-anchor="middle" font-family="Segoe UI,Arial" font-size="16" font-weight="700" fill="#1a2233">$41.41B</text>
+              <text x="310" y="272" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" fill="#5b6577">2024</text>
+              <text x="570" y="272" text-anchor="middle" font-family="Segoe UI,Arial" font-size="14" fill="#5b6577">2032</text>
+              <text x="440" y="120" font-family="Segoe UI,Arial" font-size="14" fill="#2ec4b6" font-weight="700">~12% CAGR</text>
+            </svg>
+            <figcaption>Data: Verified Market Research, Indoor Positioning and RTLS Market (2024 base year).</figcaption>
+          </figure>
+
+          <h2 id="what">What Is Retail Indoor Positioning?</h2>
+          <h3>What does "indoor positioning" actually mean in a store?</h3>
+          <p><strong>Indoor positioning is any system that estimates the physical location of a tagged object or device inside a building, where GPS is too weak or too coarse to work.</strong> When those location estimates are continuous and live, the system is usually called a real-time locating system (RTLS). In retail the "thing" being located can be a product, a shelf label, a shopping trolley, a handheld, a staff badge or a shopper's phone.</p>
+          <p>Every positioning system has the same three parts: a <strong>tag or transmitter</strong> on the object, one or more fixed <strong>anchors, readers or gateways</strong> on the ceiling or shelving, and a <strong>location engine</strong> - software that turns raw radio measurements into coordinates on a store map. What changes between technologies is the physical measurement the radios make: signal strength, angle, or time of flight.</p>
+
+          <h3>Locating vs identifying: why an RFID scan is not a location</h3>
+          <p>This is the most common source of confusion in retail projects, so it is worth being precise. <strong>Identification tells you an item exists and was seen; positioning tells you where it is.</strong> A passive RFID read at a doorway or from a handheld confirms "this SKU passed this reader" - it is a presence event inside a zone, not an x/y coordinate. A true RTLS (Bluetooth AoA, UWB) computes coordinates continuously, so you can draw the item as a moving dot on a floor plan.</p>
+          <p>Both are valuable, and they answer different questions. If your question is "how many of this SKU are in the building and are they on the floor or in the back room," zone-level identification is often enough. If your question is "which rack is this jacket on, and how many times was it lifted this afternoon," you need real coordinates. Many mature deployments run both layers together.</p>
+
+          <h3>How accurate does retail positioning need to be?</h3>
+          <p><strong>Accuracy requirements come in tiers, and over-buying accuracy wastes money.</strong> Store-wide analytics and heatmaps tolerate metre-level error. Aisle- or bay-level tasks want sub-2-metre. Telling apart two adjacent racks, or binding a shelf label to the exact product beneath it, needs sub-30-centimetre. The table below maps the practical tiers to the retail jobs they unlock.</p>
+
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Accuracy tier</th><th>Typical error</th><th>What it can do in retail</th><th>Technologies that reach it</th></tr></thead>
+              <tbody>
+                <tr><td>Zone / presence</td><td>Room or read-zone</td><td>Stock in building, in/out of back room, doorway loss prevention, cycle-count.</td><td>Passive RFID, EAS.</td></tr>
+                <tr><td>Room / coarse</td><td>5&ndash;15 m</td><td>Store-level footfall, dwell heatmaps, coarse wayfinding.</td><td>Wi-Fi (RSSI), cellular.</td></tr>
+                <tr><td>Aisle / bay</td><td>1&ndash;5 m</td><td>Which aisle a shopper is in, zone dwell, proximity offers.</td><td>BLE beacons (RSSI).</td></tr>
+                <tr><td>Sub-metre</td><td>0.3&ndash;1 m</td><td>Fixture-level analytics, staff safety, near-rack context.</td><td>Bluetooth AoA, Wi-Fi RTT.</td></tr>
+                <tr><td>Centimetre</td><td>0.1&ndash;0.3 m</td><td>Tell apart adjacent racks, tag-to-product binding, pick/put-back events, robotics.</td><td>Bluetooth AoA, UWB.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Accuracy ranges are indicative industry figures; real results depend on anchor density, calibration and store RF conditions. Sources cited in the technology sections below.</p>
+
+          <h2 id="need">Why Retail Actually Needs Location Data</h2>
+          <h3>What problems does shelf-and-floor location solve?</h3>
+          <p><strong>Location data pays for itself when it removes manual searching, prevents lost sales, or reveals shopper behaviour that sales receipts cannot.</strong> Retailers do not buy positioning for its own sake - they buy an outcome. When we group the outcomes integrators are actually asked to deliver, five recurring use cases dominate, each with a different value driver and a different accuracy floor.</p>
+
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Use case</th><th>Value driver</th><th>Accuracy needed</th><th>Best-fit technology</th></tr></thead>
+              <tbody>
+                <tr><td>Inventory count &amp; stock accuracy</td><td>Fewer stockouts, less shrink, faster counts</td><td>Zone / presence</td><td>Passive RFID</td></tr>
+                <tr><td>Pick / replenishment navigation</td><td>Staff labour saved, faster restock</td><td>Sub-metre</td><td>AoA / UWB</td></tr>
+                <tr><td>Product interaction (pick-up rate)</td><td>Merchandising insight, conversion uplift</td><td>Centimetre (fixture level)</td><td>AoA / UWB (+RFID)</td></tr>
+                <tr><td>Tag-to-product binding &amp; anti-error</td><td>Price/label integrity, compliance</td><td>Centimetre</td><td>AoA / UWB</td></tr>
+                <tr><td>Shopper flow &amp; heatmaps</td><td>Layout, staffing, retail media</td><td>Aisle / room</td><td>BLE / Wi-Fi</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Which use case delivers the most value? A quick customer-research read</h3>
+          <p><strong>Ask ten retailers to rank these five, and inventory accuracy is almost always first - because inaccurate stock quietly destroys margin at both ends: lost sales from phantom stockouts and markdowns from over-buying.</strong> The Auburn University RFID Lab has measured this for years in apparel: item-level RFID lifts inventory accuracy from roughly 63% to 95% or higher, cuts out-of-stocks by up to 50%, and shrinks a physical count from about eight days a year to half a day. That is a hard, repeatable number - which is why RFID adoption in apparel is now mainstream.</p>
+          <p>The second-ranked need is more interesting because it is newer and under-served: <strong>product-interaction analytics, often summarised in apparel as "pick-up rate."</strong> E-commerce measures every hover, click and add-to-cart. The physical store, historically, only measured the final purchase. Positioning changes that. If you can detect that a garment was lifted off the rail, carried, tried on and put back, you can finally see the physical equivalent of a product page's engagement funnel - and merchandise to it.</p>
+
+          <div class="callout"><strong>The apparel lens for this guide.</strong> Because our worked examples come from a clothing retail context, we focus the deep-dive and the ROI model on the two needs apparel buyers prioritise: <strong>pick-up rate</strong> (does this style attract hands?) and <strong>inventory accuracy</strong> (do we actually have what the system says?). The technology comparison itself stays general and applies to any retail format.</div>
+
+          <h2 id="tech">The Positioning Technologies Explained</h2>
+          <p>Six technology families cover almost every retail deployment. Here is how each one measures location, what accuracy it realistically delivers, and where it breaks down.</p>
+
+          <h3>Bluetooth AoA (Angle of Arrival) - how does it work?</h3>
+          <p><strong>Bluetooth AoA locates a tag by measuring the angle its signal arrives at a multi-antenna anchor, then triangulating from several anchors.</strong> A small battery tag transmits an ordinary Bluetooth Low Energy direction-finding signal; the ceiling anchor has an antenna array and reads the phase difference across its antennas to compute a bearing. Two or more bearings intersect at the tag. Because AoA rides on standard BLE (introduced in Bluetooth 5.1 Direction Finding), tags are cheap, low-power and long-lived.</p>
+          <p><strong>Accuracy:</strong> roughly 10-50 cm with good anchor density and calibration, according to the <a href="https://www.bluetooth.com/blog/adopting-aoa-direction-finding-provides-a-high-precision-location-experience/" target="_blank" rel="noopener">Bluetooth SIG</a>. <strong>Strengths:</strong> centimetre-class accuracy at BLE tag cost and battery life; scales to thousands of tags; the tag is the cheap part. <strong>Limits:</strong> intelligence and cost sit in the anchors; needs careful array calibration; reflective metal environments degrade angle estimates.</p>
+
+          <h3>Ultra-wideband (UWB) - how does it work?</h3>
+          <p><strong>UWB measures the time of flight of very short radio pulses across a wide frequency band, converting travel time directly into distance.</strong> Multiple anchors each measure their distance to a tag, and the location engine trilaterates. Because it uses time rather than signal strength, UWB is far more robust to reflections than RSSI methods, and its wide bandwidth gives fine time resolution - hence centimetre accuracy. The technology is standardised under <a href="https://ieeexplore.ieee.org/document/10452270/" target="_blank" rel="noopener">IEEE 802.15.4z</a> and certified by the <a href="https://www.firaconsortium.org/discover/what-uwb-does" target="_blank" rel="noopener">FiRa Consortium</a>.</p>
+          <p><strong>Accuracy:</strong> typically 10-30 cm in industrial RTLS, with sub-0.2 m ranging error even in many non-line-of-sight cases, and lab results down to a few centimetres. <strong>Strengths:</strong> the gold standard for precision and multipath resistance; secure ranging; now built into flagship phones. <strong>Limits:</strong> tags cost more and draw more power than BLE; anchors and tags are pricier; battery life is shorter, which matters for item-level tagging at scale.</p>
+
+          <h3>BLE beacons (RSSI) - how does it work?</h3>
+          <p><strong>Classic BLE beacon positioning estimates distance from received signal strength (RSSI): the weaker the signal, the further away the tag is assumed to be.</strong> A phone or fixed scanner hears several beacons and infers a rough position, or simply the nearest beacon (proximity). It is the cheapest, most mature approach and needs no antenna arrays - but signal strength is a noisy proxy for distance.</p>
+          <p><strong>Accuracy:</strong> metre-level in practice, commonly 1-5 m and degrading in crowded, three-dimensional stores, per a <a href="https://www.mdpi.com/1424-8220/21/15/5181" target="_blank" rel="noopener">peer-reviewed BLE RSSI study</a>. <strong>Strengths:</strong> lowest cost, huge device support, great for proximity offers and aisle-level context. <strong>Limits:</strong> not accurate enough to separate adjacent fixtures or bind a label to a product; RSSI drifts with human bodies, shelving and interference.</p>
+
+          <h3>Wi-Fi (RSSI and RTT) - how does it work?</h3>
+          <p><strong>Wi-Fi positioning reuses the access points a store already has, either by signal strength (RSSI) or, in newer hardware, round-trip time (RTT / 802.11mc FTM).</strong> RSSI gives coarse, room-level location; RTT measures time of flight like a lightweight UWB and can reach 1-2 m under good conditions. Its big advantage is infrastructure reuse; its limits are inconsistent client support and accuracy that still trails the high-precision routes.</p>
+          <p><strong>Accuracy:</strong> 5-15 m for RSSI, roughly 1-2 m for RTT with compatible devices. <strong>Strengths:</strong> uses existing APs, no tag on the shopper beyond their phone, good for footfall analytics. <strong>Limits:</strong> device dependency, coarse for merchandising, not suitable for item-level work.</p>
+
+          <h3>Passive RFID (UHF) - how does it work?</h3>
+          <p><strong>Passive UHF RFID puts a batteryless tag on every item; a reader powers the tag with radio energy and reads its unique ID as it passes within range.</strong> It is not a coordinate system - it is high-speed identification within a zone (a doorway, an overhead reader, a handheld sweep, a smart fixture). That is exactly what full-store inventory needs: read hundreds of tags per second, reconcile against the system of record, and know your true stock. Benchmarks come from the <a href="https://rfid.auburn.edu/" target="_blank" rel="noopener">Auburn University RFID Lab</a> and <a href="https://rfid.averydennison.com/en/home/news-insights/insights/apparel-beyond-the-shelves-the-true-value-of-inventory-accuracy-for-retailers.html" target="_blank" rel="noopener">Avery Dennison</a>.</p>
+          <p><strong>Accuracy:</strong> zone / presence, not x/y (fixed infrastructure can narrow this to a bay). <strong>Strengths:</strong> tags cost only cents, no battery, unbeatable for fast item-level counts and apparel inventory. <strong>Limits:</strong> gives presence not live coordinates; metal and liquids detune tags; continuous real-time location needs dense fixed readers, which gets expensive.</p>
+
+          <h3>Geomagnetic and visual (VPS) - how do they work?</h3>
+          <p><strong>Geomagnetic positioning fingerprints a building's magnetic distortions; visual positioning (VPS) matches a phone camera view to a 3D map.</strong> Both are "infrastructure-light" - no anchors to hang - but both need up-front mapping and shopper app cooperation, and neither tags the merchandise. They suit shopper wayfinding more than stock or merchandising analytics.</p>
+          <p><strong>Accuracy:</strong> roughly 1-3 m (geomagnetic), sub-metre in good light (VPS). <strong>Strengths:</strong> little fixed hardware, good for app navigation. <strong>Limits:</strong> mapping and maintenance overhead, phone-dependent, cannot locate untagged items or unengaged shoppers.</p>
+
+          <figure>
+            <svg viewBox="0 0 820 300" role="img" aria-label="Diagram comparing angle-of-arrival triangulation with time-of-flight trilateration">
+              <rect x="0" y="0" width="820" height="300" fill="#fff"/>
+              <text x="30" y="30" font-family="Segoe UI,Arial" font-size="15" font-weight="700" fill="#1a2233">AoA: intersecting angles</text>
+              <text x="470" y="30" font-family="Segoe UI,Arial" font-size="15" font-weight="700" fill="#1a2233">UWB: intersecting distances</text>
+              <!-- AoA left -->
+              <rect x="70" y="70" width="46" height="20" rx="4" fill="#eaf0ff" stroke="#4d7cff" stroke-width="2"/>
+              <rect x="300" y="70" width="46" height="20" rx="4" fill="#eaf0ff" stroke="#4d7cff" stroke-width="2"/>
+              <circle cx="205" cy="215" r="9" fill="#2ec4b6"/>
+              <line x1="93" y1="90" x2="205" y2="215" stroke="#4d7cff" stroke-width="2"/>
+              <line x1="323" y1="90" x2="205" y2="215" stroke="#4d7cff" stroke-width="2"/>
+              <path d="M93 118 A 28 28 0 0 0 118 104" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+              <text x="150" y="150" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">angle &theta;&#8321;</text>
+              <text x="250" y="150" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">angle &theta;&#8322;</text>
+              <text x="180" y="245" font-family="Segoe UI,Arial" font-size="12" fill="#1a2233">tag</text>
+              <!-- UWB right -->
+              <circle cx="520" cy="80" r="8" fill="#4d7cff"/>
+              <circle cx="740" cy="90" r="8" fill="#4d7cff"/>
+              <circle cx="620" cy="230" r="8" fill="#4d7cff"/>
+              <circle cx="640" cy="150" r="9" fill="#2ec4b6"/>
+              <circle cx="520" cy="80" r="86" fill="none" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="4 4"/>
+              <circle cx="740" cy="90" r="120" fill="none" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="4 4"/>
+              <circle cx="620" cy="230" r="85" fill="none" stroke="#94a3b8" stroke-width="1.3" stroke-dasharray="4 4"/>
+              <text x="655" y="150" font-family="Segoe UI,Arial" font-size="12" fill="#1a2233">tag</text>
+            </svg>
+            <figcaption>AoA triangulates from measured angles; UWB trilaterates from measured distances (time of flight).</figcaption>
+          </figure>
+
+          <h2 id="compare">Indoor Positioning Technologies Compared</h2>
+          <h3>Which technology wins on accuracy, cost and scale?</h3>
+          <p><strong>There is no single winner - each technology sits at a different point on the accuracy-versus-cost curve, and the right pick depends on the job.</strong> The table below is the decision core of this guide: read it by starting from the accuracy your use case needs (from the tier table earlier), then check whether the tag cost and infrastructure fit your store economics.</p>
+
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Technology</th><th>Typical accuracy</th><th>Tag cost</th><th>Infra cost</th><th>Battery</th><th>Best retail fit</th></tr></thead>
+              <tbody>
+                <tr><td>Bluetooth AoA</td><td>10&ndash;50 cm</td><td>Low ($)</td><td>Medium (smart anchors)</td><td>Years</td><td>Fixture-level analytics, pick-up rate, tag binding at scale</td></tr>
+                <tr><td>UWB</td><td>10&ndash;30 cm</td><td>Medium ($$)</td><td>High</td><td>Months&ndash;year</td><td>Highest-precision assets, robotics, premium zones</td></tr>
+                <tr><td>Passive RFID</td><td>Zone / presence</td><td>Cents</td><td>Low&ndash;medium</td><td>None (passive)</td><td>Full-store apparel inventory &amp; stock accuracy</td></tr>
+                <tr><td>BLE beacons (RSSI)</td><td>1&ndash;5 m</td><td>Low ($)</td><td>Low</td><td>Years</td><td>Proximity offers, aisle-level context</td></tr>
+                <tr><td>Wi-Fi (RSSI / RTT)</td><td>5&ndash;15 m / 1&ndash;2 m</td><td>None (phone)</td><td>Reuse APs</td><td>Phone</td><td>Footfall heatmaps, coarse wayfinding</td></tr>
+                <tr><td>Geomagnetic / visual</td><td>1&ndash;3 m</td><td>None (phone)</td><td>Low (mapping)</td><td>Phone</td><td>App-based shopper navigation</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Sources: Bluetooth SIG (AoA); IEEE 802.15.4z &amp; FiRa Consortium (UWB); MDPI BLE RSSI study; Auburn RFID Lab &amp; Avery Dennison (RFID). Costs are relative orders of magnitude, not quotes.</p>
+
+          <figure>
+            <svg viewBox="0 0 820 300" role="img" aria-label="Bar chart of typical best-case positioning error by technology on a logarithmic scale, shorter is more accurate">
+              <rect x="0" y="0" width="820" height="300" fill="#fff"/>
+              <text x="20" y="28" font-family="Segoe UI,Arial" font-size="16" font-weight="700" fill="#1a2233">Typical best-case error by technology (metres, log scale &ndash; shorter is better)</text>
+              <rect x="200" y="60" width="77" height="20" rx="3" fill="#4d7cff"/><text x="185" y="75" text-anchor="end" font-family="Segoe UI,Arial" font-size="13" fill="#1a2233">UWB</text><text x="285" y="75" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">0.2 m</text>
+              <rect x="200" y="94" width="122" height="20" rx="3" fill="#4d7cff"/><text x="185" y="109" text-anchor="end" font-family="Segoe UI,Arial" font-size="13" fill="#1a2233">Bluetooth AoA</text><text x="330" y="109" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">0.3 m</text>
+              <rect x="200" y="128" width="302" height="20" rx="3" fill="#94a3b8"/><text x="185" y="143" text-anchor="end" font-family="Segoe UI,Arial" font-size="13" fill="#1a2233">Wi-Fi RTT</text><text x="510" y="143" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">1.5 m</text>
+              <rect x="200" y="162" width="334" height="20" rx="3" fill="#94a3b8"/><text x="185" y="177" text-anchor="end" font-family="Segoe UI,Arial" font-size="13" fill="#1a2233">Geomagnetic</text><text x="542" y="177" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">2 m</text>
+              <rect x="200" y="196" width="379" height="20" rx="3" fill="#94a3b8"/><text x="185" y="211" text-anchor="end" font-family="Segoe UI,Arial" font-size="13" fill="#1a2233">BLE RSSI</text><text x="587" y="211" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">3 m</text>
+              <rect x="200" y="230" width="513" height="20" rx="3" fill="#94a3b8"/><text x="185" y="245" text-anchor="end" font-family="Segoe UI,Arial" font-size="13" fill="#1a2233">Wi-Fi RSSI</text><text x="721" y="245" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">10 m</text>
+              <text x="200" y="280" font-family="Segoe UI,Arial" font-size="12" fill="#5b6577">Passive RFID is shown separately: it provides zone / presence detection, not x/y error.</text>
+            </svg>
+            <figcaption>Indicative best-case accuracy; real error depends on deployment. Sources as above.</figcaption>
+          </figure>
+
+          <h2 id="aoa-uwb">Bluetooth AoA vs UWB: The Two High-Precision Routes</h2>
+          <p>When a retail use case genuinely needs centimetre location - separating adjacent racks, binding labels to products, or counting pick-ups - the shortlist narrows to two: Bluetooth AoA and UWB. They reach similar accuracy by very different physics, and the cost structure is where they part ways.</p>
+
+          <h3>How do their accuracy and robustness compare?</h3>
+          <p><strong>UWB is marginally more accurate and more robust to reflections; AoA is close behind and far cheaper to scale.</strong> UWB's time-of-flight measurement is inherently resistant to multipath, which is why it holds sub-0.2 m even in cluttered, non-line-of-sight conditions. AoA's angle measurement is slightly more sensitive to metal shelving and reflections, but with sufficient anchor density and calibration it delivers the same practical 10-30 cm that most retail jobs need.</p>
+
+          <h3>Where does the cost really sit?</h3>
+          <p><strong>The decisive difference is the tag.</strong> AoA puts the complexity in the ceiling anchor and keeps the tag a simple, cheap, multi-year BLE device - so the marginal cost of tagging one more item or fixture is very low. UWB needs a more capable, more power-hungry tag, which is fine for a few hundred high-value assets but becomes the dominant cost when you want to tag thousands of garments or every fixture. For dense, item-adjacent retail analytics, that tag economics usually decides it.</p>
+
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Dimension</th><th>Bluetooth AoA</th><th>UWB</th></tr></thead>
+              <tbody>
+                <tr><td>Typical accuracy</td><td>10&ndash;50 cm</td><td>10&ndash;30 cm</td></tr>
+                <tr><td>Multipath robustness</td><td>Good with calibration</td><td>Excellent (time of flight)</td></tr>
+                <tr><td>Tag cost &amp; power</td><td>Low, multi-year battery</td><td>Higher, shorter battery</td></tr>
+                <tr><td>Scalability (many tags)</td><td>Strong - tag is cheap</td><td>Limited by tag cost/power</td></tr>
+                <tr><td>Ecosystem</td><td>Standard BLE 5.1 Direction Finding</td><td>IEEE 802.15.4z, FiRa; in flagship phones</td></tr>
+                <tr><td>Best retail fit</td><td>Dense fixture/item analytics, pick-up rate, label binding</td><td>Fewer high-value assets, robotics, premium accuracy zones</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Sources: Bluetooth SIG; IEEE 802.15.4z / FiRa Consortium. Figures are typical deployment ranges.</p>
+
+          <p><strong>Rule of thumb:</strong> choose UWB when you have a limited number of high-value things that demand the utmost precision and multipath resilience; choose Bluetooth AoA when you need centimetre-class location across many tags at low cost per tag and long battery life - which is exactly the profile of apparel fixtures, garments and shelf labels.</p>
+
+          <h2 id="power">Power Consumption: Which Route Drains Batteries?</h2>
+          <h3>How do the technology routes compare on power?</h3>
+          <p><strong>Battery life is usually decided by duty cycle, not by the headline radio standard.</strong> A passive RFID label has no battery at all, a BLE or Bluetooth AoA tag can sleep most of the time and wake for short radio bursts, and a UWB tag spends more energy during each ranging exchange. For a retailer, that means "high accuracy" and "low maintenance" can coexist only when the system moves work into powered infrastructure and keeps active tags quiet until an event matters.</p>
+
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Technology route</th><th>Where power is consumed</th><th>Relative tag draw</th><th>Battery implication</th><th>Retail design note</th></tr></thead>
+              <tbody>
+                <tr><td>Passive UHF RFID</td><td>Reader energizes the label during a scan</td><td>None on the tag</td><td>No tag battery maintenance</td><td>Best default for item-level apparel inventory and cycle counts.</td></tr>
+                <tr><td>BLE beacons (RSSI)</td><td>Tag or phone sends/receives periodic advertisements</td><td>Low when interval is long</td><td>Months to years depending on beacon rate and battery size</td><td>Good for coarse zones; do not increase advertising rate just to chase precision.</td></tr>
+                <tr><td>Bluetooth AoA</td><td>Tag emits BLE direction-finding packets; ceiling anchors do the heavy work</td><td>Low to medium</td><td>Often multi-year for fixture tags when event-driven</td><td>Strong power/accuracy balance because costly computation lives in PoE anchors.</td></tr>
+                <tr><td>UWB</td><td>Tag and anchors exchange precise ranging packets</td><td>Medium to high during ranging</td><td>Shorter life unless update rate is tightly controlled</td><td>Reserve for high-value assets, robotics, safety zones or short-duration workflows.</td></tr>
+                <tr><td>Wi-Fi RTT / RSSI</td><td>Phone and access points perform scans or round-trip timing</td><td>No item tag battery, but phone battery matters</td><td>Depends on app behaviour and scan frequency</td><td>Use for app-based wayfinding, not low-cost item tagging.</td></tr>
+                <tr><td>Visual / VPS</td><td>Phone camera, edge cameras or local compute process images</td><td>No radio tag battery</td><td>Power shifts to phone, camera and compute infrastructure</td><td>Useful for navigation and context, but privacy and compute cost become the constraint.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Sources: <a href="https://docs.nordicsemi.com/r/nRF52840-Product-Specification" target="_blank" rel="noopener">Nordic Semiconductor nRF52840 Product Specification</a> for BLE radio current profiles; <a href="https://www.qorvo.com/products/d/da008334" target="_blank" rel="noopener">Qorvo DW3000 datasheet</a> for UWB current profiles; <a href="https://www.gs1.org/standards/rfid" target="_blank" rel="noopener">GS1 RFID standards</a>; <a href="https://developer.android.com/develop/connectivity/wifi/wifi-rtt" target="_blank" rel="noopener">Android Wi-Fi RTT documentation</a>. Always calculate battery life from the chosen silicon, firmware interval, battery chemistry and store temperature.</p>
+
+          <h3>How should a retailer solve the battery problem?</h3>
+          <p><strong>The practical answer is to tier the estate by event value: passive where identity is enough, BLE/AoA where real-time location earns money, and UWB only where its precision changes the outcome.</strong> The power budget should be designed before procurement, not after the first battery replacement cycle surprises operations. The same principle applies to <a href="esl-battery-life.html">ESL battery life</a>: average current over a year matters more than peak current during one refresh or one ranging burst.</p>
+
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Battery tactic</th><th>What it means in practice</th><th>Why it works</th></tr></thead>
+              <tbody>
+                <tr><td>Make passive RFID the inventory backbone</td><td>Use cents-level passive tags for every item that only needs identity, count or zone confirmation.</td><td>It removes battery maintenance from the highest-volume layer.</td></tr>
+                <tr><td>Move intelligence into powered anchors</td><td>Prefer PoE ceiling anchors, gateways and edge processors for compute-heavy angle/location work.</td><td>The tag can stay simple and sleep longer.</td></tr>
+                <tr><td>Use event-driven reporting</td><td>Transmit on motion, pick-up, zone change or staff request instead of broadcasting every second.</td><td>Most products are stationary most of the day.</td></tr>
+                <tr><td>Set different update rates by asset class</td><td>High-value trolleys or robotics update often; ordinary garments update only on interaction.</td><td>Power follows business value instead of a single blanket rule.</td></tr>
+                <tr><td>Monitor battery state as an operations KPI</td><td>Track tag voltage, last-seen time and predicted replacement windows in the same platform that manages ESLs.</td><td>Battery replacement becomes planned maintenance, not shelf-floor firefighting.</td></tr>
+                <tr><td>Test in the real store environment</td><td>Run pilots under metal shelving, dense crowds, cold zones and real opening hours.</td><td>RF reflections, temperature and motion patterns change both accuracy and battery drain.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="apparel">Apparel Deep-Dive: Pick-Up Rate and Inventory Accuracy</h2>
+          <p>Apparel is where positioning and item-level tagging deliver the clearest returns, because two things dominate clothing economics: whether the right stock is actually on the floor, and whether shoppers engage with a style before it sells. Location technology addresses both.</p>
+
+          <h3>How is "pick-up rate" measured with location technology?</h3>
+          <p><strong>Pick-up rate is the physical-store equivalent of an online product's click-through: the share of passers-by who physically lift an item off the rail.</strong> With tagged garments or instrumented fixtures, the system detects a lift (a tag leaving its rest position and moving), a carry, a fitting-room entry, and a put-back. Aggregated, these events answer merchandising questions receipts never could: which styles attract hands but do not convert, which displays drive interaction, which sizes get tried and abandoned.</p>
+          <p>Industry practice already shows the value. RFID-enabled smart fitting rooms capture "tried but not purchased" data, recommended pairings and size demand, feeding merchandising and forecasting. High-precision AoA extends the same idea to the open floor: instead of only knowing what entered a fitting room, you see the full interaction funnel from rack to till. That funnel is the missing analytics layer between footfall counters at the door and the point of sale.</p>
+
+          <div class="callout"><strong>Why accuracy matters here.</strong> To attribute a pick-up to <em>one</em> garment on a rail holding dozens, metre-level location is useless - two racks can be a metre apart and one rail holds many SKUs. This is a centimetre-tier job, which is why AoA or UWB (often alongside RFID identification) is the honest answer for pick-up analytics, not BLE-RSSI proximity.</div>
+
+          <h3>How does location improve inventory accuracy?</h3>
+          <p><strong>Item-level RFID is the proven route to high inventory accuracy, and it is the single most-cited apparel ROI in the industry.</strong> The Auburn University RFID Lab's multi-year apparel benchmarks show retailers moving from a ~63% SKU-level accuracy baseline to 95%+ after item-level RFID, cutting out-of-stocks by up to 50% and reducing physical inventory work from about eight days a year to half a day. The lab's Project Zipper work with GS1 US further found RFID users reaching 99.9% order accuracy across the supply chain.</p>
+          <p>Accurate stock is not a back-office nicety - it is front-line revenue. A style shown as out of stock but actually mislaid is a lost sale and often a needless markdown at season end. Getting accuracy from two-thirds to near-complete is what makes omnichannel promises like "buy online, pick up in store" and "ship from store" actually reliable.</p>
+
+          <figure>
+            <svg viewBox="0 0 820 300" role="img" aria-label="Apparel inventory accuracy rising from 63 percent without RFID to 95 percent or more with item-level RFID">
+              <rect x="0" y="0" width="820" height="300" fill="#fff"/>
+              <text x="40" y="30" font-family="Segoe UI,Arial" font-size="16" font-weight="700" fill="#1a2233">Apparel inventory accuracy: manual vs item-level RFID</text>
+              <line x1="120" y1="250" x2="770" y2="250" stroke="#c9d2e0" stroke-width="1.5"/>
+              <rect x="240" y="118" width="120" height="132" rx="4" fill="#94a3b8"/>
+              <rect x="500" y="51" width="120" height="199" rx="4" fill="#4d7cff"/>
+              <text x="300" y="108" text-anchor="middle" font-family="Segoe UI,Arial" font-size="17" font-weight="700" fill="#1a2233">~63%</text>
+              <text x="560" y="41" text-anchor="middle" font-family="Segoe UI,Arial" font-size="17" font-weight="700" fill="#1a2233">95%+</text>
+              <text x="300" y="272" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#5b6577">Manual counts</text>
+              <text x="560" y="272" text-anchor="middle" font-family="Segoe UI,Arial" font-size="13" fill="#5b6577">Item-level RFID</text>
+            </svg>
+            <figcaption>Data: Auburn University RFID Lab apparel benchmarks; Avery Dennison.</figcaption>
+          </figure>
+
+          <p>The practical apparel pattern that has emerged: <strong>use RFID as the identification and inventory backbone, and add a high-precision AoA layer where real-time location and interaction analytics justify it</strong> - flagship stores, high-margin categories, or zones where merchandising insight moves the numbers. The two are complementary, not competing.</p>
+
+          <h2 id="roi">A Transparent ROI Model for an Apparel Store</h2>
+          <p><strong>The numbers below are an illustrative model, not a quote.</strong> They exist to show the shape of the return and which levers matter, so an integrator can drop in a client's real figures. Every assumption is stated; change one and the outputs move.</p>
+
+          <div class="callout"><strong>Base assumptions.</strong> One mid-size apparel store: annual revenue $1.2M; ~6,000 garments on the floor; inventory turns ~4&times;/year (~24,000 tagged units/year); shrink ~1.5% of revenue; out-of-stock lost sales ~3-4% of revenue; sales-floor area ~600 m&sup2;; labour $18/hour; hardware capex amortised over 3 years.</div>
+
+          <h3>ROI layer 1 - inventory accuracy (RFID)</h3>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Line item</th><th>Basis</th><th>Annual value</th></tr></thead>
+              <tbody>
+                <tr><td>Recovered sales from fewer stockouts</td><td>OOS cut ~50%; recover ~1.5% of revenue</td><td>+$18,000</td></tr>
+                <tr><td>Shrink reduction</td><td>~25% of $18,000 shrink</td><td>+$4,500</td></tr>
+                <tr><td>Labour saved on counts</td><td>8 days &rarr; 0.5 day + auto cycle counts</td><td>+$3,000</td></tr>
+                <tr><td>Fewer end-of-season markdowns</td><td>Better accuracy &amp; placement</td><td>+$3,000</td></tr>
+                <tr><td>Tags</td><td>24,000 &times; $0.08</td><td>&minus;$1,920</td></tr>
+                <tr><td>Readers / handhelds / fixed infra</td><td>~$12,000 capex &divide; 3 yr</td><td>&minus;$4,000</td></tr>
+                <tr><td><strong>Net annual benefit</strong></td><td>&nbsp;</td><td><strong>&asymp; +$22,600</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-note">Uplift ranges based on Auburn RFID Lab / Avery Dennison apparel benchmarks; monetary values illustrative.</p>
+
+          <h3>ROI layer 2 - pick-up-rate analytics (Bluetooth AoA)</h3>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Line item</th><th>Basis</th><th>Annual value</th></tr></thead>
+              <tbody>
+                <tr><td>Conversion uplift from merchandising insight</td><td>+1.0% of revenue on acted-on ranges</td><td>+$12,000</td></tr>
+                <tr><td>Fewer markdowns on slow movers</td><td>Reallocate space to high-interaction styles</td><td>+$3,000</td></tr>
+                <tr><td>Staff &amp; asset efficiency</td><td>Faster find / replenish / wayfinding</td><td>+$2,000</td></tr>
+                <tr><td>Anchors + fixture tags</td><td>~10 anchors + ~300 tags, ~$4,200 &divide; 3 yr</td><td>&minus;$1,400</td></tr>
+                <tr><td>Location software / engine</td><td>Annual</td><td>&minus;$1,200</td></tr>
+                <tr><td><strong>Net annual benefit</strong></td><td>&nbsp;</td><td><strong>&asymp; +$14,400</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>What is the payback?</h3>
+          <p><strong>In this model the combined hardware capex (~$16,000) is recovered in roughly 5-6 months, and the two layers together add about $37,000 of net annual benefit</strong> - a little over 3% of store revenue. The inventory layer is the surer, better-documented return; the analytics layer is higher-variance but higher-ceiling, because a single merchandising insight applied across a chain scales far beyond one store. For a multi-store rollout, run the model per store and stage the analytics layer where margins justify it.</p>
+
+          <h2 id="implement">How to Deploy an Indoor Positioning System</h2>
+          <h3>What does a real deployment involve?</h3>
+          <p><strong>A positioning rollout is 20% radios and 80% site engineering, integration and calibration.</strong> The hardware is the easy part; making it reliable across a live store for years is the work. A typical high-precision (AoA) deployment has five stages:</p>
+          <p><strong>1. Site survey and anchor planning.</strong> Map the floor, identify metal and reflective surfaces, and plan anchor placement. For centimetre-class AoA, plan ceiling anchors roughly every 8-15 m depending on ceiling height and accuracy target, ensuring each location is covered by enough anchors to triangulate. <strong>2. Cabling and power.</strong> Anchors are usually PoE, so factor switch capacity and cable runs. <strong>3. Tagging.</strong> Fit tags to garments, fixtures, trolleys or badges; for apparel, decide what is item-level RFID versus what carries an active AoA tag. <strong>4. Calibration.</strong> Register anchors to the store map and calibrate antenna arrays - this step largely determines real-world accuracy. <strong>5. Integration.</strong> Stream location data into the systems that use it.</p>
+
+          <h3>How does positioning connect to ESL, POS and ERP?</h3>
+          <p><strong>Location is only valuable once it joins your other retail data.</strong> The location engine should expose a clean API or message stream (HTTP/REST, UDP, MQTT or WebSocket are common) so a business platform can subscribe to positions and events. In practice that means binding a tag to a SKU and a shelf label, reconciling RFID inventory against the ERP system of record, and correlating pick-up events with point-of-sale conversion. A store that already runs <a href="electronic-price-tags.html">electronic price tags</a> and an <a href="what-is-ai-esl.html">AI ESL platform</a> has most of the data plumbing; positioning adds the spatial dimension on top. Warehouse and back-of-house operations follow the same pattern - see <a href="industry-warehouse.html">warehouse ESL solutions</a> and the guide to <a href="warehouse-shelf-labels.html">warehouse shelf labels</a>.</p>
+
+          <h3>What drives the cost?</h3>
+          <p>Four levers dominate the bill: <strong>accuracy tier</strong> (centimetre needs denser anchors), <strong>tag count and type</strong> (cents for passive RFID, dollars for active tags), <strong>infrastructure</strong> (anchors, PoE, servers) and <strong>integration and services</strong> (calibration, software, support). The mistake that wrecks budgets is buying more accuracy than the use case needs across the whole store, instead of layering high precision only where it earns its keep.</p>
+
+          <h2 id="choose">How to Choose a Positioning Technology</h2>
+          <h3>A practical selection checklist</h3>
+          <p><strong>Work from the job backwards to the technology, never the reverse.</strong> Answer these in order and the shortlist falls out:</p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Question</th><th>If the answer is...</th><th>Lean toward</th></tr></thead>
+              <tbody>
+                <tr><td>Do you need coordinates, or just presence?</td><td>Presence / counts</td><td>Passive RFID</td></tr>
+                <tr><td>What is your accuracy floor?</td><td>Centimetre (fixture/item)</td><td>Bluetooth AoA / UWB</td></tr>
+                <tr><td>&nbsp;</td><td>1-5 m (aisle/zone)</td><td>BLE beacons</td></tr>
+                <tr><td>&nbsp;</td><td>Room-level only</td><td>Wi-Fi (reuse APs)</td></tr>
+                <tr><td>How many things must you tag?</td><td>Thousands, low cost each</td><td>AoA (cheap tags)</td></tr>
+                <tr><td>&nbsp;</td><td>Few, highest precision</td><td>UWB</td></tr>
+                <tr><td>Is battery life critical?</td><td>Years per tag</td><td>AoA / BLE</td></tr>
+                <tr><td>Reuse existing infrastructure?</td><td>Yes, Wi-Fi already there</td><td>Wi-Fi RTT/RSSI</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>For most apparel and general-merchandise retailers the answer is not one technology but a <strong>layered stack</strong>: passive RFID for inventory, a high-precision AoA layer for real-time location and interaction analytics, and cheap BLE or Wi-Fi for coarse footfall - each applied only where its accuracy is required.</p>
+
+          <h2 id="verdict">Where High-Precision AoA Fits Best</h2>
+          <p><strong>Bluetooth AoA occupies a genuinely useful sweet spot: centimetre-class accuracy at a tag cost and battery life that let you scale to thousands of items and fixtures.</strong> That combination is exactly what the two highest-value retail jobs demand - real-time inventory location beyond a doorway scan, and fixture-level pick-up analytics that separate one rail from the next. Where a store needs precise location across <em>many</em> low-cost, long-lived tags, AoA is usually the most economical path to the accuracy tier that makes those analytics possible.</p>
+          <p>That is not a universal verdict, and honesty about the boundaries matters. <strong>UWB remains the choice</strong> when a smaller number of assets demand the absolute best precision and multipath resilience, or where phone-native UWB is part of the experience. <strong>Passive RFID remains unbeatable</strong> for cents-per-tag full-store inventory and is the backbone most apparel retailers should start from. <strong>BLE and Wi-Fi remain the right, cheap answer</strong> for coarse footfall and proximity. The strongest deployments are layered, and AoA is the layer that has, until recently, been missing between zone-level RFID and metre-level beacons.</p>
+          <p>For an integrator, the takeaway is simple: match the technology to the accuracy the outcome truly needs, prove the inventory case first because it is the surest return, then add a high-precision AoA layer where interaction analytics and real-time location move the numbers.</p>
+
+          <h2 id="future">An Open Ending: What Happens When the Store Becomes Spatially Aware?</h2>
+          <p><strong>The next frontier is not a single winning radio; it is a store data layer where every shelf label, RFID read, AoA coordinate, UWB event and POS transaction can be understood together.</strong> Once the floor has a live coordinate system, retail software stops asking only "what sold?" and starts asking richer questions: where was the product before it sold, how many shoppers touched it, which display moved it, and what should the store change next?</p>
+          <p>That future will need more than accurate dots on a map. It will need open event streams, privacy boundaries, clean product-to-location binding and AI agents that can reason across inventory, shelf labels, planograms and store tasks. A positioning system that cannot export its events becomes another closed dashboard. A positioning system that feeds an <a href="what-is-ai-esl.html">AI ESL platform</a> becomes part of the store's memory.</p>
+          <p>So the better closing question for retailers is intentionally open: <strong>which locations in your store are still invisible, and what decision would change if they became measurable?</strong> Start there, then let the accuracy tier, battery design and integration architecture follow.</p>
+
+          <h2 id="sources">Sources</h2>
+          <ul class="source-list">
+            <li><a href="https://www.bluetooth.com/blog/adopting-aoa-direction-finding-provides-a-high-precision-location-experience/" target="_blank" rel="noopener">Bluetooth SIG - AoA Direction Finding and high-precision location</a></li>
+            <li><a href="https://ieeexplore.ieee.org/document/10452270/" target="_blank" rel="noopener">IEEE - Performance of UWB IEEE 802.15.4z ranging and positioning</a></li>
+            <li><a href="https://www.firaconsortium.org/discover/what-uwb-does" target="_blank" rel="noopener">FiRa Consortium - What UWB does (precise, secure ranging)</a></li>
+            <li><a href="https://www.mdpi.com/1424-8220/21/15/5181" target="_blank" rel="noopener">MDPI Sensors - A Practice of BLE RSSI Measurement for Indoor Positioning</a></li>
+            <li><a href="https://rfid.auburn.edu/" target="_blank" rel="noopener">Auburn University RFID Lab - apparel inventory accuracy benchmarks</a></li>
+            <li><a href="https://rfid.averydennison.com/en/home/news-insights/insights/apparel-beyond-the-shelves-the-true-value-of-inventory-accuracy-for-retailers.html" target="_blank" rel="noopener">Avery Dennison - The true value of inventory accuracy for retailers</a></li>
+            <li><a href="https://www.verifiedmarketresearch.com/product/indoor-positioning-and-rtls-market/" target="_blank" rel="noopener">Verified Market Research - Indoor Positioning and RTLS Market</a></li>
+            <li><a href="https://docs.nordicsemi.com/r/nRF52840-Product-Specification" target="_blank" rel="noopener">Nordic Semiconductor - nRF52840 Product Specification</a></li>
+            <li><a href="https://www.qorvo.com/products/d/da008334" target="_blank" rel="noopener">Qorvo - DW3000 UWB transceiver datasheet</a></li>
+            <li><a href="https://www.gs1.org/standards/rfid" target="_blank" rel="noopener">GS1 - RFID standards and item identification</a></li>
+            <li><a href="https://developer.android.com/develop/connectivity/wifi/wifi-rtt" target="_blank" rel="noopener">Android Developers - Wi-Fi RTT</a></li>
+          </ul>
+        </div>
+
+        <div class="article-share-panel" data-article-share aria-label="Share this article">
+          <div class="article-share-eyebrow">Share this article</div>
+          <p>Send this guide to your team or save the canonical link.</p>
+          <div class="article-share-actions" aria-label="Article sharing options"></div>
+        </div>
+
+        <div class="article-share">
+          <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Talk to our retail solutions team</a>
+          <a href="products.html" class="btn btn-ghost">Explore products</a>
+          <a href="blog.html" class="btn btn-ghost">&larr; All articles</a>
+        </div>
+      </article>
+
+      <aside class="article-toc" aria-label="Article contents">
+        <b>In this guide</b>
+        <a href="#what">What is retail indoor positioning?</a>
+        <a href="#need">Why retail needs location data</a>
+        <a href="#tech">The technologies explained</a>
+        <a href="#compare">Technologies compared</a>
+        <a href="#aoa-uwb">AoA vs UWB</a>
+        <a href="#power">Power and battery life</a>
+        <a href="#apparel">Apparel: pick-up rate &amp; inventory</a>
+        <a href="#roi">ROI model</a>
+        <a href="#implement">How to deploy</a>
+        <a href="#choose">How to choose</a>
+        <a href="#verdict">Where AoA fits best</a>
+        <a href="#future">Open questions</a>
+        <a href="#faq">FAQ</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Retail Indoor Positioning - FAQ">
+  <div class="wrap wide">
+    <div class="article">
+      <div class="sec-tag">// FAQ</div>
+      <h2 style="font-size:28px;margin:8px 0 24px">Frequently asked</h2>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q">What is the most accurate indoor positioning technology for retail?<span class="chev">+</span></button><div class="faq-a"><p>Ultra-wideband (UWB) and Bluetooth AoA deliver the highest accuracy, typically 10-30 cm. Passive RFID gives zone or presence-level location rather than coordinates, while BLE-RSSI beacons and Wi-Fi give roughly 1-5 m accuracy in real stores.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What is the difference between RFID and a real-time locating system (RTLS)?<span class="chev">+</span></button><div class="faq-a"><p>RFID identifies an item and confirms it was present within a reader's zone. An RTLS such as Bluetooth AoA or UWB continuously computes x/y coordinates, so you can see where an item or person is on the floor in real time, not only that it was scanned at a doorway or handheld.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How accurate is Bluetooth AoA positioning?<span class="chev">+</span></button><div class="faq-a"><p>Bluetooth AoA (Direction Finding) typically reaches about 10-50 cm accuracy with a well-designed multi-anchor deployment, according to the Bluetooth SIG. Accuracy depends on anchor density, antenna array quality, calibration and signal reflections.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can indoor positioning measure how often shoppers pick up a product?<span class="chev">+</span></button><div class="faq-a"><p>Yes. Motion and location events on tagged items or fixtures let a system count pick-ups, dwell time and put-backs. This turns each rack into a source of engagement or pick-up-rate analytics that shows which products attract hands, not just which ones sell.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How much does an indoor positioning system cost?<span class="chev">+</span></button><div class="faq-a"><p>Cost depends on the accuracy tier and infrastructure density. Passive RFID tags cost a few cents but need readers or handhelds; Bluetooth AoA and UWB tags run from about one to several dollars with ceiling anchors placed roughly every 8-15 m. Budget for tags, anchors, PoE cabling, software and integration.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Which positioning technology uses the least power?<span class="chev">+</span></button><div class="faq-a"><p>Passive RFID uses no tag battery because the reader energizes the label. Among active real-time tags, BLE and Bluetooth AoA are usually the lowest-power routes because the tag can transmit short bursts and sleep most of the time. UWB draws more current while ranging, so it needs stricter duty cycling or larger batteries.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Which positioning technology is best for apparel inventory and pick-up analytics?<span class="chev">+</span></button><div class="faq-a"><p>Passive item-level RFID is the standard for fast, full-store inventory counts. Bluetooth AoA or UWB add real-time location for pick-up analytics, staff and asset tracking. Many apparel stores combine RFID for stock accuracy with an AoA layer for real-time shopper and product-interaction insight.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Retail Indoor Positioning - Related">
+  <div class="wrap wide">
+    <div class="sec-head reveal" style="margin-bottom:24px"><div class="sec-tag">// KEEP READING</div><h2>Related articles</h2></div>
+    <div class="related-grid">
+      <a class="res-card reveal" href="what-is-ai-esl.html"><div class="res-kind">PLATFORM</div><h3>What Is an AI ESL?</h3><p>How AI turns shelf labels into a live retail data layer.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="warehouse-shelf-labels.html"><div class="res-kind">OPERATIONS</div><h3>Warehouse Shelf Labels: Types, Costs, How to Choose</h3><p>Location, picking and rack labelling for the back of house.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="industry-warehouse.html"><div class="res-kind">INDUSTRY</div><h3>Warehouse &amp; DC Solutions</h3><p>Pick-to-light, large displays and high-visibility operations.</p><span class="res-link">Explore solution &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></div>
+        <p>AI-powered electronic shelf label solutions for modern retail. Dynamic pricing, open-platform middleware and digital price tags trusted in 30+ countries.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Solutions</a>
+        <a href="products.html">Products</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About us</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get started</h4>
+        <a href="javascript:void(0)" onclick="openModal()">Get a custom quote</a>
+        <a href="index.html#roi">ROI calculator</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="foot-contact">
+          Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou, Guangdong Province, China
+          <b>Email</b><a href="mailto:info@panpantechnology.com">info@panpantechnology.com</a>
+          <b>Phone</b><a href="tel:+8613925118851">+86-13925118851</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-brand-row" aria-label="PanPanTech Group brands">
+      <span><a href="https://www.panpantechnology.com" target="_blank" rel="noopener">PanPanTech&reg;</a> &mdash; Group Site</span>
+      <span><a href="https://www.aieinksmart.com" target="_blank" rel="noopener">AiEInkSmart&trade;</a> &mdash; Electronic Shelf Labels</span>
+      <span><a href="https://www.pyroglaux.com" target="_blank" rel="noopener">Pyroglaux&reg;</a> &mdash; Footfall Analytics</span>
+      <span><a href="https://www.einksmart.com" target="_blank" rel="noopener">EinkSmart&trade;</a> &mdash; E-Ink Art Displays</span>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 AiESL&trade; | The Retail Data Platform of PanPanTech&reg; | Guangzhou PanPanTech Co., Ltd. All Rights Reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div id="formStage">
+      <div class="modal-head">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+        <h3>Get a Custom Quote</h3>
+        <p>Tell us about your store network &mdash; we'll send tailored pricing and a free ROI assessment within one business day.</p>
+      </div>
+      <div class="modal-body">
+        <form id="quoteForm" novalidate>
+          <div class="form-row">
+            <div class="form-field"><label>Full name <span class="req">*</span></label><input type="text" name="name" id="f-name"><div class="form-err" id="e-name">Please enter your name</div></div>
+            <div class="form-field"><label>Work email <span class="req">*</span></label><input type="email" name="email" id="f-email"><div class="form-err" id="e-email">Please enter a valid email</div></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Company <span class="req">*</span></label><input type="text" name="company" id="f-company"><div class="form-err" id="e-company">Please enter your company</div></div>
+            <div class="form-field"><label>Country</label><input type="text" name="country" id="f-country" placeholder="e.g. Germany"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Number of stores</label><select name="stores" id="f-stores"><option value="1-5">1&ndash;5 stores</option><option value="6-20">6&ndash;20 stores</option><option value="21-100">21&ndash;100 stores</option><option value="100+">100+ stores</option></select></div>
+            <div class="form-field"><label>Primary interest</label><select name="interest" id="f-interest"><option value="positioning">Indoor positioning / RTLS</option><option value="esl-hardware">ESL hardware / price tags</option><option value="ai-pricing">AI dynamic pricing</option><option value="full-solution">Full retail solution</option></select></div>
+          </div>
+          <div class="form-field"><label>What are you trying to solve?</label><textarea name="message" id="f-message" placeholder="Tell us about your current setup, timeline, or any specific requirements..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Send my request</button>
+          <p style="font-size:11px;color:var(--ink-dim);margin-top:12px;text-align:center">We reply within one business day. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+    <div id="successStage" style="display:none">
+      <div class="form-success">
+        <div class="ok-ic">&#10003;</div>
+        <h3>Request received</h3>
+        <p>Thanks &mdash; our retail solutions team will get back to you within one business day with tailored pricing and a free ROI assessment.</p>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
