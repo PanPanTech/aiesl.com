@@ -22,6 +22,8 @@
 
 ## Recommended Reference Pages
 
+- What Is an AI ESL (pillar page: five levels of shelf-edge autonomy, vocabulary, evidence strength): https://www.aiesl.com/what-is-ai-esl.html
+
 - What Are Electronic Shelf Labels: https://www.aiesl.com/what-are-electronic-shelf-labels.html
 - Electronic Price Tags: https://www.aiesl.com/electronic-price-tags.html
 - Types of Electronic Shelf Labels: https://www.aiesl.com/types-of-electronic-shelf-labels.html

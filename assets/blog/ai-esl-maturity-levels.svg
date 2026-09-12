@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 600" width="1160" height="600" font-family="'Inter','Segoe UI',system-ui,sans-serif">
+  <rect width="1160" height="600" fill="#ffffff"/>
+  <text x="40" y="42" font-size="21" font-weight="700" fill="#12151c">Five levels of AI at the shelf edge</text>
+  <text x="40" y="68" font-size="13.5" fill="#5b6472">&#8220;AI ESL&#8221; has no agreed industry definition. These levels let you ask a supplier which one they are actually selling.</text>
+
+  <g font-size="11">
+    <!-- L0 -->
+    <rect x="40" y="392" width="204" height="92" rx="10" fill="#f1f3f7" stroke="#dfe3ea"/>
+    <text x="56" y="417" font-size="11.5" font-weight="700" fill="#8a93a1">LEVEL 0</text>
+    <text x="56" y="439" font-size="15" font-weight="700" fill="#12151c">Paper</text>
+    <text x="56" y="458" fill="#5b6472">Price lives on a printed</text>
+    <text x="56" y="472" fill="#5b6472">tag. Changing it is work.</text>
+
+    <!-- L1 -->
+    <rect x="256" y="322" width="204" height="162" rx="10" fill="#eef3ff" stroke="#c9d8ff"/>
+    <text x="272" y="347" font-size="11.5" font-weight="700" fill="#2f5fe0">LEVEL 1</text>
+    <text x="272" y="369" font-size="15" font-weight="700" fill="#12151c">Mirrored ESL</text>
+    <text x="272" y="388" fill="#5b6472">Label shows what the</text>
+    <text x="272" y="402" fill="#5b6472">POS sends. No decision</text>
+    <text x="272" y="416" fill="#5b6472">made at the shelf.</text>
+    <rect x="272" y="426" width="172" height="42" rx="7" fill="#2f5fe0"/>
+    <text x="358" y="443" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">Most deployments sold</text>
+    <text x="358" y="458" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">as &#8220;AI&#8221; sit here</text>
+
+    <!-- L2 -->
+    <rect x="472" y="252" width="204" height="232" rx="10" fill="#eef3ff" stroke="#c9d8ff"/>
+    <text x="488" y="277" font-size="11.5" font-weight="700" fill="#2f5fe0">LEVEL 2</text>
+    <text x="488" y="299" font-size="15" font-weight="700" fill="#12151c">Rules-based</text>
+    <text x="488" y="317" font-size="15" font-weight="700" fill="#12151c">automation</text>
+    <text x="488" y="338" fill="#5b6472">Scheduled and triggered</text>
+    <text x="488" y="352" fill="#5b6472">changes run with no</text>
+    <text x="488" y="366" fill="#5b6472">person: time of day,</text>
+    <text x="488" y="380" fill="#5b6472">expiry, stock threshold.</text>
+    <text x="488" y="402" font-style="italic" fill="#12151c">Deterministic and</text>
+    <text x="488" y="416" font-style="italic" fill="#12151c">auditable. No model &#8212;</text>
+    <text x="488" y="430" font-style="italic" fill="#12151c">and often all a store</text>
+    <text x="488" y="444" font-style="italic" fill="#12151c">actually needs.</text>
+
+    <!-- L3 -->
+    <rect x="688" y="168" width="204" height="316" rx="10" fill="#eaf6f0" stroke="#bcdfcd"/>
+    <text x="704" y="193" font-size="11.5" font-weight="700" fill="#1d7a4c">LEVEL 3</text>
+    <text x="704" y="215" font-size="15" font-weight="700" fill="#12151c">Model-assisted</text>
+    <text x="704" y="233" font-size="15" font-weight="700" fill="#12151c">recommendation</text>
+    <text x="704" y="254" fill="#5b6472">Models propose prices</text>
+    <text x="704" y="268" fill="#5b6472">from demand, elasticity</text>
+    <text x="704" y="282" fill="#5b6472">and competitor signals.</text>
+    <text x="704" y="296" fill="#5b6472">A human approves</text>
+    <text x="704" y="310" fill="#5b6472">before it ships.</text>
+    <rect x="704" y="322" width="172" height="42" rx="7" fill="#1d7a4c"/>
+    <text x="790" y="339" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">Where the word &#8220;AI&#8221;</text>
+    <text x="790" y="354" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">honestly begins</text>
+
+    <!-- L4 -->
+    <rect x="904" y="104" width="216" height="380" rx="10" fill="#fff4e6" stroke="#f0d3a6"/>
+    <text x="920" y="129" font-size="11.5" font-weight="700" fill="#b4700f">LEVEL 4</text>
+    <text x="920" y="151" font-size="15" font-weight="700" fill="#12151c">Closed loop,</text>
+    <text x="920" y="169" font-size="15" font-weight="700" fill="#12151c">inside guardrails</text>
+    <text x="920" y="190" fill="#5b6472">Approved categories</text>
+    <text x="920" y="204" fill="#5b6472">re-price automatically</text>
+    <text x="920" y="218" fill="#5b6472">within hard floors and</text>
+    <text x="920" y="232" fill="#5b6472">ceilings, with an audit</text>
+    <text x="920" y="246" fill="#5b6472">trail and a kill switch.</text>
+    <text x="920" y="270" font-weight="650" fill="#b4700f">Usually scoped to one</text>
+    <text x="920" y="285" font-weight="650" fill="#b4700f">category first &#8212; rarely</text>
+    <text x="920" y="300" font-weight="650" fill="#b4700f">estate-wide.</text>
+  </g>
+
+  <line x1="40" y1="506" x2="1120" y2="506" stroke="#dfe3ea" stroke-width="1.5"/>
+  <text x="40" y="527" font-size="11.5" fill="#8a93a1">less autonomy, less to govern</text>
+  <text x="1120" y="527" font-size="11.5" fill="#8a93a1" text-anchor="end">more autonomy, more to govern</text>
+
+  <rect x="40" y="544" width="1080" height="46" rx="9" fill="#f6f7fa" stroke="#e4e8ef"/>
+  <text x="60" y="563" font-size="12.5" fill="#12151c"><tspan font-weight="700">There is no Level 5.</tspan> Fully autonomous retail pricing is not a product category, because policy, legal and brand limits</text>
+  <text x="60" y="580" font-size="12.5" fill="#12151c">mean somebody always owns the guardrails. A supplier promising pricing with nobody accountable for it is describing a liability.</text>
+</svg>
