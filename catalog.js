@@ -1,6 +1,6 @@
 /* ===================================================================
    catalog.js — AiESL product catalog data + render
-   Source: PanPanTech Classic Series + Lite/Slim/Rock/Freezer/7-color
+   Source: PanPanTech Classic Series + Lite/Slim/Rock/Freezer + Prism
    data sheets. Renders filterable cards, full spec table, detail modal.
    =================================================================== */
 (function () {
@@ -103,13 +103,37 @@
       specs: { color:'BW / BWR', housing:'Cold-chain or waterproof housing', ip:'IP67 for waterproof model', temp:'-25 to +15 C freezer; 0 to +40 C waterproof', tech:'Dot-matrix E-ink / e-paper display', angle:'Close to 180 deg', rf:'2.4 GHz private protocol', life:'>=10 years', cert:'RoHS / CE / FCC' },
     },
     {
-      key: 'e6', name: 'E6 Spectra 6 Color', cat: 'E INK SPECTRA 6 FULL COLOR',
-      tagline: 'E6 means E Ink Spectra 6 full-color electronic paper for high-impact promotional displays.',
-      best: 'Full-color promotions / aisle endcaps / premium merchandising',
+      key: 'prism', name: 'Prism Series', cat: 'COLOUR E-PAPER PROMO DISPLAYS',
+      tagline: 'Six-colour e-paper promotion displays from 12.43″ to 31.5″ — battery or light-powered, with retail-system integration being validated.',
+      best: 'End-caps / aisle signs / checkouts / store entrances',
+      page: 'prism-colour-epaper-promo-displays.html',
       models: [
-        { m:'AES-0730E6', src:'AES-0730/SC', size:'7.30"', sizeIn:7.30, res:'800 x 480', dpi:'183 DPI', dim:'183 x 118 x 11.2 mm', wt:'201 g', batt:'4 x 600 mAh CR2450', color:'e6', moq:'-', note:'E Ink Spectra 6 full color: black, white, red, yellow, blue, green and orange' },
+        { m:'AES-1243P', size:'12.43"', sizeIn:12.43, isPrism:true, anchor:'aes-1243p', title:'Prism 12.43″ Light-Powered Promo Sign',
+          res:'1208 x 1600', dpi:'161 PPI', dim:'323.5 x 210 x 13.0 mm', wt:'540 g', batt:'300 mAh Li + photovoltaic', color:'p6',
+          orient:'Portrait', radio:'Bluetooth LE · Wi-Fi 2.4 / 5 GHz', power:'Rechargeable 300 mAh + perovskite photovoltaic collector · USB-C',
+          runtime:'BLE, 1 update/day: kept charged by store light (manufacturer rating, adequate light). Wi-Fi always-on: ≈10 days per charge',
+          temp:'0–50 °C (indoor)', mount:'Desktop or wall', housing:'PC + ABS',
+          note:'Full-colour promotion sign that tops up its battery from store lighting. Built for end-caps and aisle promotions.' },
+        { m:'AES-1243P-D', size:'12.43"', sizeIn:12.43, isPrism:true, anchor:'aes-1243p-d', title:'Prism 12.43″ Dual Aisle Sign',
+          res:'1208 x 1600 (each face)', dpi:'161 PPI', dim:'323.5 x 210 x 8.0 mm (13.0 mm top)', wt:'≈540 g', batt:'Li + photovoltaic', color:'p6',
+          orient:'Portrait, double-sided', radio:'Bluetooth 5.4 · Wi-Fi 6 (2.4 / 5 GHz)', power:'Rechargeable battery + photovoltaic collector · USB-C (capacity TBC)',
+          runtime:'Two updates/day with continuous operation from photovoltaic charging (manufacturer figure; light level TBC)',
+          temp:'To be confirmed', mount:'Ceiling-hung (hardware TBC)', housing:'To be confirmed',
+          note:'Double-sided version for signs hung above an aisle and read from both directions. Preliminary data.' },
+        { m:'AES-1330P', size:'13.3"', sizeIn:13.3, isPrism:true, anchor:'aes-1330p', title:'Prism 13.3″ Promo Poster',
+          res:'1600 x 1200', dpi:'150 PPI', dim:'301.3 x 218.2 x 9.1 mm', wt:'520 g', batt:'5000 mAh Li · USB-C PD', color:'p6',
+          orient:'Landscape 4:3', radio:'Wi-Fi 4, 2.4 GHz · NFC set-up', power:'Rechargeable 5,000 mAh · USB-C PD fast charge',
+          runtime:'≈3 months Wi-Fi connected / ≈6 months Wi-Fi off, at 5 updates/day (manufacturer figures)',
+          temp:'0–50 °C (indoor)', mount:'Desktop or wall', housing:'PC + ABS', active:'270.4 x 202.8 mm',
+          note:'Counter, checkout and entrance poster with a 150 PPI panel for text-dense offers.' },
+        { m:'AES-3150P', size:'31.5"', sizeIn:31.5, isPrism:true, anchor:'aes-3150p', title:'Prism 31.5″ Wide Promo Display',
+          res:'2560 x 1440', dpi:'93 PPI', dim:'707.5 x 421.5 x 15.1 mm', wt:'3 kg', batt:'7100 mAh 11.4 V · USB-C PD', color:'p6',
+          orient:'Landscape 16:9', radio:'Wi-Fi 4, 2.4 GHz · NFC set-up', power:'Rechargeable 7,100 mAh 11.4 V · USB-C PD (photovoltaic strip under evaluation)',
+          runtime:'≈4 months Wi-Fi connected / ≈8 months Wi-Fi off, at 5 updates/day (manufacturer figures)',
+          temp:'0–50 °C (indoor)', mount:'Freestanding stand or wall', housing:'ABS', active:'696.32 x 391.68 mm',
+          note:'Wide-format model for entrances, malls and promotional walls. Needs periodic charging.' },
       ],
-      specs: { color:'E Ink Spectra 6 full color', tech:'Spectra 6 e-paper', note:'Full-color promotional electronic paper label' },
+      specs: { color:'Six-colour e-paper (E Ink Spectra 6 panel)', tech:'Reflective electrophoretic, bistable', note:'See individual model details' },
     },
     {
       key: 'gateway', name: 'Gateway', cat: 'BASE STATION',
@@ -126,8 +150,8 @@
   const ALL = [];
   SERIES.forEach(s => s.models.forEach(m => ALL.push(Object.assign({ series: s.key, seriesName: s.name }, m))));
 
-  const COLOR_LABEL = { bw:'B/W', bwr:'B/W/R', bwry:'B/W/R/Y', '7c':'7-color', e6:'E6 full color', gw:'Gateway' };
-  const COLOR_CHIPS = { bw:['B','W'], bwr:['B','W','R'], bwry:['B','W','R','Y'], '7c':['B','W','R','Y','Bl','Gr','Or'], e6:['E6','Spectra 6'], gw:[] };
+  const COLOR_LABEL = { bw:'B/W', bwr:'B/W/R', bwry:'B/W/R/Y', '7c':'7-color', p6:'6-colour (B/W/R/Y/Bl/G)', gw:'Gateway' };
+  const COLOR_CHIPS = { bw:['B','W'], bwr:['B','W','R'], bwry:['B','W','R','Y'], '7c':['B','W','R','Y','Bl','Gr','Or'], p6:['B','W','R','Y','Bl','G'], gw:[] };
 
   function tagMockHtml(m) {
     if (m.isGateway) {
@@ -159,7 +183,7 @@
       case 'slim':    return 'assets/products/slim-' + code + '.png';
       case 'rock':    return 'assets/products/rock-' + code + (code === '0102' ? '.jpg' : '.png');
       case 'coldproof': return 'assets/products/swift-' + code.toLowerCase() + '.jpg';
-      case 'e6': return 'assets/products/sevencolor-0730.png';
+      case 'prism': return 'assets/products/prism-' + m.m.replace('AES-','').toLowerCase().replace('p-d','d').replace(/p$/,'') + '.jpg';
       case 'gateway': return 'assets/products/gateway-b001.jpg';
     }
     return '';
@@ -168,11 +192,11 @@
   function cardHtml(m) {
     const chips = (COLOR_CHIPS[m.color]||[]).map(c=>`<span class="cchip">${c}</span>`).join('');
     const photo = photoFor(m);
-    const title = m.isGateway ? (m.series === 'swift' ? 'Swift AP01 Base Station' : 'ESL Gateway') : (m.series === 'coldproof' ? 'AiESL ' + m.size + ' ' + (m.m.endsWith('W') ? 'Waterproof ESL' : 'Freezer ESL') : (m.series === 'e6' ? 'AiESL E6 Spectra 6 ESL' : 'AiESL ' + m.size + ' ESL'));
+    const title = m.isGateway ? (m.series === 'swift' ? 'Swift AP01 Base Station' : 'ESL Gateway') : (m.series === 'coldproof' ? 'AiESL ' + m.size + ' ' + (m.m.endsWith('W') ? 'Waterproof ESL' : 'Freezer ESL') : (m.isPrism ? m.title : 'AiESL ' + m.size + ' ESL'));
     return `<div class="prod-card model-card reveal" data-series="${m.series}" data-model="${m.m.replace(/[^A-Za-z0-9]/g,'')}" onclick="AiESLcat.open('${m.m}')">
       <div class="mc-top photo">
         <span class="mc-badge">${m.seriesName}</span>
-        <img src="${photo}" alt="AiESL ${m.m} ${m.isGateway?'ESL gateway':m.size+' electronic shelf label'}" loading="lazy">
+        <img src="${photo}" alt="AiESL ${m.m} ${m.isGateway?'ESL gateway':(m.isPrism?m.size+' colour e-paper promo display':m.size+' electronic shelf label')}" loading="lazy">
         <span class="mc-size">${m.size}</span>
       </div>
       <div class="prod-body">
@@ -181,7 +205,7 @@
         <div class="prod-specs">
           <div><span>Resolution</span><span>${m.res}</span></div>
           <div><span>Dimensions</span><span>${m.dim.replace(/ /g,'')}</span></div>
-          <div><span>${m.isGateway?'Power':'Battery'}</span><span>${(m.batt||'').replace(/ \(.*\)/,'')}</span></div>
+          <div><span>${m.isGateway||m.isPrism?'Power':'Battery'}</span><span>${(m.batt||'').replace(/ \(.*\)/,'')}</span></div>
         </div>
         ${m.isGateway ? '' : `<div class="chips-color">${chips}<span class="cchip" style="border-color:rgba(77,124,255,.4);color:var(--blue-hi)">${m.dpi}</span></div>`}
         <span class="prod-link" style="margin-top:16px">View full specs &rarr;</span>
@@ -197,7 +221,16 @@
     const s = SERIES.find(x=>x.key===m.series);
     const ov = document.getElementById('mmOverlay');
     const common = s.specs || {};
-    const pairs = m.isGateway ? [
+    const pairs = m.isPrism ? [
+      ['Model', m.m + ' (provisional)'], ['Series', 'Prism colour e-paper promo display'],
+      ['Display size', m.size], ['Orientation', m.orient], ['Resolution', m.res], ['Pixel density', m.dpi],
+      ['Active area', m.active || 'To be confirmed'], ['Display colors', 'Black · White · Red · Yellow · Blue · Green'],
+      ['Display tech', common.tech], ['Dimensions', m.dim], ['Weight', m.wt], ['Housing', m.housing],
+      ['Wireless', m.radio], ['Power', m.power], ['Run time', m.runtime], ['Op. temp', m.temp], ['Mounting', m.mount],
+      ['Platform integration', 'MQTT / REST connection to the AiESL platform being validated — ask for current status'],
+      ['Certification', 'Not yet certified (CE / FCC) — contact us before ordering for a regulated market'],
+      ['Full details', '<a href="prism-colour-epaper-promo-displays.html#' + m.anchor + '">Prism series page &rarr;</a>'],
+    ] : m.isGateway ? [
       ['Model', m.m], ['Type', 'ESL control base station'], ['Dimensions', m.dim], ['Weight', m.wt],
       ['Processor', 'Quad-core ARM Cortex-A35'], ['Memory', '1 GB DDR3 · 16 GB eMMC'],
       ['Display', '4-digit LED segment'], ['Network', 'Wi-Fi 2.4G · RJ45 · BLE 5.2'],
@@ -220,7 +253,7 @@
     var photoEl = ov.querySelector('.mm-photo img');
     if (photoEl) { photoEl.src = photoFor(m); photoEl.alt = 'AiESL ' + m.m; }
     ov.querySelector('.pmodel').textContent = m.m;
-    ov.querySelector('.mm-head h3').textContent = m.isGateway ? 'AiESL ESL Gateway' : 'AiESL ' + m.size + ' Electronic Shelf Label';
+    ov.querySelector('.mm-head h3').textContent = m.isGateway ? 'AiESL ESL Gateway' : (m.isPrism ? 'AiESL ' + m.title : 'AiESL ' + m.size + ' Electronic Shelf Label');
     ov.querySelector('.mm-head p').textContent = (m.note || s.tagline);
     ov.querySelector('.mm-specs').innerHTML = rows(pairs);
     ov.classList.add('open');
@@ -241,8 +274,8 @@
     const s = SERIES.find(x=>x.key===key);
     const intro = document.getElementById('catIntro');
     if (intro) intro.innerHTML = key==='all'
-      ? `<b>${ALL.length} models</b> across Swift, Classic, Lite, Slim, Rock, Freezer and specialty catalog groups — from a 1.54&Prime; accessory tag to 13.3&Prime; large-format displays and the base station. Click any model for the full spec sheet.`
-      : `<b>${s.name}</b> · ${s.tagline} &nbsp;<span style="color:var(--ink-dim)">Best for: ${s.best}</span>`;
+      ? `<b>${ALL.length} models</b> across six label families, the Prism colour promo displays and the base station — from a 1.54&Prime; shelf label to a 31.5&Prime; promo display. Click any model for the full spec sheet.`
+      : `<b>${s.name}</b> · ${s.tagline} &nbsp;<span style="color:var(--ink-dim)">Best for: ${s.best}</span>${s.page?` &nbsp;<a href="${s.page}" style="color:var(--blue-hi)">Explore the Prism series &rarr;</a>`:''}`;
   }
 
   function specTableHtml() {
@@ -256,7 +289,7 @@
           <td>${m.m}</td><td>${m.size}</td><td class="num">${m.res}</td><td class="num">${m.dpi}</td>
           <td class="num">${m.dim.replace(/ /g,'')}</td><td class="num">${m.wt}</td>
           <td>${COLOR_LABEL[m.color]}</td><td class="num">${(m.batt||'').replace(/ \(.*\)/,'')}</td>
-          <td class="num">${m.ip||(s.key==='freezer'?'IP67':'IP54')}</td></tr>`;
+          <td class="num">${m.isPrism?'Indoor':(m.ip||(s.key==='freezer'?'IP67':'IP54'))}</td></tr>`;
       });
     });
     return html + '</tbody></table>';
