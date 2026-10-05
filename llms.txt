@@ -41,6 +41,8 @@
 
 - ESL Software Deployment: Cloud vs Your Own Server (cost structure, control, continuity, hardware portability): https://www.aiesl.com/esl-software-cloud-vs-on-premise.html
 
+- Electronic Shelf Label Market Size 2026 (six analyst estimates compared, vendor-revenue cross-check, RUNTO unit shipments, US/North America market, 2026 outlook): https://www.aiesl.com/electronic-shelf-label-market-size.html
+
 ## Interactive Tools
 
 - ESL ROI Calculator (payback period and 3-year net savings; conservative labour-only model, all assumptions published): https://www.aiesl.com/esl-roi-calculator.html

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 640" width="1160" height="640" font-family="'Inter','Segoe UI',system-ui,sans-serif" role="img" aria-label="Bar chart comparing six analyst estimates of the 2025 global electronic shelf label market, from 1.52 to 2.66 billion US dollars, with the combined 2025 revenue of VusionGroup, Hanshow and Pricer at about 2.53 billion US dollars">
+  <rect width="1160" height="640" fill="#ffffff"/>
+  <text x="40" y="44" font-size="21" font-weight="700" fill="#12151c">2025 ESL market: six analyst estimates vs. what three vendors actually booked</text>
+  <text x="40" y="70" font-size="13.5" fill="#5b6472">Global electronic shelf label market, 2025, USD billions. Vendor revenue converted at ECB 2025 average rates.</text>
+  <g font-size="12" fill="#5b6472">
+    <line x1="330" y1="100" x2="330" y2="560" stroke="#d5dae2"/>
+    <text x="330" y="580" text-anchor="middle">$0</text>
+    <line x1="460" y1="100" x2="460" y2="560" stroke="#eef0f4"/>
+    <text x="460" y="580" text-anchor="middle">$0.5B</text>
+    <line x1="590" y1="100" x2="590" y2="560" stroke="#eef0f4"/>
+    <text x="590" y="580" text-anchor="middle">$1.0B</text>
+    <line x1="720" y1="100" x2="720" y2="560" stroke="#eef0f4"/>
+    <text x="720" y="580" text-anchor="middle">$1.5B</text>
+    <line x1="850" y1="100" x2="850" y2="560" stroke="#eef0f4"/>
+    <text x="850" y="580" text-anchor="middle">$2.0B</text>
+    <line x1="980" y1="100" x2="980" y2="560" stroke="#eef0f4"/>
+    <text x="980" y="580" text-anchor="middle">$2.5B</text>
+    <line x1="1110" y1="100" x2="1110" y2="560" stroke="#eef0f4"/>
+    <text x="1110" y="580" text-anchor="middle">$3.0B</text>
+  </g>
+  <g font-size="14" fill="#12151c">
+    <text x="40" y="128">Research and Markets</text>
+    <rect x="330" y="112" width="395" height="24" rx="5" fill="#9db7ff"/>
+    <text x="735" y="129" font-weight="700" fill="#2f5fe0">$1.52B</text>
+    <text x="40" y="172">Expert Market Research</text>
+    <rect x="330" y="156" width="419" height="24" rx="5" fill="#9db7ff"/>
+    <text x="759" y="173" font-weight="700" fill="#2f5fe0">$1.61B</text>
+    <text x="40" y="216">Mordor Intelligence</text>
+    <rect x="330" y="200" width="512" height="24" rx="5" fill="#9db7ff"/>
+    <text x="852" y="217" font-weight="700" fill="#2f5fe0">$1.97B</text>
+    <text x="40" y="260">Grand View Research</text>
+    <rect x="330" y="244" width="543" height="24" rx="5" fill="#9db7ff"/>
+    <text x="883" y="261" font-weight="700" fill="#2f5fe0">$2.09B</text>
+    <text x="40" y="304">GM Insights</text>
+    <rect x="330" y="288" width="572" height="24" rx="5" fill="#9db7ff"/>
+    <text x="912" y="305" font-weight="700" fill="#2f5fe0">$2.2B</text>
+    <text x="40" y="348">Fortune Business Insights</text>
+    <rect x="330" y="332" width="692" height="24" rx="5" fill="#9db7ff"/>
+    <text x="1032" y="349" font-weight="700" fill="#2f5fe0">$2.66B</text>
+  </g>
+  <line x1="40" y1="386" x2="1130" y2="386" stroke="#d5dae2" stroke-dasharray="4 4"/>
+  <g font-size="14" fill="#12151c">
+    <text x="40" y="424" font-weight="700">Three listed vendors</text>
+    <text x="40" y="443" font-size="12" fill="#5b6472">reported 2025 revenue</text>
+    <rect x="330" y="410" width="449" height="34" rx="5" fill="#2f5fe0"/>
+    <rect x="779" y="410" width="152" height="34" fill="#f5b13d"/>
+    <rect x="931" y="410" width="57" height="34" fill="#1d7a4c"/>
+    <text x="554" y="432" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700">VusionGroup ~$1.73B</text>
+    <text x="855" y="432" font-size="12.5" fill="#12151c" text-anchor="middle" font-weight="700">Hanshow ~$0.59B</text>
+    <text x="998" y="432" font-size="12.5" fill="#1d7a4c" font-weight="700">Pricer ~$0.22B</text>
+    <text x="330" y="482" font-size="15" font-weight="700" fill="#12151c">Combined: ~$2.53B &#8212; above five of the six total-market estimates,</text>
+    <text x="330" y="502" font-size="15" font-weight="700" fill="#12151c">before counting SoluM, Zkong and dozens of smaller suppliers.</text>
+    <text x="330" y="528" font-size="12.5" fill="#5b6472">Vendor revenue includes software and services (VusionGroup value-added services: EUR 211M) and some non-label products,</text>
+    <text x="330" y="546" font-size="12.5" fill="#5b6472">so it is a cross-check, not a like-for-like market total.</text>
+  </g>
+  <text x="40" y="616" font-size="11.5" fill="#8a93a2">Sources: analyst report summaries (named above); VusionGroup, Hanshow and Pricer FY2025 reports. Compiled by AiESL Research, Oct 2026.</text>
+</svg>
