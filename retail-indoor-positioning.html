@@ -169,7 +169,7 @@
           <p><strong>Accuracy requirements come in tiers, and over-buying accuracy wastes money.</strong> Store-wide analytics and heatmaps tolerate metre-level error. Aisle- or bay-level tasks want sub-2-metre. Telling apart two adjacent racks, or binding a shelf label to the exact product beneath it, needs sub-30-centimetre. The table below maps the practical tiers to the retail jobs they unlock.</p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Accuracy tier</th><th>Typical error</th><th>What it can do in retail</th><th>Technologies that reach it</th></tr></thead>
               <tbody>
                 <tr><td>Zone / presence</td><td>Room or read-zone</td><td>Stock in building, in/out of back room, doorway loss prevention, cycle-count.</td><td>Passive RFID, EAS.</td></tr>
@@ -187,7 +187,7 @@
           <p><strong>Location data pays for itself when it removes manual searching, prevents lost sales, or reveals shopper behaviour that sales receipts cannot.</strong> Retailers do not buy positioning for its own sake - they buy an outcome. When we group the outcomes integrators are actually asked to deliver, five recurring use cases dominate, each with a different value driver and a different accuracy floor.</p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Use case</th><th>Value driver</th><th>Accuracy needed</th><th>Best-fit technology</th></tr></thead>
               <tbody>
                 <tr><td>Inventory count &amp; stock accuracy</td><td>Fewer stockouts, less shrink, faster counts</td><td>Zone / presence</td><td>Passive RFID</td></tr>
@@ -265,7 +265,7 @@
           <p><strong>There is no single winner - each technology sits at a different point on the accuracy-versus-cost curve, and the right pick depends on the job.</strong> The table below is the decision core of this guide: read it by starting from the accuracy your use case needs (from the tier table earlier), then check whether the tag cost and infrastructure fit your store economics.</p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Technology</th><th>Typical accuracy</th><th>Tag cost</th><th>Infra cost</th><th>Battery</th><th>Best retail fit</th></tr></thead>
               <tbody>
                 <tr><td>Bluetooth AoA</td><td>10&ndash;50 cm</td><td>Low ($)</td><td>Medium (smart anchors)</td><td>Years</td><td>Fixture-level analytics, pick-up rate, tag binding at scale</td></tr>
@@ -304,7 +304,7 @@
           <p><strong>The decisive difference is the tag.</strong> AoA puts the complexity in the ceiling anchor and keeps the tag a simple, cheap, multi-year BLE device - so the marginal cost of tagging one more item or fixture is very low. UWB needs a more capable, more power-hungry tag, which is fine for a few hundred high-value assets but becomes the dominant cost when you want to tag thousands of garments or every fixture. For dense, item-adjacent retail analytics, that tag economics usually decides it.</p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Dimension</th><th>Bluetooth AoA</th><th>UWB</th></tr></thead>
               <tbody>
                 <tr><td>Typical accuracy</td><td>10&ndash;50 cm</td><td>10&ndash;30 cm</td></tr>
@@ -325,7 +325,7 @@
           <p><strong>Battery life is usually decided by duty cycle, not by the headline radio standard.</strong> A passive RFID label has no battery at all, a BLE or Bluetooth AoA tag can sleep most of the time and wake for short radio bursts, and a UWB tag spends more energy during each ranging exchange. For a retailer, that means "high accuracy" and "low maintenance" can coexist only when the system moves work into powered infrastructure and keeps active tags quiet until an event matters.</p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Technology route</th><th>Where power is consumed</th><th>Relative tag draw</th><th>Battery implication</th><th>Retail design note</th></tr></thead>
               <tbody>
                 <tr><td>Passive UHF RFID</td><td>Reader energizes the label during a scan</td><td>None on the tag</td><td>No tag battery maintenance</td><td>Best default for item-level apparel inventory and cycle counts.</td></tr>
@@ -343,7 +343,7 @@
           <p><strong>The practical answer is to tier the estate by event value: passive where identity is enough, BLE/AoA where real-time location earns money, and UWB only where its precision changes the outcome.</strong> The power budget should be designed before procurement, not after the first battery replacement cycle surprises operations. The same principle applies to <a href="esl-battery-life.html">ESL battery life</a>: average current over a year matters more than peak current during one refresh or one ranging burst.</p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Battery tactic</th><th>What it means in practice</th><th>Why it works</th></tr></thead>
               <tbody>
                 <tr><td>Make passive RFID the inventory backbone</td><td>Use cents-level passive tags for every item that only needs identity, count or zone confirmation.</td><td>It removes battery maintenance from the highest-volume layer.</td></tr>
@@ -393,7 +393,7 @@
 
           <h3>ROI layer 1 - inventory accuracy (RFID)</h3>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Line item</th><th>Basis</th><th>Annual value</th></tr></thead>
               <tbody>
                 <tr><td>Recovered sales from fewer stockouts</td><td>OOS cut ~50%; recover ~1.5% of revenue</td><td>+$18,000</td></tr>
@@ -410,7 +410,7 @@
 
           <h3>ROI layer 2 - pick-up-rate analytics (Bluetooth AoA)</h3>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Line item</th><th>Basis</th><th>Annual value</th></tr></thead>
               <tbody>
                 <tr><td>Conversion uplift from merchandising insight</td><td>+1.0% of revenue on acted-on ranges</td><td>+$12,000</td></tr>
@@ -441,7 +441,7 @@
           <h3>A practical selection checklist</h3>
           <p><strong>Work from the job backwards to the technology, never the reverse.</strong> Answer these in order and the shortlist falls out:</p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Question</th><th>If the answer is...</th><th>Lean toward</th></tr></thead>
               <tbody>
                 <tr><td>Do you need coordinates, or just presence?</td><td>Presence / counts</td><td>Passive RFID</td></tr>

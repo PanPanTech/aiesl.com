@@ -25,7 +25,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiesl.com/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://www.aiesl.com/#platform"}, {"@type": "ListItem", "position": 3, "name": "Shelf Monitoring", "item": "https://www.aiesl.com/platform-shelf-monitoring.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is shelf monitoring in retail?", "acceptedAnswer": {"@type": "Answer", "text": "Shelf monitoring means continuously checking that every shelf shows the right price, the right product and enough stock, instead of finding problems by walking the aisles. It combines label status, store-system data and, where installed, cameras or sensors, and turns problems into tasks."}}, {"@type": "Question", "name": "Can electronic shelf labels detect out-of-stocks on their own?", "acceptedAnswer": {"@type": "Answer", "text": "No. A label knows what it displays, not what is on the shelf. Out-of-stocks are detected from inventory data or from cameras and sensors; the labels then help fix them, for example by lighting the pick or replenishment route."}}, {"@type": "Question", "name": "How does AiESL detect price mismatches?", "acceptedAnswer": {"@type": "Answer", "text": "Every connected label reports its update status through the middleware. The platform checks what each label should show against the POS price and raises an alert and a store task when a label does not match."}}, {"@type": "Question", "name": "Is the footfall camera GDPR-compliant?", "acceptedAnswer": {"@type": "Answer", "text": "The AiESL Flow Camera is designed for GDPR compliance with anonymisation on the device, and it reports counts and traffic in real time with 98%+ accuracy. Your own data-protection assessment still applies to every deployment."}}, {"@type": "Question", "name": "Do we need cameras to start?", "acceptedAnswer": {"@type": "Answer", "text": "No. Label fleet health and price-mismatch alerts work from day one with the labels you connect. Add inventory data next, and cameras or sensors only in aisles where gaps and compliance problems are costly."}}, {"@type": "Question", "name": "Does shelf monitoring work with labels from other brands?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for brands connected through the AiESL open middleware, which supports 5+ label-brand integrations and monitors their status from one console."}}]}</script>
 <style>
-.plat-body{max-width:900px}
+.plat-body{max-width:1120px}
+.plat-body>p{max-width:880px}
 .plat-body p{color:var(--ink-mid);line-height:1.75;margin:0 0 16px}
 .plat-body p strong{color:var(--ink)}
 .plat-body h3{font-size:20px;margin:28px 0 10px}
@@ -114,7 +115,7 @@
     <div class="plat-body">
           <p><strong>AiESL shelf monitoring combines device status from every connected label, data from your POS and inventory systems, and &mdash; where installed &mdash; cameras and sensors, to spot price mismatches, stock gaps and planogram drift and turn them into store tasks.</strong></p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>What is detected</th><th>Where the signal comes from</th><th>What happens next</th></tr></thead>
               <tbody>
                 <tr><td>Labels showing the wrong price</td><td>Update status reported for every label through the middleware, checked against the POS price</td><td>An alert and a store task</td></tr>
@@ -136,7 +137,7 @@
     <div class="plat-body">
           <p><strong>Programmable LED labels turn monitoring into guided work: the same console that finds a gap lights the path to fix it.</strong></p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Capability</th><th>How it works</th><th>Where it helps most</th></tr></thead>
               <tbody>
                 <tr><td>Pick-to-light</td><td>LED-equipped labels flash on the bins or facings in a pick or replenishment route; staff follow the lights and confirm.</td><td>Warehouses, dark stores, click-and-collect picking</td></tr>
@@ -155,7 +156,7 @@
     <div class="sec-head reveal"><div class="sec-tag">// SENSING</div><h2>Cameras, footfall and the next sensors</h2></div>
     <div class="plat-body">
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Device</th><th>What it adds</th><th>Privacy</th></tr></thead>
               <tbody>
                 <tr><td>AiESL Flow Camera</td><td>Footfall analytics with 98%+ counting accuracy, in real time</td><td>GDPR-compliant, with anonymisation on the device</td></tr>

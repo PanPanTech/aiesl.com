@@ -25,7 +25,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiesl.com/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://www.aiesl.com/#platform"}, {"@type": "ListItem", "position": 3, "name": "Open Middleware", "item": "https://www.aiesl.com/platform-open-middleware.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is ESL middleware?", "acceptedAnswer": {"@type": "Answer", "text": "ESL middleware is a software layer between a retailer’s business systems and its electronic shelf labels. Instead of each label vendor connecting separately to ERP, POS and pricing systems, the middleware connects once to each side and translates between them. AiESL’s middleware is built on the open MQTT standard and manages 5+ label-brand integrations from one console."}}, {"@type": "Question", "name": "Is there an API for electronic shelf labels?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. AiESL exposes a standard API through its middleware, and developers who want to bypass our software can work directly from the MQTT communication protocol document and device coding specification, or use the SDK with core libraries in Python, Java and Go."}}, {"@type": "Question", "name": "Can the middleware run on our own servers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The on-premise option runs in your own data centre or private cloud. We supply the installation package, deployment documentation and database initialisation scripts; you provide servers, network and an operations team. You can choose the full platform or label management only."}}, {"@type": "Question", "name": "Does it work with the electronic shelf labels we already have?", "acceptedAnswer": {"@type": "Answer", "text": "If your label brand is one of the 5+ brands we integrate, yes — that is the main reason retailers use middleware. Each brand keeps its own radio and gateways; the middleware drives them from above. Ask us for the current brand and firmware list before planning around a specific estate."}}, {"@type": "Question", "name": "How do we avoid ESL vendor lock-in?", "acceptedAnswer": {"@type": "Answer", "text": "Keep the integration and the data outside any single label vendor. With an open middleware your ERP and POS connect once to a standard API, labels from different brands can be added or replaced, and pricing data lands in your own systems. Put exit terms for data, templates and labels in every contract."}}, {"@type": "Question", "name": "Can we start in the cloud and move on-premise later?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All deployment options run on the same middleware, so cloud customers can migrate to on-premise as their estate grows or their data rules tighten, and label-management-only customers can upgrade to the full platform without re-integrating."}}]}</script>
 <style>
-.plat-body{max-width:900px}
+.plat-body{max-width:1120px}
+.plat-body>p{max-width:880px}
 .plat-body p{color:var(--ink-mid);line-height:1.75;margin:0 0 16px}
 .plat-body p strong{color:var(--ink)}
 .plat-body h3{font-size:20px;margin:28px 0 10px}
@@ -115,7 +116,7 @@
           <p><strong>The AiESL open middleware connects once to your ERP, POS, WMS and pricing systems, and once to each label brand &mdash; so every system can reach every shelf device through one standard API.</strong> It does three jobs: <strong>unified connection</strong> of labels, gateways and sensors; <strong>data aggregation</strong>, which cleans and standardises shelf and device data into one API; and <strong>command delivery</strong>, which pushes prices, templates and tasks to any connected brand.</p>
           <figure class="plat-figure"><img src="assets/blog/esl-open-middleware-architecture.svg" alt="Architecture of the AiESL open ESL middleware: retail systems connect through a standard API to a business layer, data layer and device layer that drive several label brands, gateways and sensors"><figcaption>The three layers of the middleware. Each label brand keeps its own radio and gateways; the middleware sits above them.</figcaption></figure>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Layer</th><th>What it does</th><th>Who uses it</th></tr></thead>
               <tbody>
                 <tr><td>Device layer</td><td>Device connection, status monitoring, firmware upgrades and batch price changes, with one adapter per label brand.</td><td>Store operations and IT</td></tr>
@@ -136,7 +137,7 @@
     <div class="plat-body">
           <p><strong>The same middleware is delivered three ways, so the deployment model follows your IT capacity and data rules rather than our preference.</strong></p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th></th><th>Managed cloud (SaaS)</th><th>On-premise</th><th>Integrate it yourself</th></tr></thead>
               <tbody>
                 <tr><td>Best for</td><td>Small and mid-size chains, regional retailers, new-retail start-ups that want no infrastructure to run</td><td>Large groups, state-owned retailers and businesses with strict data-sovereignty rules (e.g. GDPR, China&rsquo;s Data Security Law)</td><td>Retail groups with strong in-house IT, IoT platform companies, teams building their own &ldquo;retail brain&rdquo;</td></tr>
@@ -158,7 +159,7 @@
     <div class="plat-body">
           <p><strong>On-premise customers choose between the complete middleware and a lighter label-management package, and can upgrade from one to the other later.</strong></p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Package</th><th>What is included</th><th>Your responsibility</th></tr></thead>
               <tbody>
                 <tr><td>Full platform</td><td>Device layer (label management), data layer (aggregation, cleaning, standard API) and business layer (price-strategy engine, inventory-collaboration interfaces)</td><td>Servers, network environment and an operations team</td></tr>
@@ -177,7 +178,7 @@
     <div class="plat-body">
           <p><strong>If you are building your own store platform, you do not need our software at all &mdash; you can control the devices directly through the documented protocol or our SDK.</strong></p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Integration depth</th><th>What you receive</th><th>Support</th></tr></thead>
               <tbody>
                 <tr><td>Protocol access</td><td>The complete MQTT communication protocol document and the device coding specification</td><td>Ticket answers on documentation clarity</td></tr>
@@ -209,14 +210,14 @@
     <div class="sec-head reveal"><div class="sec-tag">// FIT</div><h2>Who the open middleware is for &mdash; and who it is not for</h2></div>
     <div class="plat-body">
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Situation</th><th>Fit</th><th>Why</th></tr></thead>
               <tbody>
-                <tr><td>You run two or more label brands</td><td>Strong</td><td>One console and one integration instead of one per vendor.</td></tr>
-                <tr><td>You want to keep your installed labels</td><td>Strong if your brand is supported</td><td>Middleware reuses existing hardware; check the supported list first.</td></tr>
-                <tr><td>Pricing and AI must stay in your own systems</td><td>Strong</td><td>The data layer exposes everything through a standard API.</td></tr>
-                <tr><td>You want one vendor to own hardware, software and service end to end</td><td>Weaker</td><td>A single-vendor system is simpler to govern; see <a href="esl-vendors-compared-vusiongroup-pricer-hanshow.html">ESL vendors compared</a>.</td></tr>
-                <tr><td>Your labels use a brand we do not support</td><td>Not yet</td><td>Middleware cannot drive a radio it has no adapter for.</td></tr>
+                <tr><td>Two or more label brands</td><td>Strong</td><td>One console and one integration instead of one per vendor.</td></tr>
+                <tr><td>Keeping installed labels</td><td>Strong if your brand is supported</td><td>Middleware reuses existing hardware; check the supported list first.</td></tr>
+                <tr><td>Pricing and AI stay in-house</td><td>Strong</td><td>The data layer exposes everything through a standard API.</td></tr>
+                <tr><td>You want one end-to-end vendor</td><td>Weaker</td><td>A single-vendor system is simpler to govern; see <a href="esl-vendors-compared-vusiongroup-pricer-hanshow.html">ESL vendors compared</a>.</td></tr>
+                <tr><td>Unsupported label brand</td><td>Not yet</td><td>Middleware cannot drive a radio it has no adapter for.</td></tr>
               </tbody>
             </table>
           </div>

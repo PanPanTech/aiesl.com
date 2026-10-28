@@ -146,7 +146,7 @@
           <p><strong>Every deployment has to satisfy two independent constraints, and your gateway count is whichever demands more.</strong></p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Limit</th><th>The question</th><th>What decides it</th><th>When it binds</th></tr></thead>
               <tbody>
                 <tr><td><strong>Coverage</strong></td><td>Can a gateway <em>reach</em> this label at all?</td><td>Floor area, radio range, mounting height, obstruction</td><td>Large, tall or awkwardly shaped spaces &mdash; high-bay warehouses, multi-floor stores</td></tr>
@@ -161,7 +161,7 @@
           <p><strong>This is the input nobody writes down, and it decides everything downstream.</strong> Two operating patterns dominate, and they differ by an order of magnitude in what they demand.</p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Pattern</th><th>Typical window</th><th>Scope</th><th>What it implies</th></tr></thead>
               <tbody>
                 <tr><td><strong>Overnight batch</strong></td><td>Hours</td><td>Every label in the store</td><td>Generous. Even slow colour labels usually fit. Capacity rarely binds</td></tr>
@@ -194,7 +194,7 @@
           <h3>A worked example, and why it lands where it does</h3>
           <p>Take a supermarket with 8,000 monochrome labels, already covered geometrically by a single gateway. Assume 5 seconds consumed per label &mdash; a plausible figure once a 2&ndash;5 second redraw is combined with transmission and a modest retry allowance.</p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Requirement</th><th>Window</th><th>Fully serialised</th><th>With 4&times; pipelining</th></tr></thead>
               <tbody>
                 <tr><td>All labels before opening</td><td>6 hours (21,600 s)</td><td>4,320 labels &mdash; <strong>fails</strong></td><td>17,280 labels &mdash; comfortable</td></tr>
@@ -213,7 +213,7 @@
           <p><strong>Ranked roughly by impact, and the first one is a purchasing decision, not a network one.</strong></p>
 
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Factor</th><th>Effect on capacity</th><th>What to do about it</th></tr></thead>
               <tbody>
                 <tr><td><strong>Colour vs monochrome</strong></td><td><strong>Largest single factor.</strong> A monochrome panel redraws in roughly 2&ndash;5 seconds; tri-colour in roughly 15&ndash;25 seconds &mdash; about 4&times;. Spectra 6 references commonly put six-colour full refresh at 10&ndash;30 seconds</td><td>Use colour where it earns its place &mdash; promotions, end-caps, fresh &mdash; not estate-wide by default. For full-colour promotion signs, see the <a href="prism-colour-epaper-promo-displays.html">Prism series</a></td></tr>
