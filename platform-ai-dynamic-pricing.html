@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><title>AI Dynamic Pricing for Electronic Shelf Labels | AiESL</title>
+<meta name="description" content="AI pricing engine for electronic shelf labels: perishable markdowns, competitive repricing and promotions, inside floor prices, approval rules and an audit trail.">
+<meta name="keywords" content="ai dynamic pricing retail, ai pricing software electronic shelf labels, dynamic pricing esl, automated markdown pricing, ai price optimization grocery, pricing agent retail">
+<link rel="canonical" href="https://www.aiesl.com/platform-ai-dynamic-pricing.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Dynamic Pricing for Electronic Shelf Labels | AiESL">
+<meta property="og:description" content="Recommend or auto-apply shelf prices from demand, stock and competitor data, inside your guardrails, on any connected label.">
+<meta property="og:url" content="https://www.aiesl.com/platform-ai-dynamic-pricing.html">
+<meta property="og:image" content="https://www.aiesl.com/assets/blog/ai-esl-maturity-levels.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="platform.css">
+<link rel="stylesheet" href="buney-control.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "AI Dynamic Pricing for Electronic Shelf Labels | AiESL", "description": "AI pricing engine for electronic shelf labels: perishable markdowns, competitive repricing and promotions, inside floor prices, approval rules and an audit trail.", "url": "https://www.aiesl.com/platform-ai-dynamic-pricing.html", "dateModified": "2026-10-28", "publisher": {"@type": "Organization", "name": "AiESL", "url": "https://www.aiesl.com/"}, "about": {"@type": "Thing", "name": "AI dynamic pricing"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiesl.com/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://www.aiesl.com/#platform"}, {"@type": "ListItem", "position": 3, "name": "AI Dynamic Pricing", "item": "https://www.aiesl.com/platform-ai-dynamic-pricing.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI dynamic pricing for electronic shelf labels?", "acceptedAnswer": {"@type": "Answer", "text": "It is a pricing engine that uses demand, stock, margin and competitor data to recommend or automatically set shelf prices, and electronic shelf labels that display the new price within seconds. Without electronic labels the decision cannot reach the shelf fast enough; without the engine, the labels only show prices someone typed in."}}, {"@type": "Question", "name": "How fast does the AiESL Pricing Agent respond?", "acceptedAnswer": {"@type": "Answer", "text": "The Pricing Agent responds in about 350 ms in its cloud-edge architecture, and approved prices propagate to every connected label store-wide in under a second. In practice, how often prices change is set by your rules, not by the speed of the system."}}, {"@type": "Question", "name": "Can we stop the AI from changing prices without approval?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Each category can run in recommend-only mode, where a person approves every change, or auto-apply only within the auto-approval rules you define. Floor prices and margin limits are hard boundaries, and every recommendation and change is recorded in an audit trail."}}, {"@type": "Question", "name": "Does AI dynamic pricing mean surge pricing?", "acceptedAnswer": {"@type": "Answer", "text": "Not in how retailers use it in practice, and not in what the research shows. The best evidence links electronic shelf labels to smaller, more frequent and mostly downward price changes on perishables, and a study of more than 180 million price observations found no ESL-driven surge pricing."}}, {"@type": "Question", "name": "Do we have to replace our existing labels?", "acceptedAnswer": {"@type": "Answer", "text": "Not if your label brand is one of the 5+ brands the AiESL middleware supports. The Pricing Agent sends prices through the middleware, which drives each brand’s labels through its own gateways."}}, {"@type": "Question", "name": "Can we use our own pricing engine instead?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Keep your engine and send its output to the middleware API; you still get delivery to any connected label, update confirmation and an audit trail."}}]}</script>
+<style>
+.plat-body{max-width:900px}
+.plat-body p{color:var(--ink-mid);line-height:1.75;margin:0 0 16px}
+.plat-body p strong{color:var(--ink)}
+.plat-body h3{font-size:20px;margin:28px 0 10px}
+.plat-note{font-size:13px;color:var(--ink-dim);margin-top:-6px}
+.plat-figure{margin:28px 0}
+.plat-figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+.plat-figure figcaption{font-size:12px;color:var(--ink-dim);text-align:center;margin-top:9px}
+.plat-list{padding-left:20px;color:var(--ink-mid);line-height:1.8}
+.plat-list li{margin-bottom:6px}
+.plat-body a,.plat-note a{color:var(--blue-hi)}
+.plat-body .article-table td:first-child{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav data-screen-label="Industry — Nav">
+  <div class="wrap wide nav-in">
+    <a href="index.html" class="logo" aria-label="AiESL home"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></a>
+    <div class="nav-links">
+      <div class="has-menu"><a href="index.html#platform" class="active">Platform &#9662;</a>
+        <div class="nav-menu">
+          <a href="platform-ai-dynamic-pricing.html"><b>AI Dynamic Pricing</b><small>Optimize prices at the shelf edge</small></a>
+          <a href="platform-shelf-monitoring.html"><b>Shelf Monitoring</b><small>Detect gaps, mismatches, out-of-stocks</small></a>
+          <a href="platform-retail-media.html"><b>Retail Media</b><small>Turn shelf labels into ad surfaces</small></a>
+          <a href="platform-open-middleware.html"><b>Open Middleware</b><small>One console, 5+ brand integrations</small></a>
+        </div>
+      </div>
+      <a href="products.html">Products</a>
+      <div class="has-menu"><a href="Industries.html">Industries &#9662;</a>
+        <div class="nav-menu">
+          <a href="industry-supermarket.html"><b>Supermarket &amp; Grocery</b><small>High-density everyday pricing</small></a>
+          <a href="industry-pharmacy.html"><b>Pharmacy &amp; Cosmetics</b><small>Compliance-grade accuracy</small></a>
+          <a href="industry-convenience.html"><b>Convenience</b><small>Fast rollout, low footprint</small></a>
+          <a href="industry-warehouse.html"><b>Warehouse &amp; DC</b><small>Pick-to-light, large displays</small></a>
+        </div>
+      </div>
+      <a href="Cases.html">Customers</a>
+      <div class="has-menu"><a href="Resources.html">Resources &#9662;</a>
+        <div class="nav-menu">
+          <a href="blog.html"><b>Insights &amp; Blog</b><small>Trends in AI retail pricing</small></a>
+          <a href="esl-roi-calculator.html"><b>ROI Calculator</b><small>Estimate your payback period</small></a>
+          <a href="Resources.html#faq"><b>FAQ &amp; Guides</b><small>What is an AI ESL?</small></a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+    <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close">&times;</button>
+  <a href="index.html#platform">Platform</a>
+  <a href="products.html">Products</a>
+  <a href="Industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="about.html">About</a>
+  <a href="javascript:void(0)" style="color:var(--blue-hi)" onclick="openModal();toggleDrawer()">Get a Custom Quote &rarr;</a>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero" data-screen-label="AI Dynamic Pricing — Hero">
+  <div class="hero-grid"></div>
+  <div class="wrap wide" style="position:relative">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);margin-bottom:14px"><a href="index.html#platform" style="color:var(--blue-hi)">Platform</a> / AI Dynamic Pricing</div>
+    <h1>AI dynamic pricing at the shelf edge &mdash; inside the guardrails you set</h1>
+    <p>The AiESL Pricing Agent weighs demand, stock, margin targets and competitor signals, then recommends or automatically applies the right shelf price and pushes it to every connected label in under a second &mdash; with floor prices, approval rules and a full audit trail.</p>
+    <div class="hero-cta" style="margin-top:26px"><a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a><a href="esl-roi-calculator.html" class="btn btn-ghost">Calculate ROI</a></div>
+  </div>
+</div>
+
+<section data-screen-label="AI Dynamic Pricing — Problem">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// THE PROBLEM</div><h2>Why shelf prices lag behind the business</h2></div>
+    <div class="feat-grid">
+      <div class="feat reveal"><h3>Prices move slower than demand</h3><p>Demand, stock and competitor prices change daily; paper-based repricing runs weekly. The decision is ready long before the shelf is.</p></div>
+      <div class="feat reveal"><h3>Markdowns arrive too late</h3><p>Fresh stock is marked down at the end of its life, in one big step &mdash; or not at all &mdash; so margin and product are both lost.</p></div>
+      <div class="feat reveal"><h3>Competitive repricing is manual</h3><p>Category teams compare competitor prices by hand and re-tag in batches, so reactions come days after the market moved.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="AI Dynamic Pricing — How it works">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// HOW IT WORKS</div><h2>A closed pricing loop, from signal to shelf in seconds</h2></div>
+    <div class="plat-body">
+          <p><strong>The AiESL Pricing Agent is an AI decision engine that weighs demand, stock, margin targets and competitor signals, then recommends or automatically applies the shelf price &mdash; and pushes approved prices to every connected label.</strong> It combines large language models with retrieval-augmented generation (RAG), runs in a cloud-edge architecture and responds in about 350 ms; approved prices propagate store-wide in under a second.</p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Step</th><th>What happens</th><th>Your control</th></tr></thead>
+              <tbody>
+                <tr><td>1. Sense</td><td>Ingests sales and demand from the POS, stock and expiry from ERP/WMS, and competitor price signals.</td><td>Choose which data sources and categories are in scope.</td></tr>
+                <tr><td>2. Decide</td><td>Computes a price inside your floor prices and margin limits.</td><td>Set objectives per category: margin, waste, competitiveness.</td></tr>
+                <tr><td>3. Approve</td><td>Applies automatically under auto-approval rules, or waits for a person.</td><td>Choose recommend-only or auto-apply.</td></tr>
+                <tr><td>4. Apply</td><td>Pushes the price to every matching label, any connected brand.</td><td>Target by store or promotion.</td></tr>
+                <tr><td>5. Measure</td><td>Tracks sales, margin and waste after the change and feeds the result back.</td><td>Full audit trail of every recommendation and change.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="plat-note">The mechanics of the loop and how to prove its ROI are explained in depth in <a href="ai-dynamic-pricing-esl.html">AI dynamic pricing with ESL: how it works</a>. On our <a href="what-is-ai-esl.html">five-level AI ESL scale</a>, this module operates at Levels 3 and 4.</p>
+    </div>
+  </div>
+</section>
+
+<section id="use-cases" data-screen-label="AI Dynamic Pricing — Use cases">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// USE CASES</div><h2>What the engine does in each store format</h2></div>
+    <div class="plat-body">
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Format</th><th>Typical objective</th><th>What changes on the shelf</th></tr></thead>
+              <tbody>
+                <tr><td>Supermarket &amp; grocery</td><td>Reduce waste on perishables</td><td>Time- and demand-based markdowns on fresh stock, inside margin guardrails, instead of one late cut.</td></tr>
+                <tr><td>Electronics retail</td><td>Stay competitive without a price war</td><td>Prices react to competitor signals automatically, never below your floor price.</td></tr>
+                <tr><td>Convenience</td><td>Fast, local promotions</td><td>Instant promo swaps by store or time window, without re-tagging.</td></tr>
+                <tr><td>Multi-store chains</td><td>Consistent head-office pricing</td><td>Head office pushes a price or promotion to every store at once; every label confirms the update.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="plat-note">Format pages: <a href="industry-supermarket.html">supermarket</a>, <a href="industry-electronics.html">electronics</a>, <a href="industry-convenience.html">convenience</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="guardrails" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="AI Dynamic Pricing — Guardrails">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// GUARDRAILS</div><h2>Guardrails first: the AI proposes, your policy decides</h2></div>
+    <div class="plat-body">
+          <p><strong>Every recommendation is bounded by rules the engine cannot cross, and every change is logged.</strong> That is what makes automated pricing governable &mdash; and defensible to shoppers and regulators.</p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Guardrail</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td>Floor prices and margin limits</td><td>Hard boundaries per product or category; no recommendation can breach them.</td></tr>
+                <tr><td>Approval modes</td><td>Recommend-only, or auto-apply under auto-approval rules &mdash; set per category.</td></tr>
+                <tr><td>Audit trail</td><td>Who or what changed each price, when, why and with which inputs.</td></tr>
+                <tr><td>Same price for every shopper</td><td>The engine works on product, stock and market data, not on individual shoppers&rsquo; data; everyone sees the same shelf price.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Regulation is moving in this direction: New Jersey&rsquo;s 2026 Fair Price Protection Act bans individualised pricing based on consumer data. What the research says about ESLs and surge pricing &mdash; and what it says about markdowns &mdash; is summarised in <a href="esl-labor-savings-vs-dynamic-pricing-evidence.html">are ESL labor savings overstated?</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="deploy" data-screen-label="AI Dynamic Pricing — Deployment">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// DEPLOYMENT</div><h2>Runs on any label you have, in the cloud or on-premise</h2></div>
+    <div class="plat-body">
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+              <tbody>
+                <tr><td>Which labels can it drive?</td><td>Any label connected to the <a href="platform-open-middleware.html">AiESL open middleware</a> &mdash; 5+ brand integrations, including labels already on your shelves where the brand is supported.</td></tr>
+                <tr><td>Cloud or on-premise?</td><td>As a module of the managed cloud service, or as the price-strategy engine in the on-premise full platform.</td></tr>
+                <tr><td>We already have a pricing engine.</td><td>Keep it. Send its prices to the middleware API and use only the delivery, confirmation and audit layers.</td></tr>
+                <tr><td>What data does it need?</td><td>Product master and prices from ERP/POS, sales history, stock levels and, for perishables, expiry or receiving dates. Competitor data is optional.</td></tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="AI Dynamic Pricing — Getting started">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// GETTING STARTED</div><h2>A safe way to start: recommend first, automate later</h2><p>We do not publish uplift percentages; we would rather measure yours.</p></div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">1</div><h3>Pick categories</h3><p>Start with one or two fresh or competitive categories in a few stores, with matched control stores.</p></div>
+      <div class="step reveal"><div class="step-n">2</div><h3>Recommend-only</h3><p>Run the engine in recommend-only mode for several weeks so category managers can review every proposal.</p></div>
+      <div class="step reveal"><div class="step-n">3</div><h3>Automate within rules</h3><p>Switch on auto-approval for the rules that proved themselves, and measure margin and waste against control stores.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="AI Dynamic Pricing — FAQ">
+  <div class="wrap wide">
+    <div class="faq-2col">
+      <div class="faq-sticky reveal">
+        <div class="sec-tag">// FAQ</div>
+        <h2 style="font-size:34px;margin-bottom:14px">AI dynamic pricing questions</h2>
+        <p style="font-size:15px;color:var(--ink-mid)">Talk to a solution engineer about your stores and systems &mdash; no sales script.</p>
+        <a href="javascript:void(0)" class="btn btn-primary" style="margin-top:20px" onclick="openModal()">Talk to an engineer</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q">What is AI dynamic pricing for electronic shelf labels?<span class="chev">+</span></button><div class="faq-a"><p>It is a pricing engine that uses demand, stock, margin and competitor data to recommend or automatically set shelf prices, and electronic shelf labels that display the new price within seconds. Without electronic labels the decision cannot reach the shelf fast enough; without the engine, the labels only show prices someone typed in.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How fast does the AiESL Pricing Agent respond?<span class="chev">+</span></button><div class="faq-a"><p>The Pricing Agent responds in about 350 ms in its cloud-edge architecture, and approved prices propagate to every connected label store-wide in under a second. In practice, how often prices change is set by your rules, not by the speed of the system.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can we stop the AI from changing prices without approval?<span class="chev">+</span></button><div class="faq-a"><p>Yes. Each category can run in recommend-only mode, where a person approves every change, or auto-apply only within the auto-approval rules you define. Floor prices and margin limits are hard boundaries, and every recommendation and change is recorded in an audit trail.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Does AI dynamic pricing mean surge pricing?<span class="chev">+</span></button><div class="faq-a"><p>Not in how retailers use it in practice, and not in what the research shows. The best evidence links electronic shelf labels to smaller, more frequent and mostly downward price changes on perishables, and a study of more than 180 million price observations found no ESL-driven surge pricing.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do we have to replace our existing labels?<span class="chev">+</span></button><div class="faq-a"><p>Not if your label brand is one of the 5+ brands the AiESL middleware supports. The Pricing Agent sends prices through the middleware, which drives each brand&rsquo;s labels through its own gateways.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can we use our own pricing engine instead?<span class="chev">+</span></button><div class="faq-a"><p>Yes. Keep your engine and send its output to the middleware API; you still get delivery to any connected label, update confirmation and an audit trail.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RELATED ===== -->
+<section data-screen-label="AI Dynamic Pricing — Related">
+  <div class="wrap wide">
+    <div class="sec-head reveal" style="margin-bottom:24px"><div class="sec-tag">// KEEP READING</div><h2>Guides behind this module</h2></div>
+    <div class="related-grid">
+      <a class="res-card reveal" href="ai-dynamic-pricing-esl.html"><div class="res-kind">TECHNOLOGY</div><h3>AI Dynamic Pricing with ESL</h3><p>The decision loop, what the engine optimises and how to prove ROI.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="what-is-ai-esl.html"><div class="res-kind">PILLAR GUIDE</div><h3>What Is an AI ESL?</h3><p>Five levels of AI at the shelf edge &mdash; and which claims are evidenced.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="esl-labor-savings-vs-dynamic-pricing-evidence.html"><div class="res-kind">EVIDENCE</div><h3>Labor Savings vs Dynamic Pricing</h3><p>What peer-reviewed research shows about ESLs and pricing behaviour.</p><span class="res-link">Read article &rarr;</span></a>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
+      <a href="platform-shelf-monitoring.html" class="btn btn-ghost">Shelf Monitoring</a>
+      <a href="platform-retail-media.html" class="btn btn-ghost">Retail Media</a>
+      <a href="platform-open-middleware.html" class="btn btn-ghost">Open Middleware</a>
+      <a href="products.html" class="btn btn-ghost">All products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="contact" style="background:var(--bg-soft);border-top:1px solid var(--line-soft)" data-screen-label="AI Dynamic Pricing — CTA">
+  <div class="wrap wide">
+    <div class="cta-band reveal">
+      <h2>Pilot AI pricing in your fresh categories</h2>
+      <p>Start in recommend-only mode on a few stores and measure margin and waste against control stores.</p>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap wide">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></div>
+        <p>The AI-native open platform for retail shelf operations. Dynamic pricing, shelf monitoring and open middleware trusted in 30+ countries.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Platform</h4>
+        <a href="platform-ai-dynamic-pricing.html">AI Dynamic Pricing</a>
+        <a href="platform-shelf-monitoring.html">Shelf Monitoring</a>
+        <a href="platform-retail-media.html">Retail Media</a>
+        <a href="platform-open-middleware.html">Open Middleware</a>
+        <a href="products.html">Products</a>
+      </div>
+      <div class="foot-col">
+        <h4>Industries</h4>
+        <a href="industry-supermarket.html">Supermarket &amp; Grocery</a>
+        <a href="industry-pharmacy.html">Pharmacy &amp; Cosmetics</a>
+        <a href="industry-warehouse.html">Warehouse &amp; DC</a>
+        <a href="Industries.html">All industries</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="foot-contact">
+          Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou, Guangdong Province, China
+          <b>Email</b><a href="mailto:info@panpantechnology.com">info@panpantechnology.com</a>
+          <b>Phone</b><a href="tel:+8613925118851">+86-13925118851</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-brand-row" aria-label="PanPanTech Group brands">
+      <span><a href="https://www.panpantechnology.com" target="_blank" rel="noopener">PanPanTech&reg;</a> &mdash; Group Site</span>
+      <span><a href="https://www.aieinksmart.com" target="_blank" rel="noopener">AiEInkSmart&trade;</a> &mdash; Electronic Shelf Labels</span>
+      <span><a href="https://www.pyroglaux.com" target="_blank" rel="noopener">Pyroglaux&reg;</a> &mdash; Footfall Analytics</span>
+      <span><a href="https://www.einksmart.com" target="_blank" rel="noopener">EinkSmart&trade;</a> &mdash; E-Ink Art Displays</span>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 AiESL&trade; | The Retail Data Platform of PanPanTech&reg; | Guangzhou PanPanTech Co., Ltd. All Rights Reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div id="formStage">
+      <div class="modal-head">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+        <h3>Get a Custom Quote</h3>
+        <p>Tell us about your store network &mdash; we'll send tailored pricing and a free ROI assessment within one business day.</p>
+      </div>
+      <div class="modal-body">
+        <form id="quoteForm" novalidate>
+          <div class="form-row">
+            <div class="form-field"><label>Full name <span class="req">*</span></label><input type="text" name="name" id="f-name"><div class="form-err" id="e-name">Please enter your name</div></div>
+            <div class="form-field"><label>Work email <span class="req">*</span></label><input type="email" name="email" id="f-email"><div class="form-err" id="e-email">Please enter a valid email</div></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Company <span class="req">*</span></label><input type="text" name="company" id="f-company"><div class="form-err" id="e-company">Please enter your company</div></div>
+            <div class="form-field"><label>Country</label><input type="text" name="country" id="f-country" placeholder="e.g. Germany"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Number of stores</label><select name="stores" id="f-stores"><option value="1-5">1&ndash;5 stores</option><option value="6-20">6&ndash;20 stores</option><option value="21-100">21&ndash;100 stores</option><option value="100+">100+ stores</option></select></div>
+            <div class="form-field"><label>Primary interest</label><select name="interest" id="f-interest"><option value="ai-pricing">AI dynamic pricing</option><option value="middleware">Open middleware platform</option><option value="esl-hardware">ESL hardware / price tags</option><option value="full-solution">Full retail solution</option></select></div>
+          </div>
+          <div class="form-field"><label>What are you trying to solve?</label><textarea name="message" id="f-message" placeholder="Tell us about your current setup, timeline, or any specific requirements..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Send my request</button>
+          <p style="font-size:11px;color:var(--ink-dim);margin-top:12px;text-align:center">We reply within one business day. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+    <div id="successStage" style="display:none">
+      <div class="form-success">
+        <div class="ok-ic">&#10003;</div>
+        <h3>Request received</h3>
+        <p>Thanks &mdash; our retail solutions team will get back to you within one business day with tailored pricing and a free ROI assessment.</p>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
