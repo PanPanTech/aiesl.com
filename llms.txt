@@ -43,6 +43,12 @@
 
 - Electronic Shelf Label Market Size 2026 (six analyst estimates compared, vendor-revenue cross-check, RUNTO unit shipments, US/North America market, 2026 outlook): https://www.aiesl.com/electronic-shelf-label-market-size.html
 
+- ESL Vendors Compared: VusionGroup (SES-imagotag) vs Pricer vs Hanshow vs AiESL (revenue, installed base, infrared vs 2.4 GHz, software openness, best fit, evaluation method): https://www.aiesl.com/esl-vendors-compared-vusiongroup-pricer-hanshow.html
+
+- Are Electronic Shelf Labels Worth It for a Mid-Size Regional Grocery Chain? (multi-store deal costs, returns, rollout phasing, New Jersey moratorium and 2026 risks): https://www.aiesl.com/electronic-shelf-labels-worth-it-mid-size-grocery-chain.html
+
+- Are ESL Labor Savings Overstated? Labor vs dynamic pricing evidence (vendor claims, peer-reviewed margin studies, surge-pricing study, how to measure): https://www.aiesl.com/esl-labor-savings-vs-dynamic-pricing-evidence.html
+
 ## Interactive Tools
 
 - ESL ROI Calculator (payback period and 3-year net savings; conservative labour-only model, all assumptions published): https://www.aiesl.com/esl-roi-calculator.html
