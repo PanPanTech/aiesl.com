@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><title>Open ESL Middleware &amp; API: One Console for Every Label Brand</title>
+<meta name="description" content="Open ESL middleware on MQTT: one API for 5+ label brands, deployed as cloud SaaS, on-premise, or via protocol and SDK (Python, Java, Go). No vendor lock-in.">
+<meta name="keywords" content="esl api, esl middleware, open esl platform, hardware-agnostic esl platform, esl vendor lock-in, mqtt electronic shelf labels, esl sdk, electronic shelf label integration">
+<link rel="canonical" href="https://www.aiesl.com/platform-open-middleware.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Open ESL Middleware &amp; API: One Console for Every Label Brand">
+<meta property="og:description" content="Connect every label brand and retail system through one open MQTT middleware. Cloud, on-premise or SDK integration.">
+<meta property="og:url" content="https://www.aiesl.com/platform-open-middleware.html">
+<meta property="og:image" content="https://www.aiesl.com/assets/blog/esl-open-middleware-architecture.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="platform.css">
+<link rel="stylesheet" href="buney-control.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Open ESL Middleware & API: One Console for Every Label Brand", "description": "Open ESL middleware on MQTT: one API for 5+ label brands, deployed as cloud SaaS, on-premise, or via protocol and SDK (Python, Java, Go). No vendor lock-in.", "url": "https://www.aiesl.com/platform-open-middleware.html", "dateModified": "2026-10-28", "publisher": {"@type": "Organization", "name": "AiESL", "url": "https://www.aiesl.com/"}, "about": {"@type": "Thing", "name": "ESL middleware"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiesl.com/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://www.aiesl.com/#platform"}, {"@type": "ListItem", "position": 3, "name": "Open Middleware", "item": "https://www.aiesl.com/platform-open-middleware.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is ESL middleware?", "acceptedAnswer": {"@type": "Answer", "text": "ESL middleware is a software layer between a retailer’s business systems and its electronic shelf labels. Instead of each label vendor connecting separately to ERP, POS and pricing systems, the middleware connects once to each side and translates between them. AiESL’s middleware is built on the open MQTT standard and manages 5+ label-brand integrations from one console."}}, {"@type": "Question", "name": "Is there an API for electronic shelf labels?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. AiESL exposes a standard API through its middleware, and developers who want to bypass our software can work directly from the MQTT communication protocol document and device coding specification, or use the SDK with core libraries in Python, Java and Go."}}, {"@type": "Question", "name": "Can the middleware run on our own servers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The on-premise option runs in your own data centre or private cloud. We supply the installation package, deployment documentation and database initialisation scripts; you provide servers, network and an operations team. You can choose the full platform or label management only."}}, {"@type": "Question", "name": "Does it work with the electronic shelf labels we already have?", "acceptedAnswer": {"@type": "Answer", "text": "If your label brand is one of the 5+ brands we integrate, yes — that is the main reason retailers use middleware. Each brand keeps its own radio and gateways; the middleware drives them from above. Ask us for the current brand and firmware list before planning around a specific estate."}}, {"@type": "Question", "name": "How do we avoid ESL vendor lock-in?", "acceptedAnswer": {"@type": "Answer", "text": "Keep the integration and the data outside any single label vendor. With an open middleware your ERP and POS connect once to a standard API, labels from different brands can be added or replaced, and pricing data lands in your own systems. Put exit terms for data, templates and labels in every contract."}}, {"@type": "Question", "name": "Can we start in the cloud and move on-premise later?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All deployment options run on the same middleware, so cloud customers can migrate to on-premise as their estate grows or their data rules tighten, and label-management-only customers can upgrade to the full platform without re-integrating."}}]}</script>
+<style>
+.plat-body{max-width:900px}
+.plat-body p{color:var(--ink-mid);line-height:1.75;margin:0 0 16px}
+.plat-body p strong{color:var(--ink)}
+.plat-body h3{font-size:20px;margin:28px 0 10px}
+.plat-note{font-size:13px;color:var(--ink-dim);margin-top:-6px}
+.plat-figure{margin:28px 0}
+.plat-figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+.plat-figure figcaption{font-size:12px;color:var(--ink-dim);text-align:center;margin-top:9px}
+.plat-list{padding-left:20px;color:var(--ink-mid);line-height:1.8}
+.plat-list li{margin-bottom:6px}
+.plat-body a,.plat-note a{color:var(--blue-hi)}
+.plat-body .article-table td:first-child{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav data-screen-label="Industry — Nav">
+  <div class="wrap wide nav-in">
+    <a href="index.html" class="logo" aria-label="AiESL home"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></a>
+    <div class="nav-links">
+      <div class="has-menu"><a href="index.html#platform" class="active">Platform &#9662;</a>
+        <div class="nav-menu">
+          <a href="platform-ai-dynamic-pricing.html"><b>AI Dynamic Pricing</b><small>Optimize prices at the shelf edge</small></a>
+          <a href="platform-shelf-monitoring.html"><b>Shelf Monitoring</b><small>Detect gaps, mismatches, out-of-stocks</small></a>
+          <a href="platform-retail-media.html"><b>Retail Media</b><small>Turn shelf labels into ad surfaces</small></a>
+          <a href="platform-open-middleware.html"><b>Open Middleware</b><small>One console, 5+ brand integrations</small></a>
+        </div>
+      </div>
+      <a href="products.html">Products</a>
+      <div class="has-menu"><a href="Industries.html">Industries &#9662;</a>
+        <div class="nav-menu">
+          <a href="industry-supermarket.html"><b>Supermarket &amp; Grocery</b><small>High-density everyday pricing</small></a>
+          <a href="industry-pharmacy.html"><b>Pharmacy &amp; Cosmetics</b><small>Compliance-grade accuracy</small></a>
+          <a href="industry-convenience.html"><b>Convenience</b><small>Fast rollout, low footprint</small></a>
+          <a href="industry-warehouse.html"><b>Warehouse &amp; DC</b><small>Pick-to-light, large displays</small></a>
+        </div>
+      </div>
+      <a href="Cases.html">Customers</a>
+      <div class="has-menu"><a href="Resources.html">Resources &#9662;</a>
+        <div class="nav-menu">
+          <a href="blog.html"><b>Insights &amp; Blog</b><small>Trends in AI retail pricing</small></a>
+          <a href="esl-roi-calculator.html"><b>ROI Calculator</b><small>Estimate your payback period</small></a>
+          <a href="Resources.html#faq"><b>FAQ &amp; Guides</b><small>What is an AI ESL?</small></a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+    <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close">&times;</button>
+  <a href="index.html#platform">Platform</a>
+  <a href="products.html">Products</a>
+  <a href="Industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="about.html">About</a>
+  <a href="javascript:void(0)" style="color:var(--blue-hi)" onclick="openModal();toggleDrawer()">Get a Custom Quote &rarr;</a>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero" data-screen-label="Open Middleware — Hero">
+  <div class="hero-grid"></div>
+  <div class="wrap wide" style="position:relative">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);margin-bottom:14px"><a href="index.html#platform" style="color:var(--blue-hi)">Platform</a> / Open Middleware</div>
+    <h1>Open ESL middleware: one API and one console for every label brand you run</h1>
+    <p>AiESL&rsquo;s open middleware connects your ERP, POS and pricing systems to electronic shelf labels from 5+ brands over the open MQTT standard. Run it as a managed cloud service, on your own servers, or integrate the protocol and SDK into your own platform &mdash; and keep your data in your own stack.</p>
+    <div class="hero-cta" style="margin-top:26px"><a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a><a href="#developers" class="btn btn-ghost">For developers</a></div>
+  </div>
+</div>
+
+<section data-screen-label="Open Middleware — Problem">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// THE PROBLEM</div><h2>Why ESL estates get locked in</h2></div>
+    <div class="feat-grid">
+      <div class="feat reveal"><h3>One vendor, one protocol</h3><p>Most ESL systems tie the labels, the radio protocol, the gateways and the software together. Changing any one of them means replacing all of them.</p></div>
+      <div class="feat reveal"><h3>Mixed estates, many consoles</h3><p>Acquisitions, pilots and price rounds leave chains with two or three label brands &mdash; each with its own console, templates and integration.</p></div>
+      <div class="feat reveal"><h3>Integration takes a year</h3><p>Retailers who connect labels to their own systems typically spend about a year on software development before chain-wide rollout. That year is the closed model&rsquo;s real moat.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="what" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Open Middleware — What it is">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// WHAT IT IS</div><h2>An open communication layer between your systems and every shelf device</h2></div>
+    <div class="plat-body">
+          <p><strong>The AiESL open middleware connects once to your ERP, POS, WMS and pricing systems, and once to each label brand &mdash; so every system can reach every shelf device through one standard API.</strong> It does three jobs: <strong>unified connection</strong> of labels, gateways and sensors; <strong>data aggregation</strong>, which cleans and standardises shelf and device data into one API; and <strong>command delivery</strong>, which pushes prices, templates and tasks to any connected brand.</p>
+          <figure class="plat-figure"><img src="assets/blog/esl-open-middleware-architecture.svg" alt="Architecture of the AiESL open ESL middleware: retail systems connect through a standard API to a business layer, data layer and device layer that drive several label brands, gateways and sensors"><figcaption>The three layers of the middleware. Each label brand keeps its own radio and gateways; the middleware sits above them.</figcaption></figure>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Layer</th><th>What it does</th><th>Who uses it</th></tr></thead>
+              <tbody>
+                <tr><td>Device layer</td><td>Device connection, status monitoring, firmware upgrades and batch price changes, with one adapter per label brand.</td><td>Store operations and IT</td></tr>
+                <tr><td>Data layer</td><td>Aggregates, cleans and standardises shelf, device and sales data; exposes it through a standard API so it lands in your own stack.</td><td>Data and analytics teams</td></tr>
+                <tr><td>Business layer</td><td>Price-strategy engine and inventory-collaboration interfaces that drive <a href="platform-ai-dynamic-pricing.html">AI dynamic pricing</a> and <a href="platform-shelf-monitoring.html">shelf monitoring</a>.</td><td>Pricing, category and store teams</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="plat-note">Built on the open MQTT standard, the middleware currently manages 5+ label-brand integrations and 30,000+ devices from one console. Ask us for the current brand and firmware list before you plan around a specific installed estate.</p>
+          <p>Because the middleware sits above the radio layer, it is also designed to take on new device types &mdash; vision sensors, footfall cameras, millimetre-wave radar &mdash; without rebuilding the integrations you already have. For why this architecture matters as AI agents start operating store systems, see <a href="open-vs-closed-esl-systems.html">open vs closed ESL systems</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="deploy" data-screen-label="Open Middleware — Deployment">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// DEPLOYMENT</div><h2>Three ways to deploy: our cloud, your servers, or your own platform</h2></div>
+    <div class="plat-body">
+          <p><strong>The same middleware is delivered three ways, so the deployment model follows your IT capacity and data rules rather than our preference.</strong></p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th></th><th>Managed cloud (SaaS)</th><th>On-premise</th><th>Integrate it yourself</th></tr></thead>
+              <tbody>
+                <tr><td>Best for</td><td>Small and mid-size chains, regional retailers, new-retail start-ups that want no infrastructure to run</td><td>Large groups, state-owned retailers and businesses with strict data-sovereignty rules (e.g. GDPR, China&rsquo;s Data Security Law)</td><td>Retail groups with strong in-house IT, IoT platform companies, teams building their own &ldquo;retail brain&rdquo;</td></tr>
+                <tr><td>Where it runs</td><td>AiESL public cloud; data storage, computing and analytics run in our cloud</td><td>Your own data centre or private cloud</td><td>Inside your own platform; devices connect directly to it</td></tr>
+                <tr><td>How you start</td><td>Buy labels, then bind each device to your cloud tenant by scanning or entering its serial number</td><td>We supply the installation package, deployment documentation and database initialisation scripts</td><td>We supply the protocol documentation or SDK; you build the control logic</td></tr>
+                <tr><td>Who runs it</td><td>We do</td><td>Your servers, network and operations team</td><td>Your engineering team</td></tr>
+                <tr><td>Options</td><td>Tiers by device count, store count and modules (device management, advanced analytics, AI dynamic pricing, traceability interface); enterprise tier with dedicated resources and SLA</td><td>Full platform (device + data + business layers) or label management only (connection, monitoring, firmware, batch price changes)</td><td>Protocol access, protocol plus development support, or full SDK integration</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="plat-note">Cloud vs on-premise trade-offs &mdash; remote access, maintenance, GDPR role and hardware portability &mdash; are explained in <a href="esl-software-cloud-vs-on-premise.html">ESL software: cloud vs your own server</a>. Pricing is quoted per project.</p>
+    </div>
+  </div>
+</section>
+
+<section id="onprem" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Open Middleware — On-premise">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// ON-PREMISE</div><h2>On-premise: full platform or label management only</h2></div>
+    <div class="plat-body">
+          <p><strong>On-premise customers choose between the complete middleware and a lighter label-management package, and can upgrade from one to the other later.</strong></p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Package</th><th>What is included</th><th>Your responsibility</th></tr></thead>
+              <tbody>
+                <tr><td>Full platform</td><td>Device layer (label management), data layer (aggregation, cleaning, standard API) and business layer (price-strategy engine, inventory-collaboration interfaces)</td><td>Servers, network environment and an operations team</td></tr>
+                <tr><td>Label management only</td><td>Core driver layer: device connection, status monitoring, firmware upgrades and batch price changes</td><td>As above, plus building or integrating your own business systems on top</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Every on-premise licence includes an annual service plan for upgrades, security patches and technical support. Deployment support comes in three levels: <strong>self-deployment</strong> from our documentation, <strong>remote guidance</strong> where our engineers assist installation and configuration, or <strong>on-site implementation</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="developers" data-screen-label="Open Middleware — Developers">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// FOR DEVELOPERS</div><h2>Integrate the protocol or SDK into your own platform</h2></div>
+    <div class="plat-body">
+          <p><strong>If you are building your own store platform, you do not need our software at all &mdash; you can control the devices directly through the documented protocol or our SDK.</strong></p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Integration depth</th><th>What you receive</th><th>Support</th></tr></thead>
+              <tbody>
+                <tr><td>Protocol access</td><td>The complete MQTT communication protocol document and the device coding specification</td><td>Ticket answers on documentation clarity</td></tr>
+                <tr><td>Protocol + development support</td><td>As above</td><td>A named engineer who answers protocol questions and helps debug connectivity, from a prepaid support-day package</td></tr>
+                <tr><td>SDK &mdash; Developer</td><td>SDK core libraries in Python, Java and Go; full API documentation; standard protocol-adapter templates and a development guide; community forum; one year of updates and security patches</td><td>Community</td></tr>
+                <tr><td>SDK &mdash; Premium Support</td><td>Everything in Developer</td><td>Priority tickets with a four-business-hour response target; quarterly technical briefings</td></tr>
+                <tr><td>SDK &mdash; Enterprise Custom</td><td>Custom SDK work for your processes, private protocols or special hardware; optional source-code licence and co-branded solutions</td><td>Dedicated solution architect, SLA up to 24/7, on-site deployment support and training</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="plat-note">For how ESLs connect to POS and ERP systems in general &mdash; API, MQTT, database sync or file exchange &mdash; see <a href="esl-integration-pos-erp-api-mqtt-database.html">ESL integration explained</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Open Middleware — Upgrade path">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// UPGRADE PATH</div><h2>Start small, move up without rebuilding</h2><p>Every option runs on the same middleware, so changing deployment model later does not mean re-integrating.</p></div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">1</div><h3>Cloud first</h3><p>Start on the managed cloud; migrate to on-premise when your estate grows or your data rules tighten.</p></div>
+      <div class="step reveal"><div class="step-n">2</div><h3>Label management to full platform</h3><p>On-premise customers on label management only can upgrade to the full platform for the data and business layers.</p></div>
+      <div class="step reveal"><div class="step-n">3</div><h3>Build and back up</h3><p>Teams integrating the SDK into their own platform can add the on-premise middleware as a standby or complementary system.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fit" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Open Middleware — Fit">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// FIT</div><h2>Who the open middleware is for &mdash; and who it is not for</h2></div>
+    <div class="plat-body">
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Situation</th><th>Fit</th><th>Why</th></tr></thead>
+              <tbody>
+                <tr><td>You run two or more label brands</td><td>Strong</td><td>One console and one integration instead of one per vendor.</td></tr>
+                <tr><td>You want to keep your installed labels</td><td>Strong if your brand is supported</td><td>Middleware reuses existing hardware; check the supported list first.</td></tr>
+                <tr><td>Pricing and AI must stay in your own systems</td><td>Strong</td><td>The data layer exposes everything through a standard API.</td></tr>
+                <tr><td>You want one vendor to own hardware, software and service end to end</td><td>Weaker</td><td>A single-vendor system is simpler to govern; see <a href="esl-vendors-compared-vusiongroup-pricer-hanshow.html">ESL vendors compared</a>.</td></tr>
+                <tr><td>Your labels use a brand we do not support</td><td>Not yet</td><td>Middleware cannot drive a radio it has no adapter for.</td></tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Open Middleware — FAQ">
+  <div class="wrap wide">
+    <div class="faq-2col">
+      <div class="faq-sticky reveal">
+        <div class="sec-tag">// FAQ</div>
+        <h2 style="font-size:34px;margin-bottom:14px">Open middleware questions</h2>
+        <p style="font-size:15px;color:var(--ink-mid)">Talk to a solution engineer about your stores and systems &mdash; no sales script.</p>
+        <a href="javascript:void(0)" class="btn btn-primary" style="margin-top:20px" onclick="openModal()">Talk to an engineer</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q">What is ESL middleware?<span class="chev">+</span></button><div class="faq-a"><p>ESL middleware is a software layer between a retailer&rsquo;s business systems and its electronic shelf labels. Instead of each label vendor connecting separately to ERP, POS and pricing systems, the middleware connects once to each side and translates between them. AiESL&rsquo;s middleware is built on the open MQTT standard and manages 5+ label-brand integrations from one console.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Is there an API for electronic shelf labels?<span class="chev">+</span></button><div class="faq-a"><p>Yes. AiESL exposes a standard API through its middleware, and developers who want to bypass our software can work directly from the MQTT communication protocol document and device coding specification, or use the SDK with core libraries in Python, Java and Go.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can the middleware run on our own servers?<span class="chev">+</span></button><div class="faq-a"><p>Yes. The on-premise option runs in your own data centre or private cloud. We supply the installation package, deployment documentation and database initialisation scripts; you provide servers, network and an operations team. You can choose the full platform or label management only.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Does it work with the electronic shelf labels we already have?<span class="chev">+</span></button><div class="faq-a"><p>If your label brand is one of the 5+ brands we integrate, yes &mdash; that is the main reason retailers use middleware. Each brand keeps its own radio and gateways; the middleware drives them from above. Ask us for the current brand and firmware list before planning around a specific estate.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How do we avoid ESL vendor lock-in?<span class="chev">+</span></button><div class="faq-a"><p>Keep the integration and the data outside any single label vendor. With an open middleware your ERP and POS connect once to a standard API, labels from different brands can be added or replaced, and pricing data lands in your own systems. Put exit terms for data, templates and labels in every contract.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can we start in the cloud and move on-premise later?<span class="chev">+</span></button><div class="faq-a"><p>Yes. All deployment options run on the same middleware, so cloud customers can migrate to on-premise as their estate grows or their data rules tighten, and label-management-only customers can upgrade to the full platform without re-integrating.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RELATED ===== -->
+<section data-screen-label="Open Middleware — Related">
+  <div class="wrap wide">
+    <div class="sec-head reveal" style="margin-bottom:24px"><div class="sec-tag">// KEEP READING</div><h2>Guides behind this module</h2></div>
+    <div class="related-grid">
+      <a class="res-card reveal" href="open-vs-closed-esl-systems.html"><div class="res-kind">STRATEGY</div><h3>Open vs Closed ESL Systems</h3><p>Why the industry split into two camps and what AI agents change.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="esl-integration-pos-erp-api-mqtt-database.html"><div class="res-kind">INTEGRATION</div><h3>ESL Integration Explained</h3><p>API, MQTT, database and file exchange &mdash; which method fits your stack.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="esl-software-cloud-vs-on-premise.html"><div class="res-kind">DEPLOYMENT</div><h3>Cloud vs Your Own Server</h3><p>Cost structure, control, continuity and hardware portability.</p><span class="res-link">Read article &rarr;</span></a>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
+      <a href="platform-ai-dynamic-pricing.html" class="btn btn-ghost">AI Dynamic Pricing</a>
+      <a href="platform-shelf-monitoring.html" class="btn btn-ghost">Shelf Monitoring</a>
+      <a href="platform-retail-media.html" class="btn btn-ghost">Retail Media</a>
+      <a href="products.html" class="btn btn-ghost">All products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="contact" style="background:var(--bg-soft);border-top:1px solid var(--line-soft)" data-screen-label="Open Middleware — CTA">
+  <div class="wrap wide">
+    <div class="cta-band reveal">
+      <h2>See your estate on one console</h2>
+      <p>Tell us which label brands and systems you run &mdash; we will confirm compatibility and the best deployment model in writing.</p>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap wide">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></div>
+        <p>The AI-native open platform for retail shelf operations. Dynamic pricing, shelf monitoring and open middleware trusted in 30+ countries.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Platform</h4>
+        <a href="platform-ai-dynamic-pricing.html">AI Dynamic Pricing</a>
+        <a href="platform-shelf-monitoring.html">Shelf Monitoring</a>
+        <a href="platform-retail-media.html">Retail Media</a>
+        <a href="platform-open-middleware.html">Open Middleware</a>
+        <a href="products.html">Products</a>
+      </div>
+      <div class="foot-col">
+        <h4>Industries</h4>
+        <a href="industry-supermarket.html">Supermarket &amp; Grocery</a>
+        <a href="industry-pharmacy.html">Pharmacy &amp; Cosmetics</a>
+        <a href="industry-warehouse.html">Warehouse &amp; DC</a>
+        <a href="Industries.html">All industries</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="foot-contact">
+          Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou, Guangdong Province, China
+          <b>Email</b><a href="mailto:info@panpantechnology.com">info@panpantechnology.com</a>
+          <b>Phone</b><a href="tel:+8613925118851">+86-13925118851</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-brand-row" aria-label="PanPanTech Group brands">
+      <span><a href="https://www.panpantechnology.com" target="_blank" rel="noopener">PanPanTech&reg;</a> &mdash; Group Site</span>
+      <span><a href="https://www.aieinksmart.com" target="_blank" rel="noopener">AiEInkSmart&trade;</a> &mdash; Electronic Shelf Labels</span>
+      <span><a href="https://www.pyroglaux.com" target="_blank" rel="noopener">Pyroglaux&reg;</a> &mdash; Footfall Analytics</span>
+      <span><a href="https://www.einksmart.com" target="_blank" rel="noopener">EinkSmart&trade;</a> &mdash; E-Ink Art Displays</span>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 AiESL&trade; | The Retail Data Platform of PanPanTech&reg; | Guangzhou PanPanTech Co., Ltd. All Rights Reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div id="formStage">
+      <div class="modal-head">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+        <h3>Get a Custom Quote</h3>
+        <p>Tell us about your store network &mdash; we'll send tailored pricing and a free ROI assessment within one business day.</p>
+      </div>
+      <div class="modal-body">
+        <form id="quoteForm" novalidate>
+          <div class="form-row">
+            <div class="form-field"><label>Full name <span class="req">*</span></label><input type="text" name="name" id="f-name"><div class="form-err" id="e-name">Please enter your name</div></div>
+            <div class="form-field"><label>Work email <span class="req">*</span></label><input type="email" name="email" id="f-email"><div class="form-err" id="e-email">Please enter a valid email</div></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Company <span class="req">*</span></label><input type="text" name="company" id="f-company"><div class="form-err" id="e-company">Please enter your company</div></div>
+            <div class="form-field"><label>Country</label><input type="text" name="country" id="f-country" placeholder="e.g. Germany"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Number of stores</label><select name="stores" id="f-stores"><option value="1-5">1&ndash;5 stores</option><option value="6-20">6&ndash;20 stores</option><option value="21-100">21&ndash;100 stores</option><option value="100+">100+ stores</option></select></div>
+            <div class="form-field"><label>Primary interest</label><select name="interest" id="f-interest"><option value="ai-pricing">AI dynamic pricing</option><option value="middleware">Open middleware platform</option><option value="esl-hardware">ESL hardware / price tags</option><option value="full-solution">Full retail solution</option></select></div>
+          </div>
+          <div class="form-field"><label>What are you trying to solve?</label><textarea name="message" id="f-message" placeholder="Tell us about your current setup, timeline, or any specific requirements..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Send my request</button>
+          <p style="font-size:11px;color:var(--ink-dim);margin-top:12px;text-align:center">We reply within one business day. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+    <div id="successStage" style="display:none">
+      <div class="form-success">
+        <div class="ok-ic">&#10003;</div>
+        <h3>Request received</h3>
+        <p>Thanks &mdash; our retail solutions team will get back to you within one business day with tailored pricing and a free ROI assessment.</p>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

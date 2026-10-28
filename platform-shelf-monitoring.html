@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><title>Shelf Monitoring &amp; Store Operations | AiESL</title>
+<meta name="description" content="Detect price mismatches, stock gaps, planogram drift and failing labels from one console, then fix them with pick-to-light routes and store tasks.">
+<meta name="keywords" content="shelf monitoring retail, out of stock detection, planogram compliance, esl price mismatch, pick to light labels, edge ai shelf monitoring, shelf price tag detection">
+<link rel="canonical" href="https://www.aiesl.com/platform-shelf-monitoring.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shelf Monitoring &amp; Store Operations | AiESL">
+<meta property="og:description" content="One view of shelf health: label status, store data and sensors, turned into tasks and pick-to-light routes.">
+<meta property="og:url" content="https://www.aiesl.com/platform-shelf-monitoring.html">
+<meta property="og:image" content="https://www.aiesl.com/assets/blog/warehouse-esl-bin-labels.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="platform.css">
+<link rel="stylesheet" href="buney-control.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Shelf Monitoring & Store Operations | AiESL", "description": "Detect price mismatches, stock gaps, planogram drift and failing labels from one console, then fix them with pick-to-light routes and store tasks.", "url": "https://www.aiesl.com/platform-shelf-monitoring.html", "dateModified": "2026-10-28", "publisher": {"@type": "Organization", "name": "AiESL", "url": "https://www.aiesl.com/"}, "about": {"@type": "Thing", "name": "Retail shelf monitoring"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiesl.com/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://www.aiesl.com/#platform"}, {"@type": "ListItem", "position": 3, "name": "Shelf Monitoring", "item": "https://www.aiesl.com/platform-shelf-monitoring.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is shelf monitoring in retail?", "acceptedAnswer": {"@type": "Answer", "text": "Shelf monitoring means continuously checking that every shelf shows the right price, the right product and enough stock, instead of finding problems by walking the aisles. It combines label status, store-system data and, where installed, cameras or sensors, and turns problems into tasks."}}, {"@type": "Question", "name": "Can electronic shelf labels detect out-of-stocks on their own?", "acceptedAnswer": {"@type": "Answer", "text": "No. A label knows what it displays, not what is on the shelf. Out-of-stocks are detected from inventory data or from cameras and sensors; the labels then help fix them, for example by lighting the pick or replenishment route."}}, {"@type": "Question", "name": "How does AiESL detect price mismatches?", "acceptedAnswer": {"@type": "Answer", "text": "Every connected label reports its update status through the middleware. The platform checks what each label should show against the POS price and raises an alert and a store task when a label does not match."}}, {"@type": "Question", "name": "Is the footfall camera GDPR-compliant?", "acceptedAnswer": {"@type": "Answer", "text": "The AiESL Flow Camera is designed for GDPR compliance with anonymisation on the device, and it reports counts and traffic in real time with 98%+ accuracy. Your own data-protection assessment still applies to every deployment."}}, {"@type": "Question", "name": "Do we need cameras to start?", "acceptedAnswer": {"@type": "Answer", "text": "No. Label fleet health and price-mismatch alerts work from day one with the labels you connect. Add inventory data next, and cameras or sensors only in aisles where gaps and compliance problems are costly."}}, {"@type": "Question", "name": "Does shelf monitoring work with labels from other brands?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for brands connected through the AiESL open middleware, which supports 5+ label-brand integrations and monitors their status from one console."}}]}</script>
+<style>
+.plat-body{max-width:900px}
+.plat-body p{color:var(--ink-mid);line-height:1.75;margin:0 0 16px}
+.plat-body p strong{color:var(--ink)}
+.plat-body h3{font-size:20px;margin:28px 0 10px}
+.plat-note{font-size:13px;color:var(--ink-dim);margin-top:-6px}
+.plat-figure{margin:28px 0}
+.plat-figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+.plat-figure figcaption{font-size:12px;color:var(--ink-dim);text-align:center;margin-top:9px}
+.plat-list{padding-left:20px;color:var(--ink-mid);line-height:1.8}
+.plat-list li{margin-bottom:6px}
+.plat-body a,.plat-note a{color:var(--blue-hi)}
+.plat-body .article-table td:first-child{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav data-screen-label="Industry — Nav">
+  <div class="wrap wide nav-in">
+    <a href="index.html" class="logo" aria-label="AiESL home"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></a>
+    <div class="nav-links">
+      <div class="has-menu"><a href="index.html#platform" class="active">Platform &#9662;</a>
+        <div class="nav-menu">
+          <a href="platform-ai-dynamic-pricing.html"><b>AI Dynamic Pricing</b><small>Optimize prices at the shelf edge</small></a>
+          <a href="platform-shelf-monitoring.html"><b>Shelf Monitoring</b><small>Detect gaps, mismatches, out-of-stocks</small></a>
+          <a href="platform-retail-media.html"><b>Retail Media</b><small>Turn shelf labels into ad surfaces</small></a>
+          <a href="platform-open-middleware.html"><b>Open Middleware</b><small>One console, 5+ brand integrations</small></a>
+        </div>
+      </div>
+      <a href="products.html">Products</a>
+      <div class="has-menu"><a href="Industries.html">Industries &#9662;</a>
+        <div class="nav-menu">
+          <a href="industry-supermarket.html"><b>Supermarket &amp; Grocery</b><small>High-density everyday pricing</small></a>
+          <a href="industry-pharmacy.html"><b>Pharmacy &amp; Cosmetics</b><small>Compliance-grade accuracy</small></a>
+          <a href="industry-convenience.html"><b>Convenience</b><small>Fast rollout, low footprint</small></a>
+          <a href="industry-warehouse.html"><b>Warehouse &amp; DC</b><small>Pick-to-light, large displays</small></a>
+        </div>
+      </div>
+      <a href="Cases.html">Customers</a>
+      <div class="has-menu"><a href="Resources.html">Resources &#9662;</a>
+        <div class="nav-menu">
+          <a href="blog.html"><b>Insights &amp; Blog</b><small>Trends in AI retail pricing</small></a>
+          <a href="esl-roi-calculator.html"><b>ROI Calculator</b><small>Estimate your payback period</small></a>
+          <a href="Resources.html#faq"><b>FAQ &amp; Guides</b><small>What is an AI ESL?</small></a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+    <button class="nav-burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close">&times;</button>
+  <a href="index.html#platform">Platform</a>
+  <a href="products.html">Products</a>
+  <a href="Industries.html">Industries</a>
+  <a href="Resources.html">Resources</a>
+  <a href="about.html">About</a>
+  <a href="javascript:void(0)" style="color:var(--blue-hi)" onclick="openModal();toggleDrawer()">Get a Custom Quote &rarr;</a>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero" data-screen-label="Shelf Monitoring — Hero">
+  <div class="hero-grid"></div>
+  <div class="wrap wide" style="position:relative">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-dim);margin-bottom:14px"><a href="index.html#platform" style="color:var(--blue-hi)">Platform</a> / Shelf Monitoring</div>
+    <h1>Shelf monitoring: find price mismatches, gaps and failing labels before shoppers do</h1>
+    <p>AiESL turns the status of every connected label, your POS and inventory data and, where installed, cameras and sensors into one view of shelf health &mdash; then routes the fixes to store teams with pick-to-light labels.</p>
+    <div class="hero-cta" style="margin-top:26px"><a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a><a href="#monitors" class="btn btn-ghost">What it monitors</a></div>
+  </div>
+</div>
+
+<section data-screen-label="Shelf Monitoring — Problem">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// THE PROBLEM</div><h2>What store teams cannot see from the back office</h2></div>
+    <div class="feat-grid">
+      <div class="feat reveal"><h3>Price mismatches</h3><p>A label that failed to update, or a price that changed in the POS but not on the shelf, is only found when a shopper complains at the till.</p></div>
+      <div class="feat reveal"><h3>Gaps and out-of-stocks</h3><p>Empty facings and low stock are discovered by walking the aisles, often after sales are already lost.</p></div>
+      <div class="feat reveal"><h3>An invisible label fleet</h3><p>Thousands of labels, gateways and batteries &mdash; and no single view of which ones are offline, failing or running low.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="monitors" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Shelf Monitoring — What it monitors">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// WHAT IT MONITORS</div><h2>One view of shelf health, built from the data you already have</h2></div>
+    <div class="plat-body">
+          <p><strong>AiESL shelf monitoring combines device status from every connected label, data from your POS and inventory systems, and &mdash; where installed &mdash; cameras and sensors, to spot price mismatches, stock gaps and planogram drift and turn them into store tasks.</strong></p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>What is detected</th><th>Where the signal comes from</th><th>What happens next</th></tr></thead>
+              <tbody>
+                <tr><td>Labels showing the wrong price</td><td>Update status reported for every label through the middleware, checked against the POS price</td><td>An alert and a store task</td></tr>
+                <tr><td>Offline labels, failed updates, low batteries</td><td>Device-layer status monitoring across all connected brands and gateways</td><td>Fleet health dashboard; firmware upgrades pushed centrally</td></tr>
+                <tr><td>Stock gaps and low stock</td><td>Stock levels from ERP / WMS; vision sensors where installed</td><td>Replenishment task; pick-to-light guides the picker</td></tr>
+                <tr><td>Planogram drift</td><td>Cameras or vision sensors where installed</td><td>Correction task with the location and product</td></tr>
+                <tr><td>Store traffic</td><td>AiESL Flow Camera footfall analytics</td><td>Staffing and promotion timing</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="plat-note">Electronic labels alone cannot see the shelf. For merchandising and planogram compliance, the published evidence is for camera-based systems, not labels &mdash; see <a href="electronic-shelf-labels-pricing-accuracy.html#merchandising">what the evidence supports</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="operations" data-screen-label="Shelf Monitoring — Store operations">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// STORE OPERATIONS</div><h2>From alert to action: pick-to-light and task routing</h2></div>
+    <div class="plat-body">
+          <p><strong>Programmable LED labels turn monitoring into guided work: the same console that finds a gap lights the path to fix it.</strong></p>
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Capability</th><th>How it works</th><th>Where it helps most</th></tr></thead>
+              <tbody>
+                <tr><td>Pick-to-light</td><td>LED-equipped labels flash on the bins or facings in a pick or replenishment route; staff follow the lights and confirm.</td><td>Warehouses, dark stores, click-and-collect picking</td></tr>
+                <tr><td>Task routing</td><td>Alerts become tasks assigned to a store or team, with product and location.</td><td>Multi-store chains with central operations</td></tr>
+                <tr><td>Live location data</td><td>Bin and shelf labels update from the WMS when stock moves, so the location on the label is always current.</td><td>Stockrooms and distribution centres</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="plat-note">More on <a href="industry-warehouse.html">warehouse and DC operations</a> and <a href="warehouse-shelf-labels.html#workshop">electronic labels for parts bins</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sensing" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Shelf Monitoring — Sensing">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// SENSING</div><h2>Cameras, footfall and the next sensors</h2></div>
+    <div class="plat-body">
+          <div class="article-table-wrap">
+            <table class="article-table">
+              <thead><tr><th>Device</th><th>What it adds</th><th>Privacy</th></tr></thead>
+              <tbody>
+                <tr><td>AiESL Flow Camera</td><td>Footfall analytics with 98%+ counting accuracy, in real time</td><td>GDPR-compliant, with anonymisation on the device</td></tr>
+                <tr><td>Vision sensors</td><td>Shelf images for gap and planogram detection where installed</td><td>Depends on configuration &mdash; assess per deployment</td></tr>
+                <tr><td>Positioning (AoA, UWB, BLE)</td><td>Where products, carts or staff are in the store</td><td>Depends on technology; compared in our indoor positioning guide</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Because the <a href="platform-open-middleware.html">open middleware</a> sits above the radio layer, new sensor types &mdash; including millimetre-wave radar &mdash; can be added to the same console without rebuilding integrations. Which positioning technology fits which job is compared in <a href="retail-indoor-positioning.html">retail indoor positioning: AoA, UWB, RFID and BLE</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Shelf Monitoring — Rollout">
+  <div class="wrap wide">
+    <div class="sec-head reveal"><div class="sec-tag">// ROLLOUT</div><h2>Start with what your labels already report</h2></div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">1</div><h3>Label fleet health</h3><p>Connect existing labels through the middleware and get price-mismatch and device alerts on day one &mdash; no new hardware.</p></div>
+      <div class="step reveal"><div class="step-n">2</div><h3>Add system data</h3><p>Feed stock levels from ERP / WMS to turn gaps into replenishment tasks and pick-to-light routes.</p></div>
+      <div class="step reveal"><div class="step-n">3</div><h3>Add sensors where they pay</h3><p>Install cameras or sensors only in the aisles where gaps and compliance cost the most.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:var(--bg-soft);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)" data-screen-label="Shelf Monitoring — FAQ">
+  <div class="wrap wide">
+    <div class="faq-2col">
+      <div class="faq-sticky reveal">
+        <div class="sec-tag">// FAQ</div>
+        <h2 style="font-size:34px;margin-bottom:14px">Shelf monitoring questions</h2>
+        <p style="font-size:15px;color:var(--ink-mid)">Talk to a solution engineer about your stores and systems &mdash; no sales script.</p>
+        <a href="javascript:void(0)" class="btn btn-primary" style="margin-top:20px" onclick="openModal()">Talk to an engineer</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q">What is shelf monitoring in retail?<span class="chev">+</span></button><div class="faq-a"><p>Shelf monitoring means continuously checking that every shelf shows the right price, the right product and enough stock, instead of finding problems by walking the aisles. It combines label status, store-system data and, where installed, cameras or sensors, and turns problems into tasks.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can electronic shelf labels detect out-of-stocks on their own?<span class="chev">+</span></button><div class="faq-a"><p>No. A label knows what it displays, not what is on the shelf. Out-of-stocks are detected from inventory data or from cameras and sensors; the labels then help fix them, for example by lighting the pick or replenishment route.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">How does AiESL detect price mismatches?<span class="chev">+</span></button><div class="faq-a"><p>Every connected label reports its update status through the middleware. The platform checks what each label should show against the POS price and raises an alert and a store task when a label does not match.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Is the footfall camera GDPR-compliant?<span class="chev">+</span></button><div class="faq-a"><p>The AiESL Flow Camera is designed for GDPR compliance with anonymisation on the device, and it reports counts and traffic in real time with 98%+ accuracy. Your own data-protection assessment still applies to every deployment.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do we need cameras to start?<span class="chev">+</span></button><div class="faq-a"><p>No. Label fleet health and price-mismatch alerts work from day one with the labels you connect. Add inventory data next, and cameras or sensors only in aisles where gaps and compliance problems are costly.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Does shelf monitoring work with labels from other brands?<span class="chev">+</span></button><div class="faq-a"><p>Yes, for brands connected through the AiESL open middleware, which supports 5+ label-brand integrations and monitors their status from one console.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RELATED ===== -->
+<section data-screen-label="Shelf Monitoring — Related">
+  <div class="wrap wide">
+    <div class="sec-head reveal" style="margin-bottom:24px"><div class="sec-tag">// KEEP READING</div><h2>Guides behind this module</h2></div>
+    <div class="related-grid">
+      <a class="res-card reveal" href="retail-indoor-positioning.html"><div class="res-kind">TECHNOLOGY</div><h3>Retail Indoor Positioning</h3><p>AoA, UWB, RFID and BLE compared for in-store location and analytics.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="electronic-shelf-labels-pricing-accuracy.html"><div class="res-kind">EVIDENCE</div><h3>Do ESLs Fix Pricing Errors?</h3><p>What official data shows on accuracy, efficiency and merchandising.</p><span class="res-link">Read article &rarr;</span></a>
+      <a class="res-card reveal" href="esl-labels-per-gateway-capacity.html"><div class="res-kind">INFRASTRUCTURE</div><h3>Labels per Gateway</h3><p>Capacity, update windows and refresh times for a reliable label network.</p><span class="res-link">Read article &rarr;</span></a>
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
+      <a href="platform-ai-dynamic-pricing.html" class="btn btn-ghost">AI Dynamic Pricing</a>
+      <a href="platform-retail-media.html" class="btn btn-ghost">Retail Media</a>
+      <a href="platform-open-middleware.html" class="btn btn-ghost">Open Middleware</a>
+      <a href="products.html" class="btn btn-ghost">All products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="contact" style="background:var(--bg-soft);border-top:1px solid var(--line-soft)" data-screen-label="Shelf Monitoring — CTA">
+  <div class="wrap wide">
+    <div class="cta-band reveal">
+      <h2>See your shelf health on one screen</h2>
+      <p>Connect the labels you already have and get price-mismatch and fleet alerts from day one.</p>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal()">Get a Custom Quote</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap wide">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="logo"><img src="assets/brand/icon-master.svg" alt="" class="logo-mark" width="40" height="40"><span class="logo-type">Ai<span>ESL</span></span></div>
+        <p>The AI-native open platform for retail shelf operations. Dynamic pricing, shelf monitoring and open middleware trusted in 30+ countries.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Platform</h4>
+        <a href="platform-ai-dynamic-pricing.html">AI Dynamic Pricing</a>
+        <a href="platform-shelf-monitoring.html">Shelf Monitoring</a>
+        <a href="platform-retail-media.html">Retail Media</a>
+        <a href="platform-open-middleware.html">Open Middleware</a>
+        <a href="products.html">Products</a>
+      </div>
+      <div class="foot-col">
+        <h4>Industries</h4>
+        <a href="industry-supermarket.html">Supermarket &amp; Grocery</a>
+        <a href="industry-pharmacy.html">Pharmacy &amp; Cosmetics</a>
+        <a href="industry-warehouse.html">Warehouse &amp; DC</a>
+        <a href="Industries.html">All industries</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="foot-contact">
+          Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou, Guangdong Province, China
+          <b>Email</b><a href="mailto:info@panpantechnology.com">info@panpantechnology.com</a>
+          <b>Phone</b><a href="tel:+8613925118851">+86-13925118851</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-brand-row" aria-label="PanPanTech Group brands">
+      <span><a href="https://www.panpantechnology.com" target="_blank" rel="noopener">PanPanTech&reg;</a> &mdash; Group Site</span>
+      <span><a href="https://www.aieinksmart.com" target="_blank" rel="noopener">AiEInkSmart&trade;</a> &mdash; Electronic Shelf Labels</span>
+      <span><a href="https://www.pyroglaux.com" target="_blank" rel="noopener">Pyroglaux&reg;</a> &mdash; Footfall Analytics</span>
+      <span><a href="https://www.einksmart.com" target="_blank" rel="noopener">EinkSmart&trade;</a> &mdash; E-Ink Art Displays</span>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 AiESL&trade; | The Retail Data Platform of PanPanTech&reg; | Guangzhou PanPanTech Co., Ltd. All Rights Reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div id="formStage">
+      <div class="modal-head">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+        <h3>Get a Custom Quote</h3>
+        <p>Tell us about your store network &mdash; we'll send tailored pricing and a free ROI assessment within one business day.</p>
+      </div>
+      <div class="modal-body">
+        <form id="quoteForm" novalidate>
+          <div class="form-row">
+            <div class="form-field"><label>Full name <span class="req">*</span></label><input type="text" name="name" id="f-name"><div class="form-err" id="e-name">Please enter your name</div></div>
+            <div class="form-field"><label>Work email <span class="req">*</span></label><input type="email" name="email" id="f-email"><div class="form-err" id="e-email">Please enter a valid email</div></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Company <span class="req">*</span></label><input type="text" name="company" id="f-company"><div class="form-err" id="e-company">Please enter your company</div></div>
+            <div class="form-field"><label>Country</label><input type="text" name="country" id="f-country" placeholder="e.g. Germany"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Number of stores</label><select name="stores" id="f-stores"><option value="1-5">1&ndash;5 stores</option><option value="6-20">6&ndash;20 stores</option><option value="21-100">21&ndash;100 stores</option><option value="100+">100+ stores</option></select></div>
+            <div class="form-field"><label>Primary interest</label><select name="interest" id="f-interest"><option value="ai-pricing">AI dynamic pricing</option><option value="middleware">Open middleware platform</option><option value="esl-hardware">ESL hardware / price tags</option><option value="full-solution">Full retail solution</option></select></div>
+          </div>
+          <div class="form-field"><label>What are you trying to solve?</label><textarea name="message" id="f-message" placeholder="Tell us about your current setup, timeline, or any specific requirements..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Send my request</button>
+          <p style="font-size:11px;color:var(--ink-dim);margin-top:12px;text-align:center">We reply within one business day. No spam, ever.</p>
+        </form>
+      </div>
+    </div>
+    <div id="successStage" style="display:none">
+      <div class="form-success">
+        <div class="ok-ic">&#10003;</div>
+        <h3>Request received</h3>
+        <p>Thanks &mdash; our retail solutions team will get back to you within one business day with tailored pricing and a free ROI assessment.</p>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -6,6 +6,10 @@
 
 - Home: https://www.aiesl.com/
 - Products: https://www.aiesl.com/products.html
+- Platform — AI Dynamic Pricing (Pricing Agent, guardrails, approval modes): https://www.aiesl.com/platform-ai-dynamic-pricing.html
+- Platform — Shelf Monitoring & Store Ops (price mismatches, label fleet health, gaps, pick-to-light, Flow Camera): https://www.aiesl.com/platform-shelf-monitoring.html
+- Platform — Retail Media (shelf-edge promotions on e-paper, proof of display, measurement): https://www.aiesl.com/platform-retail-media.html
+- Platform — Open Middleware & ESL API (MQTT, 5+ label brands, cloud / on-premise / SDK in Python, Java, Go): https://www.aiesl.com/platform-open-middleware.html
 - Prism colour e-paper promo displays (12.43–31.5 inch, battery / light-powered; samples, not yet certified): https://www.aiesl.com/prism-colour-epaper-promo-displays.html
 - Industries: https://www.aiesl.com/Industries.html
 - Customer cases: https://www.aiesl.com/Cases.html
