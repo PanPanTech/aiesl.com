@@ -25,7 +25,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiesl.com/"}, {"@type": "ListItem", "position": 2, "name": "Platform", "item": "https://www.aiesl.com/#platform"}, {"@type": "ListItem", "position": 3, "name": "AI Dynamic Pricing", "item": "https://www.aiesl.com/platform-ai-dynamic-pricing.html"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AI dynamic pricing for electronic shelf labels?", "acceptedAnswer": {"@type": "Answer", "text": "It is a pricing engine that uses demand, stock, margin and competitor data to recommend or automatically set shelf prices, and electronic shelf labels that display the new price within seconds. Without electronic labels the decision cannot reach the shelf fast enough; without the engine, the labels only show prices someone typed in."}}, {"@type": "Question", "name": "How fast does the AiESL Pricing Agent respond?", "acceptedAnswer": {"@type": "Answer", "text": "The Pricing Agent responds in about 350 ms in its cloud-edge architecture, and approved prices propagate to every connected label store-wide in under a second. In practice, how often prices change is set by your rules, not by the speed of the system."}}, {"@type": "Question", "name": "Can we stop the AI from changing prices without approval?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Each category can run in recommend-only mode, where a person approves every change, or auto-apply only within the auto-approval rules you define. Floor prices and margin limits are hard boundaries, and every recommendation and change is recorded in an audit trail."}}, {"@type": "Question", "name": "Does AI dynamic pricing mean surge pricing?", "acceptedAnswer": {"@type": "Answer", "text": "Not in how retailers use it in practice, and not in what the research shows. The best evidence links electronic shelf labels to smaller, more frequent and mostly downward price changes on perishables, and a study of more than 180 million price observations found no ESL-driven surge pricing."}}, {"@type": "Question", "name": "Do we have to replace our existing labels?", "acceptedAnswer": {"@type": "Answer", "text": "Not if your label brand is one of the 5+ brands the AiESL middleware supports. The Pricing Agent sends prices through the middleware, which drives each brand’s labels through its own gateways."}}, {"@type": "Question", "name": "Can we use our own pricing engine instead?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Keep your engine and send its output to the middleware API; you still get delivery to any connected label, update confirmation and an audit trail."}}]}</script>
 <style>
-.plat-body{max-width:900px}
+.plat-body{max-width:1120px}
+.plat-body>p{max-width:880px}
 .plat-body p{color:var(--ink-mid);line-height:1.75;margin:0 0 16px}
 .plat-body p strong{color:var(--ink)}
 .plat-body h3{font-size:20px;margin:28px 0 10px}
@@ -114,7 +115,7 @@
     <div class="plat-body">
           <p><strong>The AiESL Pricing Agent is an AI decision engine that weighs demand, stock, margin targets and competitor signals, then recommends or automatically applies the shelf price &mdash; and pushes approved prices to every connected label.</strong> It combines large language models with retrieval-augmented generation (RAG), runs in a cloud-edge architecture and responds in about 350 ms; approved prices propagate store-wide in under a second.</p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Step</th><th>What happens</th><th>Your control</th></tr></thead>
               <tbody>
                 <tr><td>1. Sense</td><td>Ingests sales and demand from the POS, stock and expiry from ERP/WMS, and competitor price signals.</td><td>Choose which data sources and categories are in scope.</td></tr>
@@ -135,7 +136,7 @@
     <div class="sec-head reveal"><div class="sec-tag">// USE CASES</div><h2>What the engine does in each store format</h2></div>
     <div class="plat-body">
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Format</th><th>Typical objective</th><th>What changes on the shelf</th></tr></thead>
               <tbody>
                 <tr><td>Supermarket &amp; grocery</td><td>Reduce waste on perishables</td><td>Time- and demand-based markdowns on fresh stock, inside margin guardrails, instead of one late cut.</td></tr>
@@ -156,7 +157,7 @@
     <div class="plat-body">
           <p><strong>Every recommendation is bounded by rules the engine cannot cross, and every change is logged.</strong> That is what makes automated pricing governable &mdash; and defensible to shoppers and regulators.</p>
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Guardrail</th><th>What it does</th></tr></thead>
               <tbody>
                 <tr><td>Floor prices and margin limits</td><td>Hard boundaries per product or category; no recommendation can breach them.</td></tr>
@@ -176,7 +177,7 @@
     <div class="sec-head reveal"><div class="sec-tag">// DEPLOYMENT</div><h2>Runs on any label you have, in the cloud or on-premise</h2></div>
     <div class="plat-body">
           <div class="article-table-wrap">
-            <table class="article-table">
+            <table class="article-table nowrap-first">
               <thead><tr><th>Question</th><th>Answer</th></tr></thead>
               <tbody>
                 <tr><td>Which labels can it drive?</td><td>Any label connected to the <a href="platform-open-middleware.html">AiESL open middleware</a> &mdash; 5+ brand integrations, including labels already on your shelves where the brand is supported.</td></tr>
