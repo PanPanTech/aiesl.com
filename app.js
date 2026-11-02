@@ -2,6 +2,26 @@
    AiESL — shared script (app.js)
    =================================================================== */
 
+/* ===== GA4 =====
+   Every content page loads this file once. The Google Search Console
+   verification file does not. Config is queued before gtag.js arrives,
+   which is the same order the official snippet relies on. */
+(function () {
+  var GA_MEASUREMENT_ID = 'G-3KRZTZ06RE';
+  if (window.__aieslGa4Loaded) return;
+  window.__aieslGa4Loaded = true;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', GA_MEASUREMENT_ID);
+
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(script);
+})();
+
 var INQUIRY_ENDPOINT = 'https://inquiry.panpantechnology.com/api/inquiries';
 
 /* ===== MOBILE DRAWER ===== */
