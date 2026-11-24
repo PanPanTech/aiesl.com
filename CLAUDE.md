@@ -54,12 +54,14 @@
 - 共享脚本 `app.js`：导航、询盘 modal、ROI 计算器、GA4
 - GA4：`G-3KRZTZ06RE`（媒体资源 561871651，账号 PanPanTech 414295528），由 `app.js` 动态加载，2026-11-02（#10）起才开始有数据
 - 询盘表单 `#quoteForm` → `https://inquiry.panpantechnology.com/api/inquiries`（`lead_brand: 'AiESL Global'`），失败时 alert 让用户发邮件
-- ⚠️ TODO（待用户确认后修）：表单提交成功**没有发 `generate_lead`**，也没有 `contact_click`（mailto/tel）→ GA4 关键事件一直为 0。参照 panpantechnology.com 的做法补上，并在 GA4 标记为关键事件
+- 转化事件（2026-11-24 加，在 `app.js`）：`generate_lead`（询盘 API 返回成功后）、`contact_click`（mailto / tel / WhatsApp 联系链接；分享按钮不算）。在 GA4 标为关键事件
+- 首页内链一律写 `/` 或 `/#锚点`，不要写 `index.html`（会在 GA4/GSC 里产生重复网址）
+- 问句页面在第一个 `answer-box` 后放 `.answer-cta` 按钮行（主按钮 `openModal()` + 一个相关内链）
 - 博客流程：定时任务周一/周四写草稿到本地 `draft/<slug>` 分支、不推送；用户说「可以发」才运行 `aiesl-publish-approved-draft` 上线。不要自己推送草稿分支
 - 发布后：GSC 对新 URL 请求编入索引（属性 `sc-domain:aiesl.com`，需用有权限的 Google 账号）
 
 ## 已知问题（2026-11-24 体检）
-- 45 个页面内链指向 `index.html`，GA4 里 `/` 与 `/index.html` 分成两行；GSC 还收录了 `http://aiesl.com/`、`https://aiesl.com/`、`ess.aiesl.com`、`/grocery-store-digital-price-tags-2`（TODO：确认 ess 子域是什么、-2 是否 404）
+- GSC 收录了 `http://aiesl.com/`、`https://aiesl.com/`、`ess.aiesl.com`、`/grocery-store-digital-price-tags-2`（TODO：确认 ess 子域是什么、-2 是否 404）
 - GA4 Direct 占 90%、平均互动 4 秒，疑似机器人/内部流量（TODO：加内部 IP 过滤或数据过滤）
 - 10/26 以来自然搜索 0 点击；11/16 当周曝光回升到 719
 

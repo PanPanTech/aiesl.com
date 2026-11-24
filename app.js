@@ -24,6 +24,30 @@
 
 var INQUIRY_ENDPOINT = 'https://inquiry.panpantechnology.com/api/inquiries';
 
+/* ===== GA4 CONVERSION EVENTS =====
+   generate_lead  — quote form accepted by the inquiry API
+   contact_click  — mailto / tel / WhatsApp link clicked */
+function trackEvent(name, params) {
+  try {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  } catch (e) { /* analytics must never break the page */ }
+}
+document.addEventListener('click', function (e) {
+  var link = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+  if (!link) return;
+  var href = link.getAttribute('href') || '';
+  var method = '';
+  if (/^mailto:/i.test(href)) method = 'email';
+  else if (/^tel:/i.test(href)) method = 'phone';
+  else if (/^https?:\/\/(wa\.me\/\d|api\.whatsapp\.com\/send\?phone=)/i.test(href)) method = 'whatsapp';
+  if (!method || /^mailto:\?/i.test(href)) return; /* skip share-by-email links */
+  trackEvent('contact_click', {
+    contact_method: method,
+    link_url: href,
+    page_location: window.location.href
+  });
+});
+
 /* ===== MOBILE DRAWER ===== */
 function toggleDrawer() {
   var d = document.getElementById('drawer');
@@ -151,6 +175,13 @@ function initQuoteForm() {
         });
       })
       .then(function () {
+        trackEvent('generate_lead', {
+          form_id: 'quoteForm',
+          lead_brand: 'AiESL Global',
+          product_interest: payload.product_interest,
+          stores: payload.stores,
+          page_location: window.location.href
+        });
         showSuccess();
       })
       .catch(function (error) {
