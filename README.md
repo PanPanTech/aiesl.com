@@ -97,7 +97,7 @@ Replace the demo block with one of them and the form goes live.
 Current details (used in every footer + about page):
 
 - Address: Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou, Guangdong Province, China
-- Email: info@einksmart.com
+- Email: info@panpantechnology.com
 - Phone: +86-13925118851
 
 To change them, search-and-replace across the `.html` files.
