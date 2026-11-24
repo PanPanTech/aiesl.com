@@ -186,7 +186,7 @@ function initQuoteForm() {
       })
       .catch(function (error) {
         console.error('[AiESL quote request failed]', error);
-        alert('Online submission is temporarily unavailable. Please email info@einksmart.com.');
+        alert('Online submission is temporarily unavailable. Please email info@panpantechnology.com.');
       })
       .finally(function () {
         setSubmitLoading(form, false);

@@ -10,7 +10,7 @@
 
 ## 品牌事实（页面、JSON-LD、llms.txt 必须一致）
 - 品牌 AiESL（母公司 PanPanTech，成立 2015），地址 Building A1, Yuexiu iPARK Yuegang Zhigu, Nansha District, Guangzhou
-- 邮箱 info@einksmart.com；电话 +86-13925118851
+- 邮箱 info@panpantechnology.com；电话 +86-13925118851
 - 首页硬指标：500M+ 可管理标签 · 0.3s 全店价格同步 · 5+ 品牌集成。Prism 彩色电子纸屏是**样品、未认证**，不得写成已认证
 - 不确定的事实（认证、价格、案例、客户名）不要编造，留 TODO 让人工确认；客户照片/Logo 需确认可公开
 
